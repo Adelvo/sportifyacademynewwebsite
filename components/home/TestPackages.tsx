@@ -2,6 +2,9 @@ import { BookButton } from "@/components/forms/BookButton";
 import { Photo } from "@/components/media/Photo";
 import { Container } from "@/components/ui/Section";
 import { formatPrice, getPackage, home, images } from "@/content";
+import { CardBadge } from "./CardBadge";
+import { FeatureIcon } from "./FeatureIcon";
+import { HomeHeading } from "./HomeHeading";
 import { ViewPackages } from "./ViewPackages";
 
 /** "Test my child": the assessments on the landing page. Prices come from content/en/packages.ts. */
@@ -10,14 +13,8 @@ export function TestPackages() {
   return (
     <section id="packages" className="bg-linear-to-b from-[#eef1f8] to-white py-16 font-[family-name:var(--font-hero)] text-[#0a1f33] sm:py-24">
       <Container>
-        <div className="mb-10 flex items-start gap-4 sm:mb-14">
-          <svg viewBox="0 0 24 28" aria-hidden="true" className="mt-1.5 w-6 shrink-0 fill-[#00dafa] sm:mt-2 sm:w-8 lg:mt-3">
-            <path d="M0 0l24 14L0 28z" />
-          </svg>
-          <div>
-            <h2 className="font-[family-name:var(--font-hero)]! text-3xl tracking-tight sm:text-4xl lg:text-5xl">{test.title}</h2>
-            <p className="mt-2 text-lg font-medium">{test.text}</p>
-          </div>
+        <div className="mb-10 sm:mb-14">
+          <HomeHeading title={test.title} text={test.text} />
         </div>
 
         <ul className="grid grid-cols-1 gap-5 md:grid-cols-3 lg:gap-6">
@@ -33,14 +30,7 @@ export function TestPackages() {
                       sizes="(min-width: 1200px) 350px, (min-width: 768px) 32vw, 100vw"
                       className="aspect-[8/5] w-full"
                     />
-                    {card.badge && (
-                      <p className="absolute start-3 top-3 flex items-center gap-1.5 rounded-full bg-[#00dafa] px-3 py-1 text-sm font-bold">
-                        <svg viewBox="0 0 20 20" aria-hidden="true" className="size-3.5 fill-current">
-                          <path d="M10 1l2.8 5.9 6.5.8-4.8 4.4 1.3 6.4L10 15.3l-5.8 3.2 1.3-6.4L.7 7.7l6.5-.8z" />
-                        </svg>
-                        {card.badge}
-                      </p>
-                    )}
+                    {card.badge && <CardBadge>{card.badge}</CardBadge>}
                   </div>
 
                   <div className="flex flex-1 flex-col p-5 lg:p-6">
@@ -94,6 +84,18 @@ export function TestPackages() {
               </li>
             );
           })}
+        </ul>
+
+        <ul className="mt-10 grid grid-cols-2 gap-x-3 gap-y-8 rounded-2xl bg-white px-4 py-8 shadow-[0_10px_30px_rgb(10_31_51/0.08)] sm:mt-12 md:grid-cols-4">
+          {test.features.map((feature) => (
+            <li key={feature.title} className="flex flex-col items-center text-center">
+              <span className="grid size-16 place-items-center rounded-2xl bg-[#eef1f8]">
+                <FeatureIcon name={feature.icon} className="size-8" />
+              </span>
+              <span className="mt-3 font-bold">{feature.title}</span>
+              <span className="mt-1 text-ink-soft">{feature.text}</span>
+            </li>
+          ))}
         </ul>
       </Container>
     </section>

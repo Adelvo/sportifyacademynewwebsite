@@ -272,21 +272,11 @@
 }
 
 .statValue {
-  display: grid;
   color: #00dafa;
   font-size: clamp(1.25rem, 6cqw, 2.25rem);
   font-weight: 800;
   line-height: 1.1;
   font-variant-numeric: tabular-nums;
-}
-
-.statGhost,
-.statCount {
-  grid-area: 1 / 1;
-}
-
-.statGhost {
-  visibility: hidden;
 }
 
 .statLabel {

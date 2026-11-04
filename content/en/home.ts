@@ -1,4 +1,32 @@
+import type { FeatureIconName } from "@/components/home/FeatureIcon";
 import type { PackageId } from "../types";
+
+interface Feature {
+  icon: FeatureIconName;
+  title: string;
+  text?: string;
+}
+
+interface ProgrammeCard<Image extends string> {
+  id: string;
+  image: Image;
+  name: string;
+  ages?: string;
+  badge?: string;
+  checklist: string[];
+  whatsappMessage: string;
+}
+
+export interface Programmes<Image extends string> {
+  title: string;
+  text: string;
+  book: string;
+  cards: ProgrammeCard<Image>[];
+  features: Feature[];
+}
+
+type TrainPhoto = "strength" | "sport" | "performance";
+type RecoverPhoto = "assessment" | "therapy" | "returnToPlay";
 
 interface TestCard {
   id: string;
@@ -110,32 +138,89 @@ export const home = {
         note: "Everything: DNA, psychology, body, posture, foot scan, diet analysis",
       },
     ] satisfies TestCard[] as TestCard[],
+    features: [
+      { icon: "report", title: "Detailed Reports", text: "Clear results" },
+      { icon: "target", title: "Talent Insights", text: "Discover strengths" },
+      { icon: "pathway", title: "Personalised Pathway", text: "Next steps" },
+      { icon: "people", title: "Expert Consultation", text: "Parent guidance" },
+    ] satisfies Feature[] as Feature[],
   },
   train: {
     title: "Train with us",
-    text: "Expert coaching for young athletes. [TODO: confirm with client: training programmes, ages, schedule and prices]",
-    items: [
-      { title: "Fitness training", text: "Training to get stronger, faster and fitter." },
-      { title: "Motor-skills training", text: "Training to build basic movement skills." },
-      { title: "Sport-specific conditioning", text: "Conditioning for the needs of your child's sport." },
-    ],
-    cta: "Ask about training",
-    whatsappMessage: "Hello Sportify Academy. I would like to know more about training with you.",
+    text: "Personalised coaching to build skills, performance and confidence.",
+    book: "Book",
+    cards: [
+      {
+        id: "strength",
+        image: "strength",
+        name: "Strength & Conditioning",
+        ages: "Ages 10+",
+        checklist: ["Build strength & power", "Improve speed & endurance", "Reduce risk of injury"],
+        whatsappMessage: "Hello Sportify Academy. I would like to book Strength & Conditioning.",
+      },
+      {
+        id: "sport",
+        image: "sport",
+        name: "Sport-Specific Training",
+        ages: "Ages 8+",
+        checklist: ["Individual technical coaching", "Position-specific development", "For football, tennis, swimming & more"],
+        whatsappMessage: "Hello Sportify Academy. I would like to book Sport-Specific Training.",
+      },
+      {
+        id: "performance",
+        image: "performance",
+        name: "Performance Academy",
+        ages: "Ages 12+",
+        checklist: ["Long-term athlete development", "Advanced training programmes", "Trackable performance progress"],
+        whatsappMessage: "Hello Sportify Academy. I would like to book the Performance Academy.",
+      },
+    ] satisfies ProgrammeCard<TrainPhoto>[] as ProgrammeCard<TrainPhoto>[],
+    features: [
+      { icon: "calendar", title: "Individual Plans" },
+      { icon: "bars", title: "Measurable Progress" },
+      { icon: "people", title: "Expert Coaches" },
+      { icon: "shield", title: "Safe & Professional" },
+    ] satisfies Feature[] as Feature[],
   },
   recover: {
     title: "Recover & fix pain",
-    text: "Help for young athletes with pain or poor posture. [TODO: confirm with client: recovery services, who delivers them and prices]",
-    items: [
-      { title: "Posture analysis", text: "See how your child stands and holds the body." },
-      { title: "Corrective exercise", text: "Exercises chosen to improve posture." },
-      { title: "Injury recovery", text: "[TODO: confirm with client: what this includes]" },
-    ],
-    cta: "Ask about recovery",
-    whatsappMessage: "Hello Sportify Academy. I would like to know more about recovery and pain.",
+    text: "Expert recovery support to reduce pain, restore movement and get back to sport safely.",
+    book: "Book",
+    cards: [
+      {
+        id: "assessment",
+        image: "assessment",
+        name: "Pain & Movement Assessment",
+        ages: "Ages 8+",
+        checklist: ["Identify pain triggers", "Check mobility & movement patterns", "Clear next-step recommendations"],
+        whatsappMessage: "Hello Sportify Academy. I would like to book a Pain & Movement Assessment.",
+      },
+      {
+        id: "therapy",
+        image: "therapy",
+        name: "Sports Therapy & Recovery",
+        badge: "Most popular",
+        checklist: ["Guided rehab exercises", "Hands-on support", "Improve strength, stability & mobility"],
+        whatsappMessage: "Hello Sportify Academy. I would like to book Sports Therapy & Recovery.",
+      },
+      {
+        id: "return-to-play",
+        image: "returnToPlay",
+        name: "Return to Play Rehab",
+        ages: "Ages 10+",
+        checklist: ["Progressive recovery plan", "Sport-specific return-to-play work", "Track progress safely"],
+        whatsappMessage: "Hello Sportify Academy. I would like to book Return to Play Rehab.",
+      },
+    ] satisfies ProgrammeCard<RecoverPhoto>[] as ProgrammeCard<RecoverPhoto>[],
+    features: [
+      { icon: "assessment", title: "Expert Assessment" },
+      { icon: "care", title: "Personalised Recovery Plan" },
+      { icon: "run", title: "Safe Return to Sport" },
+      { icon: "bars", title: "Progress Tracking" },
+    ] satisfies Feature[] as Feature[],
   },
   testimonials: {
     title: "Hear from our athletes",
-    ratingText: "Google rating from 62 reviews",
   },
   founder: {
     title: "Led by a world champion and scientist",

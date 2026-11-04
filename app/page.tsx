@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { BookingForm } from "@/components/forms/BookingForm";
+import { AthleteStats } from "@/components/home/AthleteStats";
 import { HomeHero } from "@/components/home/HomeHero";
 import { PathCards } from "@/components/home/PathCards";
-import { ServiceSection } from "@/components/home/ServiceSection";
+import { ProgrammeSection } from "@/components/home/ProgrammeSection";
 import { TestPackages } from "@/components/home/TestPackages";
 import { Photo } from "@/components/media/Photo";
 import { VideoSlot } from "@/components/media/VideoSlot";
@@ -13,7 +14,7 @@ import { PartnerMarquee } from "@/components/sections/PartnerLogos";
 import { LinkButton } from "@/components/ui/Button";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { Section, SectionHeading } from "@/components/ui/Section";
-import { home, homeFaq, images, stats, testimonials } from "@/content";
+import { home, homeFaq, images, testimonials } from "@/content";
 import { faqJsonLd } from "@/lib/jsonld";
 import { pageMetadata } from "@/lib/seo";
 
@@ -28,22 +29,17 @@ export default function HomePage() {
 
       <TestPackages />
 
-      <ServiceSection id="train" tone="mist" service={home.train} />
-      <ServiceSection id="recover" tone="white" service={home.recover} />
+      <ProgrammeSection id="train" section={home.train} photos={images.train} photoAspect="aspect-[4/3]" />
+      <ProgrammeSection id="recover" section={home.recover} photos={images.recover} photoAspect="aspect-[6/7]" divided />
 
       <Section id="results" tone="mist">
-        <div className="mb-10 flex flex-col gap-5 sm:mb-14 md:flex-row md:items-end md:justify-between">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl">{home.testimonials.title}</h2>
-          <p className="flex items-center gap-3">
-            <span className="font-display text-4xl font-extrabold">{stats.rating.value}</span>
-            <span className="text-ink-soft">{home.testimonials.ratingText}</span>
-          </p>
-        </div>
+        <h2 className="mb-10 text-3xl sm:mb-14 sm:text-4xl lg:text-5xl">{home.testimonials.title}</h2>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           {testimonials.map((video) => (
             <VideoSlot key={video.id} video={video} />
           ))}
         </div>
+        <AthleteStats />
       </Section>
 
       <Section>

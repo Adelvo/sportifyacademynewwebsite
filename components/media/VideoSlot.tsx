@@ -47,8 +47,8 @@ export function VideoSlot({ video }: { video: VideoTestimonial }) {
         )}
       </div>
       <figcaption className="mt-3">
-        <span className="font-bold">{video.name}</span>
-        <span className="text-ink-soft"> · {video.role}</span>
+        <span className="block font-bold">{video.name}</span>
+        <span className="block text-ink-soft">{video.role}</span>
         {!video.embedUrl && (
           <span className="mt-1 block">
             <Txt>{ui.video.todo}</Txt>

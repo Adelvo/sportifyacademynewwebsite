@@ -32,6 +32,18 @@ export const images = {
     talent: { src: "/tests/sport-talent.webp", width: 1122, height: 701, alt: "A girl sprinting during a test while a coach watches in the background" },
     elite: { src: "/tests/elite-dna.webp", width: 1086, height: 679, alt: "A teenage athlete with folded arms in a laboratory, next to a screen showing a DNA helix" },
   },
+  // Photos on the "Train with us" cards.
+  train: {
+    strength: { src: "/train/strength.webp", width: 646, height: 485, alt: "A coach watching a boy lift a kettlebell in the gym" },
+    sport: { src: "/train/sport-specific.webp", width: 645, height: 484, alt: "A girl running through yellow hurdles on an indoor training pitch" },
+    performance: { src: "/train/performance.webp", width: 643, height: 482, alt: "A teenage boy dribbling a football between cones on an indoor pitch" },
+  },
+  // Photos on the "Recover & fix pain" cards.
+  recover: {
+    assessment: { src: "/recover/pain-assessment.webp", width: 800, height: 1000, alt: "A therapist supporting the raised leg of a girl who is lying on a mat and pulling on a resistance band" },
+    therapy: { src: "/recover/sports-therapy.webp", width: 800, height: 1000, alt: "A therapist in gloves examining the bent knee of a teenage boy lying on a treatment table" },
+    returnToPlay: { src: "/recover/return-to-play.webp", width: 800, height: 1000, alt: "A coach with a tablet watching a teenage boy step up onto a box between training cones" },
+  },
   session: img("test-session", 1200, 800, "A child during a test session with a Sportify Academy coach"),
   founder: img("founder-portrait", 800, 1000, "Portrait of Dr. Sajad Karami, Founder and Director of Sportify Academy"),
   method: img("method-measurement", 1200, 800, "A coach measuring a child's posture"),
@@ -44,6 +56,7 @@ export const images = {
   nurseries: img("b2b-nurseries", 1200, 800, "Young children doing a motor-skills check at a nursery"),
   companies: img("b2b-companies", 1200, 800, "An employee having a posture check at the office"),
   clubs: img("b2b-clubs", 1200, 800, "A sports team during a fitness test"),
-  videoOlivia: img("video-olivia", 1280, 720, "Olivia, karate athlete, in a video testimonial"),
-  videoDaraki: img("video-daraki", 1280, 720, "Daraki, basketball player, in a video testimonial"),
+  // Video posters: frames taken from the YouTube videos.
+  videoOlivia: { src: "/videos/olivia.webp", width: 1280, height: 720, alt: "Olivia in her karate uniform, smiling and holding up a gold medal" },
+  videoMohammad: { src: "/videos/mohammad.webp", width: 1280, height: 720, alt: "Mohammad dribbling a basketball while tapping a light on a reaction wall" },
 };

@@ -15,8 +15,6 @@ const items = [
   ["b2b-nurseries", 1200, 800, "Young children in a motor-skills check"],
   ["b2b-companies", 1200, 800, "Employee in an office posture check"],
   ["b2b-clubs", 1200, 800, "Team during a fitness test"],
-  ["video-olivia", 1280, 720, "Video poster: Olivia, karate athlete"],
-  ["video-daraki", 1280, 720, "Video poster: Daraki, basketball player"],
 ];
 
 const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
