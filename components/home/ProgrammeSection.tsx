@@ -1,5 +1,5 @@
 import { Photo } from "@/components/media/Photo";
-import { ExternalButton } from "@/components/ui/Button";
+import { ExternalButton, LinkButton } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Section";
 import type { Programmes } from "@/content/en/home";
 import type { ImageAsset } from "@/content/types";
@@ -8,13 +8,15 @@ import { CardBadge } from "./CardBadge";
 import { FeatureIcon } from "./FeatureIcon";
 import { HomeHeading } from "./HomeHeading";
 
-/** A landing page row of bookable programmes, such as "Train with us". On phones the row swipes sideways. */
+/** A row of bookable programmes, such as "Train with us". On phones the row swipes sideways. */
 export function ProgrammeSection<Image extends string>({
   id,
   section,
   photos,
   photoAspect,
   divided = false,
+  twoLineTitles = false,
+  headingLevel = 2,
 }: {
   id: string;
   section: Programmes<Image>;
@@ -23,12 +25,16 @@ export function ProgrammeSection<Image extends string>({
   photoAspect: string;
   /** Draw a line above each card's list. */
   divided?: boolean;
+  /** Reserve two lines for each card's name from tablet width up, so cards with shorter names line up. */
+  twoLineTitles?: boolean;
+  /** 1 when this section is the main content of its own page. */
+  headingLevel?: 1 | 2;
 }) {
   return (
     <section id={id} className="bg-linear-to-b from-[#eef1f8] to-white py-16 font-[family-name:var(--font-hero)] text-[#0a1f33] sm:py-24">
       <Container>
         <div className="mb-8 sm:mb-12">
-          <HomeHeading title={section.title} text={section.text} />
+          <HomeHeading title={section.title} text={section.text} level={headingLevel} />
         </div>
 
         <ul
@@ -46,10 +52,10 @@ export function ProgrammeSection<Image extends string>({
                   {card.badge && <CardBadge>{card.badge}</CardBadge>}
                 </div>
                 <div className="flex flex-1 flex-col p-5 lg:p-6">
-                  <h3 className="font-[family-name:var(--font-hero)]! text-2xl tracking-tight md:min-h-[2lh]">{card.name}</h3>
-                  {/* Keeps the space when a card has no ages, so the lists line up. */}
+                  <h3 className={`font-[family-name:var(--font-hero)]! text-2xl tracking-tight ${twoLineTitles ? "md:min-h-[2lh]" : ""}`}>{card.name}</h3>
+                  {/* Keeps the space when a card has no tag, so the lists line up. */}
                   <div className="mt-2 min-h-7">
-                    {card.ages && <p className="w-fit rounded-full bg-[#e6eaf2] px-3 py-1 text-sm font-medium">{card.ages}</p>}
+                    {card.tag && <p className="w-fit rounded-full bg-[#e6eaf2] px-3 py-1 text-sm font-medium">{card.tag}</p>}
                   </div>
                   <ul className={`mt-5 space-y-3 font-medium ${divided ? "border-t border-line pt-5" : ""}`}>
                     {card.checklist.map((item) => (
@@ -63,14 +69,23 @@ export function ProgrammeSection<Image extends string>({
                     ))}
                   </ul>
                   <div className="mt-auto pt-7">
-                    <ExternalButton
-                      href={whatsappUrl(card.whatsappMessage)}
-                      variant="cyan"
-                      aria-label={`${section.book}: ${card.name}`}
-                      className="w-full rounded-xl!"
-                    >
-                      {section.book}
-                    </ExternalButton>
+                    {card.href !== undefined ? (
+                      <LinkButton
+                        href={card.href}
+                        aria-label={`${section.action}: ${card.name}`}
+                        className="w-full rounded-xl!"
+                      >
+                        {section.action}
+                      </LinkButton>
+                    ) : (
+                      <ExternalButton
+                        href={whatsappUrl(card.whatsappMessage)}
+                        aria-label={`${section.action}: ${card.name}`}
+                        className="w-full rounded-xl!"
+                      >
+                        {section.action}
+                      </ExternalButton>
+                    )}
                   </div>
                 </div>
               </article>
@@ -83,6 +98,7 @@ export function ProgrammeSection<Image extends string>({
             <li key={feature.title} className="flex flex-col items-center gap-3 px-3 text-center font-semibold">
               <FeatureIcon name={feature.icon} className="size-9" />
               {feature.title}
+              {feature.text && <span className="-mt-2 text-sm font-medium text-ink-soft">{feature.text}</span>}
             </li>
           ))}
         </ul>

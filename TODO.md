@@ -14,7 +14,10 @@ Run `npm run todos` to see every marker still left in `/content`, with file and 
 - [ ] **Age bands and minimum age.** 4–8, 9–12, 13–17 and 18+ are a draft. The only confirmed band is 4–8.
 
 ### Figures (`content/en/stats.ts`)
-- [ ] **Which client figures are true.** Sources conflict: 30,000 clients vs 5,000+ children assessed; 235,000 tests vs 250,000-athlete database vs 11,800+ tests. The homepage stats, in the hero and again under the athlete videos (`content/en/home.ts`), now show +1,200 talents, +30,000 clients and +23,500 tests, as requested on 2026-11-04. Confirm the last two, especially 23,500 against the 235,000 above. Other pages use only "1,200+ talents discovered".
+- [ ] **Which client figures are true.** Sources conflict: 30,000 clients vs 5,000+ children assessed; 235,000 tests vs 250,000-athlete database vs 11,800+ tests. The homepage stats, in the hero and again under the athlete videos (`content/en/home.ts`), now show +1,200 talents, +30,000 clients and +23,500 tests, as requested on 2026-11-04. Confirm the last two, especially 23,500 against the 235,000 above. Other pages use only "1,200+ talents discovered". The "Why Sportify Academy" section on the homepage shows 18+ years, 30,000+ clients, 220,000+ data points, 1,200+ talents and 700+ championship medals. Confirm these too.
+
+### "Why Sportify Academy" section (`content/en/home.ts`)
+- [ ] **Wording.** The text comes from the design and is not confirmed. It replaces the longer list, which also covered 5,000+ programmes, the national team fitness specialists and the founder's three karate titles. "Proven Results", "Proven athlete development" and "the help of AI" are claims: see the health claims item in section 2.
 
 ### "Test my child" section (`content/en/home.ts`)
 - [ ] **Card wording.** It comes from the design and is not confirmed: "Most popular", "One-time assessment", the checklists (such as "Performance insights"), the "View Packages" descriptions (such as "Fitness + skills + psychology"), and "Ages 8+". Age 8 also falls in the 4–8 band, and the package helper's next band starts at 9.
@@ -27,6 +30,13 @@ Run `npm run todos` to see every marker still left in `/content`, with file and 
 - [ ] **Recover & fix pain.** The services, ages, lists and "Most popular" label come from the design and are not confirmed. The design gives no age for Sports Therapy & Recovery. Also confirm the prices, and whether "Book" should stay a WhatsApp message. "Reduce pain", "Safe Return to Sport" and the rehab wording are claims: see the health claims item in section 2.
 - [ ] **Photos for Recover & fix pain.** The return-to-play photo shows Nike logos on the shoes and socks. On the other two, the logo on the athlete's shirt differs from the S logo, and on the sports therapy photo it has unreadable text.
 - [ ] **Who delivers recovery and pain treatment**, and whether they are licensed. See the health claims item in section 2.
+
+### "For organisations" section (`content/en/home.ts`)
+- [ ] **Card wording.** The lists and labels come from the design and are not confirmed against the B2B pages. "Certified coaches" and "Proven Results" are claims: see the health claims item in section 2.
+- [ ] **Two feature lines were cut off in the design.** "Clear insights & measurable results" and "Higher performance & lasting impact" are guesses at the missing words.
+- [ ] **Nurseries.** The design has no nursery card, so the landing page no longer links to `/for-nurseries`. The header and footer still do. Confirm this is intended.
+- [ ] **Photo for Companies.** It is cut out of the design screenshot and is low resolution. Replace it with the original photo.
+- [ ] **Photo for Schools.** It shows Nike logos and a different club crest instead of the S logo, and an image generator mark in the bottom corner of the original (cropped out here).
 
 ### Parent FAQ (`content/en/faq.ts`)
 - [ ] Minimum and maximum age for testing.
@@ -66,7 +76,7 @@ Nothing here was in the brief as a fact. Please read and approve it:
 ## 3. Files to replace
 - [ ] **Photos:** 13 labelled placeholders in `public/placeholders/`. Keep the same file names, or change the paths and sizes in `content/en/images.ts`. Check each alt text still matches the photo.
 - [ ] **Landing page card photos:** the 4 files in `public/paths/` look AI-generated. Some show third-party brand marks, such as Nike logos on the socks in `recover.webp`. Retouch these or replace the photos with real ones (`content/en/images.ts`).
-- [ ] **Partner logos:** add files to `public/partners/` and set `logo` in `content/en/partners.ts`. Names show as text until then.
+- [ ] **Partner logos:** `public/partners/` holds crops from carousel screenshots, some with the carousel arrow on them (Sailing, Boxing, Hatta, FMAC, Al-Ittifaq). Replace them with the original files. Still needed: a logo for Dubai Sports Council, the name of the green arrow logo, and the full Kingdom logo (its white lettering is lost in the screenshot, so it is left out).
 - [ ] **Site logo:** the header and footer use a text logo. `app/icon.svg` is a temporary favicon.
 - [ ] **Open Graph image:** `public/og-image.png` is a simple generated image. Replace it with a branded one (1200 × 630).
 

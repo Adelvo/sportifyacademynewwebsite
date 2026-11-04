@@ -83,7 +83,7 @@ export interface ImageAsset {
 export interface VideoTestimonial {
   id: string;
   name: string;
-  role: string;
+  role?: string;
   /** YouTube or Vimeo embed URL. The slot shows a TODO until this is set. */
   embedUrl?: string;
   poster: ImageAsset;

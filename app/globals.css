@@ -1,23 +1,25 @@
 @import "tailwindcss";
 
 @theme {
-  --color-midnight: #02070a;
-  --color-midnight-800: #0c171d;
-  --color-midnight-700: #1b2a33;
+  --color-midnight: #0a1f33;
+  --color-midnight-800: #14304a;
+  --color-midnight-700: #1f4160;
   --color-electric: #44d0ec;
   --color-electric-from: #56f6db;
   --color-electric-to: #3dacfb;
-  --color-orange: #fc734d;
-  --color-orange-light: #fd8f70;
+  --color-cyan: #00dafa;
+  --color-cyan-light: #4ae6fc;
+  /* Cyan dark enough to read as text on white. */
+  --color-cyan-deep: #007a99;
   --color-mist: #f4f6f9;
   --color-line: #dde3ec;
   --color-ink-soft: #475569;
   --color-on-midnight-soft: #b4c1ca;
 
-  --font-display: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-hero), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-hero), ui-sans-serif, system-ui, sans-serif;
 
-  --animate-marquee: marquee 40s linear infinite;
+  --animate-marquee: marquee 110s linear infinite;
 
   @keyframes marquee {
     to {
@@ -75,14 +77,14 @@ summary {
    In the base layer, so components can switch it off with utilities. */
 @layer base {
   :focus-visible {
-    outline: 3px solid var(--color-orange);
+    outline: 3px solid var(--color-cyan);
     outline-offset: 1px;
     box-shadow: 0 0 0 6px var(--color-midnight);
   }
 }
 
 dialog::backdrop {
-  background: rgb(2 7 10 / 0.8);
+  background: rgb(10 31 51 / 0.8);
 }
 
 details > summary {

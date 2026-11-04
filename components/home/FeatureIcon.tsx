@@ -71,6 +71,57 @@ const paths = {
       <path d="M8.5 12l2.5 2.5 4.5-5" />
     </>
   ),
+  calendarPlain: (
+    <>
+      <rect x="3.5" y="5" width="17" height="16" rx="2.5" />
+      <path d="M3.5 10h17M8 2.5V7M16 2.5V7" />
+    </>
+  ),
+  team: (
+    <>
+      <circle cx="12" cy="7" r="3.2" />
+      <circle cx="4.8" cy="10" r="2.2" />
+      <circle cx="19.2" cy="10" r="2.2" />
+      <path d="M6.5 20v-2.5c0-2.8 2.4-4.5 5.5-4.5s5.5 1.7 5.5 4.5V20" />
+      <path d="M1.5 19v-1.5c0-1.7 1.2-2.9 3-3M22.5 19v-1.5c0-1.7-1.2-2.9-3-3" />
+    </>
+  ),
+  database: (
+    <>
+      <ellipse cx="12" cy="5.5" rx="8" ry="3" />
+      <path d="M4 5.5v13c0 1.7 3.6 3 8 3s8-1.3 8-3v-13" />
+      <path d="M4 10c0 1.7 3.6 3 8 3s8-1.3 8-3M4 14.5c0 1.7 3.6 3 8 3s8-1.3 8-3" />
+    </>
+  ),
+  crosshair: (
+    <>
+      <circle cx="12" cy="12" r="7.5" />
+      <circle cx="12" cy="12" r="2.8" />
+      <path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3" />
+    </>
+  ),
+  medal: (
+    <>
+      <path d="M7 2.5h10l-2.5 7.2h-5zM7 2.5l3 7M17 2.5l-3 7" />
+      <circle cx="12" cy="15.5" r="6" />
+      <circle cx="12" cy="15.5" r="2" />
+    </>
+  ),
+  growth: (
+    <>
+      <rect x="3" y="16" width="4" height="5" />
+      <rect x="10" y="12.5" width="4" height="8.5" />
+      <rect x="17" y="9" width="4" height="12" />
+      <path d="M3 10.5C8 9.5 13 7 17.5 3M13.5 2.5h4.5V7" />
+    </>
+  ),
+  trophy: (
+    <>
+      <path d="M7 3h10v7a5 5 0 0 1-10 0z" />
+      <path d="M7 5H3v2a4 4 0 0 0 4 4M17 5h4v2a4 4 0 0 1-4 4" />
+      <path d="M12 15v4M7.5 21h9M9 21c0-1.3 1.2-2 3-2s3 .7 3 2" />
+    </>
+  ),
 };
 
 export type FeatureIconName = keyof typeof paths;

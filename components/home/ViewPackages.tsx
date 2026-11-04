@@ -34,7 +34,7 @@ export function ViewPackages({
         type="button"
         aria-label={`${buttonLabel}: ${title}`}
         onClick={() => dialogRef.current?.showModal()}
-        className={buttonClass("cyan", "w-full rounded-xl!")}
+        className={buttonClass("primary", "w-full rounded-xl!")}
       >
         {buttonLabel}
       </button>
@@ -77,7 +77,7 @@ export function ViewPackages({
                     dialogRef.current?.close();
                     openBooking(choice.id);
                   }}
-                  className={buttonClass("cyan", "shrink-0 rounded-xl!")}
+                  className={buttonClass("primary", "shrink-0 rounded-xl!")}
                 >
                   {ui.book}
                 </button>

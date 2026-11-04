@@ -26,19 +26,25 @@ export const site = {
 export const nav = {
   /** Header links on the homepage. The other pages use "main". */
   home: [
-    { href: "/#packages", label: "Programs" },
+    { href: "/test-my-child", label: "Test my child" },
+    { href: "/train-with-us", label: "Train with us" },
+    { href: "/recover", label: "Recover & fix pain" },
+    { href: "/for-organisations", label: "For organisations" },
     { href: "/assessments", label: "Assessments" },
     { href: "/#results", label: "Results" },
   ],
   bookLabel: "Book",
   main: [
+    { href: "/test-my-child", label: "Test my child" },
+    { href: "/train-with-us", label: "Train with us" },
+    { href: "/recover", label: "Recover & fix pain" },
     { href: "/assessments", label: "Assessments" },
-    { href: "/for-schools", label: "For Schools" },
-    { href: "/for-companies", label: "For Companies" },
     { href: "/about", label: "About" },
     { href: "/contact", label: "Contact" },
   ],
   organisationsLabel: "For Organisations",
+  /** Shown above the list of organisation types in the menus and footer. */
+  organisationsOverview: { href: "/for-organisations", label: "All organisations", text: "Programmes for schools, clubs and companies" },
   organisations: [
     { href: "/for-schools", label: "For Schools", text: "Talent days for your students" },
     { href: "/for-nurseries", label: "For Nurseries", text: "Motor-skills screening, ages 3–6" },

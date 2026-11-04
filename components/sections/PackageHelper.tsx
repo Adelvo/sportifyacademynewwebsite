@@ -26,7 +26,7 @@ function Choices<T extends string>({
         {options.map((option) => (
           <label
             key={option.id}
-            className="flex min-h-11 cursor-pointer items-center rounded-full border-2 border-white/30 px-4 py-2 font-semibold has-checked:border-orange has-checked:bg-orange has-checked:text-midnight has-focus-visible:ring-4 has-focus-visible:ring-white"
+            className="flex min-h-11 cursor-pointer items-center rounded-full border-2 border-white/30 px-4 py-2 font-semibold has-checked:border-cyan has-checked:bg-cyan has-checked:text-midnight has-focus-visible:ring-4 has-focus-visible:ring-white"
           >
             <input
               type="radio"

@@ -7,14 +7,14 @@ import { FeatureIcon } from "./FeatureIcon";
 import { HomeHeading } from "./HomeHeading";
 import { ViewPackages } from "./ViewPackages";
 
-/** "Test my child": the assessments on the landing page. Prices come from content/en/packages.ts. */
-export function TestPackages() {
+/** "Test my child": the assessment cards. Prices come from content/en/packages.ts. */
+export function TestPackages({ headingLevel = 2 }: { headingLevel?: 1 | 2 }) {
   const { test } = home;
   return (
     <section id="packages" className="bg-linear-to-b from-[#eef1f8] to-white py-16 font-[family-name:var(--font-hero)] text-[#0a1f33] sm:py-24">
       <Container>
         <div className="mb-10 sm:mb-14">
-          <HomeHeading title={test.title} text={test.text} />
+          <HomeHeading title={test.title} text={test.text} level={headingLevel} />
         </div>
 
         <ul className="grid grid-cols-1 gap-5 md:grid-cols-3 lg:gap-6">
@@ -71,7 +71,6 @@ export function TestPackages() {
                       ) : (
                         <BookButton
                           packageId={card.bookPackage}
-                          variant="cyan"
                           ariaLabel={`${test.bookNow}: ${card.name}`}
                           className="w-full rounded-xl!"
                         >

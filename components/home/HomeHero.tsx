@@ -5,19 +5,6 @@ import { HeroStats } from "./HeroStats";
 import styles from "./hero.module.css";
 import { WORDMARK_PATH } from "./wordmarkPath";
 
-/** The layered triangles behind the left coach. Drawn in art-direction frame coordinates. */
-function Triangles() {
-  return (
-    <svg viewBox="121 498 314 395" aria-hidden="true" className={styles.triangles}>
-      <path fill="#62e8fc" d="M122 552l60 33-60 34z" />
-      <path fill="#3392c8" d="M280 616l153 89-153 87z" />
-      <path fill="#88edfd" d="M210 498l193 105-193 108z" />
-      <path fill="#6fe2fa" d="M210 633l70 40-70 38z" />
-      <path fill="none" stroke="#00dcfb" strokeWidth="3.2" d="M176 613l237 138-237 141z" />
-    </svg>
-  );
-}
-
 export function HomeHero() {
   const { hero } = home;
   return (
@@ -46,7 +33,6 @@ export function HomeHero() {
             <svg viewBox="189 390 4722 1008" aria-hidden="true" className={styles.wordmark}>
               <path fillRule="evenodd" d={WORDMARK_PATH} />
             </svg>
-            <Triangles />
             <Image
               src={images.heroTeam.src}
               alt={images.heroTeam.alt}

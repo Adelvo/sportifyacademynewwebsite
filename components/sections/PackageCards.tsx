@@ -7,7 +7,7 @@ function PackageCard({ pack }: { pack: Package }) {
   return (
     <article className={`flex h-full flex-col rounded-2xl border-2 bg-white p-6 ${pack.badge ? "border-midnight" : "border-line"}`}>
       {pack.badge && (
-        <p className="mb-3 w-fit rounded-full bg-orange px-3 py-1 text-sm font-bold text-midnight">{pack.badge}</p>
+        <p className="mb-3 w-fit rounded-full bg-cyan px-3 py-1 text-sm font-bold text-midnight">{pack.badge}</p>
       )}
       <h4 className="font-display text-xl font-extrabold leading-tight">{pack.name}</h4>
       <p className="mt-3 font-display text-3xl font-extrabold">{formatPrice(pack.price)}</p>

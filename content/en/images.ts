@@ -56,7 +56,14 @@ export const images = {
   nurseries: img("b2b-nurseries", 1200, 800, "Young children doing a motor-skills check at a nursery"),
   companies: img("b2b-companies", 1200, 800, "An employee having a posture check at the office"),
   clubs: img("b2b-clubs", 1200, 800, "A sports team during a fitness test"),
+  // Photos on the "For organisations" cards.
+  organisations: {
+    schools: { src: "/organisations/schools.webp", width: 1122, height: 841, alt: "A teenage boy touching a yellow cone during an agility drill in a sports hall, while a coach and other students watch" },
+    clubs: { src: "/organisations/clubs.webp", width: 1122, height: 841, alt: "A Sportify Academy coach talking to a group of young athletes on an indoor pitch" },
+    companies: { src: "/organisations/companies.webp", width: 464, height: 348, alt: "A trainer leading adults through a squat exercise in a gym" },
+  },
   // Video posters: frames taken from the YouTube videos.
+  videoAbout: { src: "/videos/about-sportify.webp", width: 1280, height: 720, alt: "An athlete in a blue bib jumping on a test platform while Sportify Academy staff record the results" },
   videoOlivia: { src: "/videos/olivia.webp", width: 1280, height: 720, alt: "Olivia in her karate uniform, smiling and holding up a gold medal" },
   videoMohammad: { src: "/videos/mohammad.webp", width: 1280, height: 720, alt: "Mohammad dribbling a basketball while tapping a light on a reaction wall" },
 };

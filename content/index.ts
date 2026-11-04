@@ -12,6 +12,7 @@ export * from "./en/testimonials";
 export * from "./en/forms";
 export * from "./en/whatsapp";
 export * from "./en/home";
+export * from "./en/programmes";
 export * from "./en/about";
 export * from "./en/pages";
 export * from "./en/legal";

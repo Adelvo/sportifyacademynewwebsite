@@ -3,16 +3,16 @@ import { Photo } from "@/components/media/Photo";
 import { Container } from "@/components/ui/Section";
 import { home, images } from "@/content";
 
-/** The four ways in, directly under the stats band. Each card jumps to its section on this page. */
+/** The four ways in, directly under the stats band. Each card opens its own page. */
 export function PathCards() {
   return (
     <section aria-label={home.paths.label} className="bg-white py-8 sm:py-12">
       <Container>
         <ul className="grid grid-cols-2 gap-3 md:grid-cols-4 lg:gap-5">
           {home.paths.items.map((item) => (
-            <li key={item.id}>
+            <li key={item.href}>
               <Link
-                href={`#${item.id}`}
+                href={item.href}
                 className="group @container relative flex aspect-[3/5] flex-col justify-end overflow-hidden rounded-2xl bg-[#0a1f33] text-white lg:rounded-3xl"
               >
                 <Photo

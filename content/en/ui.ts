@@ -23,8 +23,6 @@ export const ui = {
   legal: "Legal",
   rights: "All rights reserved.",
   illustrationNote: "Illustration only. Not a real result.",
-  marqueePause: "Pause partner logos",
-  marqueePlay: "Play partner logos",
   map: {
     title: "Map to Sportify Academy",
     show: "Show map",

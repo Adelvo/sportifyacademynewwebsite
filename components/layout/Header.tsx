@@ -10,12 +10,12 @@ import styles from "../home/hero.module.css";
 import { BrandLogo } from "../ui/BrandLogo";
 import { Container } from "../ui/Section";
 
-const linkClass = "rounded text-sm font-semibold text-white hover:text-orange aria-[current=page]:text-orange";
+const linkClass = "rounded text-sm font-semibold whitespace-nowrap text-midnight hover:text-cyan-deep aria-[current=page]:text-cyan-deep";
 
 export function Logo() {
   return (
     <Link href="/" aria-label={`${site.name}, home`} className="shrink-0">
-      <BrandLogo variant="light" preload className="h-11 w-auto sm:h-12" />
+      <BrandLogo preload className="h-11 w-auto sm:h-12" />
     </Link>
   );
 }
@@ -67,7 +67,7 @@ function OrganisationsDropdown({ pathname }: { pathname: string }) {
       </button>
       {open && (
         <ul id="org-menu" className="absolute end-0 top-full mt-3 w-72 rounded-2xl bg-white p-2 text-midnight shadow-xl ring-1 ring-black/10">
-          {nav.organisations.map((item) => (
+          {[nav.organisationsOverview, ...nav.organisations].map((item) => (
             <li key={item.href}>
               <Link
                 href={item.href}
@@ -152,15 +152,14 @@ function HomeHeader() {
 
 function SiteHeader({ pathname }: { pathname: string }) {
   const [menuOpen, setMenuOpen] = useState(false);
-  const orgHrefs = new Set(nav.organisations.map((item) => item.href));
   const close = () => setMenuOpen(false);
 
   return (
-    <header className="sticky top-0 z-40 bg-midnight text-white shadow-[0_1px_0_rgb(255_255_255/0.1)]">
+    <header className="sticky top-0 z-40 bg-white text-midnight shadow-[0_1px_0_var(--color-line)]">
       <Container className="flex h-16 items-center justify-between gap-4 sm:h-18">
         <Logo />
 
-        <nav aria-label={ui.mainNavLabel} className="hidden items-center gap-5 lg:flex">
+        <nav aria-label={ui.mainNavLabel} className="hidden items-center gap-4 xl:flex">
           {nav.main.map((item) => (
             <Link
               key={item.href}
@@ -182,7 +181,7 @@ function SiteHeader({ pathname }: { pathname: string }) {
             aria-controls="mobile-menu"
             aria-label={menuOpen ? ui.menuClose : ui.menuOpen}
             onClick={() => setMenuOpen((value) => !value)}
-            className="grid size-11 place-items-center rounded-full border-2 border-white/40 lg:hidden"
+            className="grid size-11 place-items-center rounded-full border-2 border-midnight/35 xl:hidden"
           >
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true" className="size-5">
               {menuOpen ? <path d="M6 6l12 12M18 6L6 18" /> : <path d="M4 7h16M4 12h16M4 17h16" />}
@@ -195,34 +194,32 @@ function SiteHeader({ pathname }: { pathname: string }) {
         <nav
           id="mobile-menu"
           aria-label={ui.mainNavLabel}
-          className="max-h-[calc(100dvh-4rem)] overflow-y-auto border-t border-white/10 bg-midnight pb-6 lg:hidden"
+          className="max-h-[calc(100dvh-4rem)] overflow-y-auto border-t border-line bg-white pb-6 xl:hidden"
         >
           <Container>
             <ul className="py-2">
-              {nav.main
-                .filter((item) => !orgHrefs.has(item.href))
-                .map((item) => (
-                  <li key={item.href}>
-                    <Link
-                      href={item.href}
-                      onClick={close}
-                      aria-current={pathname === item.href ? "page" : undefined}
-                      className="block py-3 text-lg font-semibold aria-[current=page]:text-orange"
-                    >
-                      {item.label}
-                    </Link>
-                  </li>
-                ))}
-            </ul>
-            <p className="mt-2 text-sm font-semibold text-on-midnight-soft">{nav.organisationsLabel}</p>
-            <ul className="pt-1">
-              {nav.organisations.map((item) => (
+              {nav.main.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
                     onClick={close}
                     aria-current={pathname === item.href ? "page" : undefined}
-                    className="block py-3 text-lg font-semibold aria-[current=page]:text-orange"
+                    className="block py-3 text-lg font-semibold aria-[current=page]:text-cyan-deep"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-2 text-sm font-semibold text-ink-soft">{nav.organisationsLabel}</p>
+            <ul className="pt-1">
+              {[nav.organisationsOverview, ...nav.organisations].map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    onClick={close}
+                    aria-current={pathname === item.href ? "page" : undefined}
+                    className="block py-3 text-lg font-semibold aria-[current=page]:text-cyan-deep"
                   >
                     {item.label}
                   </Link>

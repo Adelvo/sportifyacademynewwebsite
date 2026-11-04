@@ -1,5 +1,6 @@
 import type { FeatureIconName } from "@/components/home/FeatureIcon";
 import type { PackageId } from "../types";
+import { images } from "./images";
 
 interface Feature {
   icon: FeatureIconName;
@@ -7,26 +8,34 @@ interface Feature {
   text?: string;
 }
 
-interface ProgrammeCard<Image extends string> {
+interface WhyStat {
+  icon: FeatureIconName;
+  value: string;
+  label: string;
+}
+
+type ProgrammeCard<Image extends string> = {
   id: string;
   image: Image;
   name: string;
-  ages?: string;
+  /** The grey label under the name, such as "Ages 8+". */
+  tag?: string;
   badge?: string;
   checklist: string[];
-  whatsappMessage: string;
-}
+} & ({ whatsappMessage: string; href?: never } | { href: string; whatsappMessage?: never });
 
 export interface Programmes<Image extends string> {
   title: string;
   text: string;
-  book: string;
+  /** The button label on every card. */
+  action: string;
   cards: ProgrammeCard<Image>[];
   features: Feature[];
 }
 
 type TrainPhoto = "strength" | "sport" | "performance";
 type RecoverPhoto = "assessment" | "therapy" | "returnToPlay";
+type OrganisationPhoto = "schools" | "clubs" | "companies";
 
 interface TestCard {
   id: string;
@@ -64,10 +73,10 @@ export const home = {
   paths: {
     label: "What are you looking for?",
     items: [
-      { id: "packages", image: "test", lines: ["Test my", "child"] },
-      { id: "train", image: "train", lines: ["Train", "with us"] },
-      { id: "recover", image: "recover", lines: ["Recover &", "fix pain"] },
-      { id: "organisations", image: "organisations", lines: ["For", "organisations"] },
+      { href: "/test-my-child", image: "test", lines: ["Test my", "child"] },
+      { href: "/train-with-us", image: "train", lines: ["Train", "with us"] },
+      { href: "/recover", image: "recover", lines: ["Recover &", "fix pain"] },
+      { href: "/for-organisations", image: "organisations", lines: ["For", "organisations"] },
     ] as const,
   },
   pain: {
@@ -148,13 +157,13 @@ export const home = {
   train: {
     title: "Train with us",
     text: "Personalised coaching to build skills, performance and confidence.",
-    book: "Book",
+    action: "Book",
     cards: [
       {
         id: "strength",
         image: "strength",
         name: "Strength & Conditioning",
-        ages: "Ages 10+",
+        tag: "Ages 10+",
         checklist: ["Build strength & power", "Improve speed & endurance", "Reduce risk of injury"],
         whatsappMessage: "Hello Sportify Academy. I would like to book Strength & Conditioning.",
       },
@@ -162,7 +171,7 @@ export const home = {
         id: "sport",
         image: "sport",
         name: "Sport-Specific Training",
-        ages: "Ages 8+",
+        tag: "Ages 8+",
         checklist: ["Individual technical coaching", "Position-specific development", "For football, tennis, swimming & more"],
         whatsappMessage: "Hello Sportify Academy. I would like to book Sport-Specific Training.",
       },
@@ -170,7 +179,7 @@ export const home = {
         id: "performance",
         image: "performance",
         name: "Performance Academy",
-        ages: "Ages 12+",
+        tag: "Ages 12+",
         checklist: ["Long-term athlete development", "Advanced training programmes", "Trackable performance progress"],
         whatsappMessage: "Hello Sportify Academy. I would like to book the Performance Academy.",
       },
@@ -185,13 +194,13 @@ export const home = {
   recover: {
     title: "Recover & fix pain",
     text: "Expert recovery support to reduce pain, restore movement and get back to sport safely.",
-    book: "Book",
+    action: "Book",
     cards: [
       {
         id: "assessment",
         image: "assessment",
         name: "Pain & Movement Assessment",
-        ages: "Ages 8+",
+        tag: "Ages 8+",
         checklist: ["Identify pain triggers", "Check mobility & movement patterns", "Clear next-step recommendations"],
         whatsappMessage: "Hello Sportify Academy. I would like to book a Pain & Movement Assessment.",
       },
@@ -207,7 +216,7 @@ export const home = {
         id: "return-to-play",
         image: "returnToPlay",
         name: "Return to Play Rehab",
-        ages: "Ages 10+",
+        tag: "Ages 10+",
         checklist: ["Progressive recovery plan", "Sport-specific return-to-play work", "Track progress safely"],
         whatsappMessage: "Hello Sportify Academy. I would like to book Return to Play Rehab.",
       },
@@ -222,27 +231,72 @@ export const home = {
   testimonials: {
     title: "Hear from our athletes",
   },
-  founder: {
-    title: "Led by a world champion and scientist",
-    name: "Dr. Sajad Karami",
-    role: "Founder & Director",
-    credentials: [
-      "Three-time World Karate Champion",
-      "PhD in physical education and sport biomechanics",
-      "University professor",
-      "Former Karate national team coach",
-      "18 years of experience in talent identification",
-    ],
+  why: {
+    title: "Why Sportify Academy?",
+    text: "Proven athlete development and talent identification, backed by expertise, data, and a track record of champion success.",
+    /** The line breaks in the labels are shown on the page. */
+    stats: [
+      { icon: "calendarPlain", value: "18+", label: "Years of\nExperience" },
+      { icon: "team", value: "30,000+", label: "Clients" },
+      { icon: "database", value: "220,000+", label: "Data\nPoints" },
+      { icon: "crosshair", value: "1,200+", label: "Talents\nIdentified" },
+      { icon: "medal", value: "700+", label: "Championship\nMedals" },
+    ] satisfies WhyStat[] as WhyStat[],
+    highlights: [
+      { icon: "growth", title: "Data-Driven", text: "Identify and develop talent with cutting-edge solutions and the help of AI." },
+      { icon: "team", title: "Expert Team", text: "Led by seasoned professionals with championship experience." },
+      { icon: "trophy", title: "Proven Results", text: "A history of developing champions at national, Asian and world levels." },
+    ] satisfies Feature[] as Feature[],
+    video: {
+      id: "about-sportify",
+      name: "About Sportify Academy",
+      embedUrl: "https://www.youtube-nocookie.com/embed/SxGDGpVDKIE?autoplay=1&rel=0",
+      poster: images.videoAbout,
+    },
     cta: "Read our story",
   },
-  partners: { title: "Trusted by" },
+  partners: { title: "Our Partners" },
   organisations: {
-    title: "Schools, nurseries, companies and clubs",
-    text: "We also work with organisations. Each one can start with a free pilot.",
+    title: "For organisations",
+    text: "Tailored programmes for schools, clubs and companies.",
+    action: "Enquire Now",
+    cards: [
+      {
+        id: "schools",
+        image: "schools",
+        name: "For Schools",
+        tag: "Student Programmes",
+        checklist: ["Movement & fitness assessments", "Talent identification", "School sports programmes"],
+        href: "/for-schools",
+      },
+      {
+        id: "clubs",
+        image: "clubs",
+        name: "For Sports Clubs",
+        tag: "Athlete Performance",
+        checklist: ["Individual & team testing", "Performance analysis", "Athlete development programmes"],
+        href: "/for-clubs",
+      },
+      {
+        id: "companies",
+        image: "companies",
+        name: "For Companies",
+        tag: "Corporate Wellness",
+        checklist: ["Employee fitness assessments", "Health & performance programmes", "Workshops & training sessions"],
+        href: "/for-companies",
+      },
+    ] satisfies ProgrammeCard<OrganisationPhoto>[] as ProgrammeCard<OrganisationPhoto>[],
+    features: [
+      { icon: "people", title: "Expert Team", text: "Certified coaches & specialists" },
+      { icon: "bars", title: "Data-Driven", text: "Clear insights & measurable results" },
+      { icon: "target", title: "Tailored Programmes", text: "For schools, clubs & businesses" },
+      { icon: "shield", title: "Proven Results", text: "Higher performance & lasting impact" },
+    ] satisfies Feature[] as Feature[],
   },
   faq: { title: "Questions parents ask" },
   final: {
     title: "Find your child's best sport.",
     text: "Answer a few short questions. We will message you on WhatsApp within 24 hours.",
   },
+  location: { title: "Where to find us" },
 };

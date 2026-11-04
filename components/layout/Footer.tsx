@@ -6,11 +6,9 @@ import { Container } from "../ui/Section";
 import { Txt } from "../ui/Txt";
 
 const headingClass = "mb-3 font-display font-bold text-white";
-const linkClass = "inline-block py-1 text-on-midnight-soft hover:text-orange";
+const linkClass = "inline-block py-1 text-on-midnight-soft hover:text-cyan";
 
 export function Footer() {
-  const pages = nav.main.filter((item) => !nav.organisations.some((org) => org.href === item.href));
-
   return (
     <footer className="bg-midnight text-on-midnight-soft">
       <Container className="grid grid-cols-1 gap-10 border-t border-white/10 py-14 sm:grid-cols-2 lg:grid-cols-4">
@@ -23,7 +21,7 @@ export function Footer() {
         <nav aria-label={ui.footerNavLabel}>
           <p className={headingClass}>{ui.pages}</p>
           <ul>
-            {pages.map((item) => (
+            {nav.main.map((item) => (
               <li key={item.href}>
                 <Link href={item.href} className={linkClass}>
                   {item.label}
@@ -46,7 +44,7 @@ export function Footer() {
         <div>
           <p className={headingClass}>{ui.organisations}</p>
           <ul>
-            {nav.organisations.map((item) => (
+            {[nav.organisationsOverview, ...nav.organisations].map((item) => (
               <li key={item.href}>
                 <Link href={item.href} className={linkClass}>
                   {item.label}

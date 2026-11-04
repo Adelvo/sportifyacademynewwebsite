@@ -71,11 +71,6 @@
   fill: var(--ink);
 }
 
-/* Only slivers would show behind the people on a narrow screen. */
-.triangles {
-  display: none;
-}
-
 .team {
   position: absolute;
   bottom: 0;
@@ -192,15 +187,6 @@
     top: calc(var(--u) * 130);
     left: calc(var(--u) * 63);
     width: calc(var(--u) * 1574);
-  }
-
-  .triangles {
-    display: block;
-    position: absolute;
-    height: auto;
-    top: calc(var(--u) * 498);
-    left: calc(var(--u) * 121);
-    width: calc(var(--u) * 314);
   }
 
   .team {
@@ -344,6 +330,7 @@
 
 .navLink {
   font-weight: 550;
+  white-space: nowrap;
   transition: color 150ms;
 }
 
@@ -393,7 +380,7 @@
   .navLinks {
     display: flex;
     align-items: center;
-    gap: calc(var(--u) * 61);
+    gap: calc(var(--u) * 50);
     font-size: calc(var(--u) * 20.1);
   }
 

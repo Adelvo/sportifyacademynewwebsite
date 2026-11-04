@@ -2,19 +2,17 @@ import Link from "next/link";
 import type { ComponentProps } from "react";
 
 const base =
-  "inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-6 py-3 text-center font-bold transition-colors disabled:cursor-not-allowed disabled:opacity-60";
+  "inline-flex min-h-12 items-center justify-center gap-2 rounded-xl px-6 py-3 text-center font-bold transition-colors disabled:cursor-not-allowed disabled:opacity-60";
 
 const variants = {
-  /** Main action. Midnight text on orange. */
-  primary: "bg-orange text-midnight hover:bg-orange-light",
-  /** Main action on a orange background. */
+  /** Main action. Midnight text on cyan. */
+  primary: "bg-cyan text-midnight hover:bg-cyan-light",
+  /** Main action on a cyan background. */
   midnight: "bg-midnight text-white hover:bg-midnight-700",
   /** Secondary action on midnight. */
   outlineLight: "border-2 border-white/50 text-white hover:border-white hover:bg-white/10",
   /** Secondary action on white. */
   outlineDark: "border-2 border-midnight text-midnight hover:bg-midnight hover:text-white",
-  /** Landing page cards: same colour as the hero's main button. */
-  cyan: "bg-[#00dafa] text-[#0a1f33] hover:bg-[#4ae6fc]",
   whatsapp: "bg-[#0E7A40] text-white hover:bg-[#0B6535]",
 };
 

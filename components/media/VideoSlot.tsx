@@ -7,13 +7,23 @@ import { Txt } from "../ui/Txt";
 import { Photo } from "./Photo";
 
 /** Loads the video player only after a click. Until a link is set, it shows a TODO. */
-export function VideoSlot({ video }: { video: VideoTestimonial }) {
+export function VideoSlot({
+  video,
+  frameClassName = "aspect-video",
+  posterClassName = "",
+  hideCaption = false,
+}: {
+  video: VideoTestimonial;
+  frameClassName?: string;
+  posterClassName?: string;
+  hideCaption?: boolean;
+}) {
   const [playing, setPlaying] = useState(false);
-  const title = `${video.name}, ${video.role}`;
+  const title = video.role ? `${video.name}, ${video.role}` : video.name;
 
   return (
     <figure>
-      <div className="relative aspect-video overflow-hidden rounded-2xl bg-midnight-800">
+      <div className={`relative overflow-hidden rounded-2xl bg-midnight-800 ${frameClassName}`}>
         {playing && video.embedUrl ? (
           <iframe
             src={video.embedUrl}
@@ -27,7 +37,7 @@ export function VideoSlot({ video }: { video: VideoTestimonial }) {
             <Photo
               image={video.poster}
               sizes="(min-width: 768px) 50vw, 100vw"
-              className="absolute inset-0 size-full"
+              className={`absolute inset-0 size-full ${posterClassName}`}
             />
             {video.embedUrl && (
               <button
@@ -36,7 +46,7 @@ export function VideoSlot({ video }: { video: VideoTestimonial }) {
                 aria-label={`${ui.video.play}: ${title}`}
                 className="absolute inset-0 grid place-items-center"
               >
-                <span className="grid size-16 place-items-center rounded-full bg-orange text-midnight">
+                <span className="grid size-16 place-items-center rounded-full bg-cyan text-midnight">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className="ms-1 size-7">
                     <path d="M8 5v14l11-7z" />
                   </svg>
@@ -46,15 +56,17 @@ export function VideoSlot({ video }: { video: VideoTestimonial }) {
           </>
         )}
       </div>
-      <figcaption className="mt-3">
-        <span className="block font-bold">{video.name}</span>
-        <span className="block text-ink-soft">{video.role}</span>
-        {!video.embedUrl && (
-          <span className="mt-1 block">
-            <Txt>{ui.video.todo}</Txt>
-          </span>
-        )}
-      </figcaption>
+      {!hideCaption && (
+        <figcaption className="mt-3">
+          <span className="block font-bold">{video.name}</span>
+          {video.role && <span className="block text-ink-soft">{video.role}</span>}
+          {!video.embedUrl && (
+            <span className="mt-1 block">
+              <Txt>{ui.video.todo}</Txt>
+            </span>
+          )}
+        </figcaption>
+      )}
     </figure>
   );
 }
