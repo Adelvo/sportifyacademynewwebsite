@@ -16,6 +16,12 @@ Run `npm run todos` to see every marker still left in `/content`, with file and 
 ### Figures (`content/en/stats.ts`)
 - [ ] **Which client figures are true.** Sources conflict: 30,000 clients vs 5,000+ children assessed; 235,000 tests vs 250,000-athlete database vs 11,800+ tests. The homepage stats band (`content/en/home.ts`) now shows +1,200 talents, +30,000 clients and +23,500 tests, as requested on 2026-11-04. Confirm the last two, especially 23,500 against the 235,000 above. Other pages use only "1,200+ talents discovered".
 
+### "Test my child" section (`content/en/home.ts`)
+- [ ] **Card wording.** It comes from the design and is not confirmed: "Most popular", "One-time assessment", the checklists (such as "Performance insights"), the "View Packages" descriptions (such as "Fitness + skills + psychology"), and "Ages 8+". Age 8 also falls in the 4–8 band, and the package helper's next band starts at 9.
+- [ ] **Package names.** The cards say "Kids Movement Test" and so on. The booking form and `/assessments` still use the official names, such as "Fundamental Movement Assessment". Choose one set.
+- [ ] **Elite + DNA at AED 1,200.** The card shows this price without a marker, but it is still unconfirmed (see "Packages and prices").
+- [ ] **Photo for Sport Talent Test.** It reuses the "Train with us" photo. The two new photos show a triangle logo on shirts, while the others show the S logo.
+
 ### Train and Recover sections (`content/en/home.ts`)
 - [ ] **Training and recovery services.** These landing page sections were added on 2026-11-04 for the "Train with us" and "Recover & fix pain" cards. Their lists are a draft, adapted from the B2B pages. Confirm what is offered to families, for which ages, and at what price.
 - [ ] **Who delivers recovery and pain treatment**, and whether they are licensed. See the health claims item in section 2.

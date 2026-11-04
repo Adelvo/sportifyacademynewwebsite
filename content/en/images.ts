@@ -26,6 +26,12 @@ export const images = {
     recover: { src: "/paths/recover.webp", width: 1122, height: 1402, alt: "A therapist in gloves holding the bent leg of a young athlete lying on a treatment table" },
     organisations: { src: "/paths/for-organisations.webp", width: 1122, height: 1402, alt: "A coach presenting to a seated group, in front of a screen with a rising bar chart" },
   },
+  // Photos on the "Test my child" cards.
+  tests: {
+    kids: { src: "/tests/kids-movement.webp", width: 1086, height: 679, alt: "A coach kneeling beside a young boy who is reaching for a cone during a movement test" },
+    talent: { src: "/tests/sport-talent.webp", width: 1122, height: 701, alt: "A girl sprinting during a test while a coach watches in the background" },
+    elite: { src: "/tests/elite-dna.webp", width: 1086, height: 679, alt: "A teenage athlete with folded arms in a laboratory, next to a screen showing a DNA helix" },
+  },
   session: img("test-session", 1200, 800, "A child during a test session with a Sportify Academy coach"),
   founder: img("founder-portrait", 800, 1000, "Portrait of Dr. Sajad Karami, Founder and Director of Sportify Academy"),
   method: img("method-measurement", 1200, 800, "A coach measuring a child's posture"),

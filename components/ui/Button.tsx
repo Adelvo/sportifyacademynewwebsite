@@ -13,6 +13,8 @@ const variants = {
   outlineLight: "border-2 border-white/50 text-white hover:border-white hover:bg-white/10",
   /** Secondary action on white. */
   outlineDark: "border-2 border-midnight text-midnight hover:bg-midnight hover:text-white",
+  /** Landing page cards: same colour as the hero's main button. */
+  cyan: "bg-[#00dafa] text-[#0a1f33] hover:bg-[#4ae6fc]",
   whatsapp: "bg-[#0E7A40] text-white hover:bg-[#0B6535]",
 };
 

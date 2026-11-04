@@ -1,3 +1,21 @@
+import type { PackageId } from "../types";
+
+interface TestCard {
+  id: string;
+  image: "kids" | "talent" | "elite";
+  name: string;
+  ages: string;
+  badge?: string;
+  /** One package: the card shows its price and books it directly. */
+  bookPackage?: PackageId;
+  priceNote?: string;
+  checklist: string[];
+  /** Several packages: the card shows the lowest price and lists them under "View Packages". */
+  options?: { packageId: PackageId; label: string; text?: string }[];
+  /** Shown under the list in the "View Packages" dialog. */
+  note?: string;
+}
+
 export const home = {
   meta: {
     title: "Find Your Child's Best Sport | Sportify Academy Dubai",
@@ -18,7 +36,7 @@ export const home = {
   paths: {
     label: "What are you looking for?",
     items: [
-      { id: "how-it-works", image: "test", lines: ["Test my", "child"] },
+      { id: "packages", image: "test", lines: ["Test my", "child"] },
       { id: "train", image: "train", lines: ["Train", "with us"] },
       { id: "recover", image: "recover", lines: ["Recover &", "fix pain"] },
       { id: "organisations", image: "organisations", lines: ["For", "organisations"] },
@@ -46,11 +64,52 @@ export const home = {
     title: "What we measure",
     text: "We look at the whole child. The tests depend on the package.",
   },
-  packages: {
-    title: "Three clear groups",
-    text: "Pick by your child's age and your goal.",
-    from: "From",
-    cta: "See all assessments and prices",
+  test: {
+    title: "Test my child",
+    text: "Find the right assessment for your child",
+    startingAt: "Starting at",
+    bookNow: "Book Now",
+    viewPackages: "View Packages",
+    cards: [
+      {
+        id: "kids",
+        image: "kids",
+        name: "Kids Movement Test",
+        ages: "Ages 4–8",
+        bookPackage: "fundamental-movement",
+        priceNote: "One-time assessment",
+        checklist: ["Balance & coordination", "Speed & movement", "Parent report"],
+      },
+      {
+        id: "talent",
+        image: "talent",
+        name: "Sport Talent Test",
+        ages: "Ages 8+",
+        badge: "Most popular",
+        checklist: ["Fitness assessment", "Strength & endurance", "Full talent option"],
+        options: [
+          { packageId: "physical-fitness", label: "Fitness Test", text: "Strength, speed, endurance" },
+          {
+            packageId: "sports-talent",
+            label: "Full Talent Test",
+            text: "Fitness + skills + psychology → the 2–3 best sports for your child",
+          },
+        ],
+      },
+      {
+        id: "elite",
+        image: "elite",
+        name: "Elite DNA Test",
+        ages: "Ages 8+",
+        checklist: ["DNA analysis", "Performance insights", "Premium package options"],
+        options: [
+          { packageId: "sports-elite", label: "Elite + DNA" },
+          { packageId: "genetics-elite", label: "Elite Premium + DNA" },
+          { packageId: "genetics-talent", label: "Complete (DNA + Full Talent Test)" },
+        ],
+        note: "Everything: DNA, psychology, body, posture, foot scan, diet analysis",
+      },
+    ] satisfies TestCard[] as TestCard[],
   },
   train: {
     title: "Train with us",
