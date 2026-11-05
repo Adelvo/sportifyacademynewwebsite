@@ -5,14 +5,6 @@ Run `npm run todos` to see every marker still left in `/content`, with file and 
 
 ## 1. Confirm with the client
 
-### Packages and prices (`content/en/packages.ts`)
-- [ ] **What each package includes.** Most cells in the comparison table show TODO. Only the AED 4,000 package has a full list. Ask for a package-by-package list. This is the biggest content gap.
-- [ ] **Sports Elite Identification price and contents.** At AED 1,200 with genetics, it costs less than Sports Talent Identification at AED 1,500. Parents will ask why.
-- [ ] **Which packages really include genetics.**
-- [ ] **Full contents** of Physical Fitness and Genetics + Sports Elite.
-- [ ] **Package helper rules.** These are a draft (`recommendPackage`). Example: age 4–8 always gives Fundamental Movement.
-- [ ] **Age bands and minimum age.** 4–8, 9–12, 13–17 and 18+ are a draft. The only confirmed band is 4–8.
-
 ### Figures (`content/en/stats.ts`)
 - [ ] **Which client figures are true.** Sources conflict: 30,000 clients vs 5,000+ children assessed; 235,000 tests vs 250,000-athlete database vs 11,800+ tests. The homepage stats, in the hero and again under the athlete videos (`content/en/home.ts`), now show +1,200 talents, +30,000 clients and +235,000 tests, as requested on 2026-11-04 and 2026-11-05. Confirm the last two. Other pages use only "1,200+ talents discovered". The "Why Sportify Academy" section on the homepage shows 18+ years, 30,000+ clients, 220,000+ data points, 1,200+ talents and 700+ championship medals. Confirm these too.
 
@@ -24,11 +16,10 @@ Run `npm run todos` to see every marker still left in `/content`, with file and 
 
 ### "Test my child" section (`content/en/home.ts`)
 - [ ] **Prices.** The cards show no prices, as requested on 2026-11-05, and have no button of their own. The only actions are the WhatsApp and Contact Us buttons under the cards. Add prices and booking when they are ready.
-- [ ] **Package names.** The four cards use the names from the old website's screenshots, such as "Fundamental Multi Sports Tests". The booking form and `/assessments` still use six other packages, such as "Fundamental Movement Assessment". Choose one set.
 - [ ] **Card wording.** The bullet points are very short versions of the old website's text and are not confirmed. "Not sure which test fits you or your child?" is new wording too.
 
 ### Train and Recover sections (`content/en/home.ts`)
-- [ ] **Train with us.** The programmes, ages and lists come from the design and are not confirmed. Also confirm the prices, and whether "Book" should stay a WhatsApp message (the booking form only covers assessments). "Reduce risk of injury" and "Safe & Professional" are claims: see the health claims item in section 2.
+- [ ] **Train with us.** The programmes, ages and lists come from the design and are not confirmed. Also confirm the prices, and whether "Book" should stay a WhatsApp message. "Reduce risk of injury" and "Safe & Professional" are claims: see the health claims item in section 2.
 - [ ] **Recover & fix pain.** The services, ages, lists and "Most popular" label come from the design and are not confirmed. The design gives no age for Sports Therapy & Recovery. Also confirm the prices, and whether "Book" should stay a WhatsApp message. "Reduce pain", "Safe Return to Sport" and the rehab wording are claims: see the health claims item in section 2.
 - [ ] **Photos for Recover & fix pain.** The return-to-play photo shows Nike logos on the shoes and socks. On the other two, the logo on the athlete's shirt differs from the S logo, and on the sports therapy photo it has unreadable text.
 - [ ] **Who delivers recovery and pain treatment**, and whether they are licensed. See the health claims item in section 2.
@@ -50,11 +41,6 @@ Run `npm run todos` to see every marker still left in `/content`, with file and 
 - [ ] **Dr. Karami's photo on the About page** shows an Adidas logo on his shirt. Confirm this is fine, or supply one with the S logo.
 - [ ] **"About Sportify Academy" section on the About page.** It repeats the homepage text, stats and highlights from "Why Sportify Academy": see that section above.
 - [ ] Official names of the UAE federations (`content/en/partners.ts`).
-
-### Draft wording to approve
-Nothing here was in the brief as a fact. Please read and approve it:
-- [ ] "What" and "why" lines for each measure (`content/en/measures.ts`).
-- [ ] Form options: current sports and goals (`content/en/packages.ts`).
 
 ## 2. For the client's lawyer
 - [ ] Write the final Privacy Policy, Terms and Cookie Policy (`content/en/legal.ts`). The current text only says what each section should cover.

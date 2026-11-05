@@ -2,7 +2,6 @@
 export const whatsappMessages: Record<string, string> = {
   "/": "Hello Sportify Academy. I would like to find my child's best sport.",
   "/test-my-child": "Hello Sportify Academy. Can you help me choose the right test for my child?",
-  "/assessments": "Hello Sportify Academy. I have a question about your assessments and prices.",
   "/about": "Hello Sportify Academy. I would like to know more about your method.",
   "/report": "Hello Sportify Academy. I have a question about my child's report.",
 };

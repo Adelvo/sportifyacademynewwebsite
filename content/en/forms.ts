@@ -1,36 +1,5 @@
 import type { FormConfig } from "../types";
 
-export const bookingForm = {
-  steps: {
-    age: {
-      title: "How old is your child?",
-      hint: "[TODO: confirm with client: age bands and minimum age]",
-    },
-    sport: {
-      title: "What sport does your child do now?",
-      otherLabel: "Which sport?",
-    },
-    goal: { title: "What is your main goal?" },
-    package: {
-      title: "Which package would you like?",
-      notSure: "Not sure yet. Please advise me.",
-      recommended: "Recommended",
-    },
-    details: { title: "Your details" },
-  },
-  fields: {
-    parentName: "Parent's name",
-    childName: "Child's first name",
-    whatsapp: "WhatsApp number",
-    email: "Email",
-    consent: "I agree to be contacted by WhatsApp/email about my booking.",
-  },
-  submit: "Send booking request",
-  successTitle: "Thank you!",
-  successText: "We'll message you on WhatsApp within 24 hours.",
-  whatsappMessage: "Hello Sportify Academy. I just sent a booking request on your website.",
-};
-
 export const reportForm: FormConfig = {
   source: "report-qr",
   submitLabel: "Get my child's results",

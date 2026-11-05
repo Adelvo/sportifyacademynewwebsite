@@ -4,12 +4,12 @@ export const homeFaq: FaqItem[] = [
   {
     question: "What age can my child be tested?",
     answer:
-      "Children aged 4–8 take the Fundamental Movement Assessment. Older children take our other assessments. [TODO: confirm with client: minimum and maximum age]",
+      "We test children of different ages. The right test depends on your child's age. [TODO: confirm with client: minimum and maximum age]",
   },
   {
     question: "What happens during the test?",
     answer:
-      "It is one session of about 90 minutes. We can measure fitness, skills, psychology, body measurements, posture, gait and body composition. The tests depend on the package you choose.",
+      "It is one session of about 90 minutes. We can measure fitness, skills, psychology, body measurements, posture, gait and body composition. The tests depend on the assessment you choose.",
   },
   {
     question: "How accurate is the assessment?",
@@ -17,9 +17,9 @@ export const homeFaq: FaqItem[] = [
       "Your report is based on measurements, not on opinion. Our founder has 18 years of experience in talent identification. [TODO: confirm with client: accuracy evidence or scientific references]",
   },
   {
-    question: "Which package should I choose?",
-    answer: "It depends on your child's age and your goal. Our short helper will suggest a package.",
-    link: { href: "/assessments#helper", label: "Open the package helper" },
+    question: "Which test should I choose?",
+    answer: "It depends on your child's age and your goal. Message us on WhatsApp and we will help you choose.",
+    link: { href: "/test-my-child", label: "See our tests" },
   },
   {
     question: "Can you introduce my child to a club?",
@@ -40,15 +40,4 @@ export const homeFaq: FaqItem[] = [
     question: "What happens after I book?",
     answer: "We will message you on WhatsApp within 24 hours about your booking.",
   },
-];
-
-export const assessmentsFaq: FaqItem[] = [
-  homeFaq[0],
-  homeFaq[5],
-  {
-    question: "Which packages include genetics?",
-    answer:
-      "Genetics is part of our premium packages. [TODO: confirm with client: which packages really include genetics]",
-  },
-  homeFaq[7],
 ];

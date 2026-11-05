@@ -403,9 +403,10 @@
   }
 }
 
-/* ---------- Landing intro: scrolling down slides the hero out to the left and the offers in from
-   the right. It releases the page once the cards are centred. Screens the panels don't fit, browsers
-   without scroll-driven animations and reduced motion get the same two sections stacked instead. */
+/* ---------- Landing intro, laptops and desktops only: scrolling down slides the hero out to the left
+   and the offers in from the right. It releases the page once the cards are centred. Phones, tablets
+   in portrait, browsers without scroll-driven animations and reduced motion get the same two sections
+   stacked instead. */
 
 /* Links to the offers land on this anchor, as the cards themselves sit off to the side while pinned.
    Stacked, the wrappers step aside so that it can sit between the hero and the offers. */
@@ -441,8 +442,7 @@
 }
 
 @supports (animation-timeline: view()) {
-  @media (prefers-reduced-motion: no-preference) and (min-width: 1024px) and (min-height: 560px),
-    (prefers-reduced-motion: no-preference) and (max-width: 1023px) and (orientation: portrait) and (min-height: 720px) {
+  @media (prefers-reduced-motion: no-preference) and (min-width: 1024px) and (min-height: 420px) {
     .introTrack {
       display: block;
       position: relative;
@@ -482,7 +482,7 @@
       min-width: 0;
     }
 
-    /* Spare height on tall, narrow screens goes above the wordmark, so hero and band stay together. */
+    /* Spare height on tall windows goes above the wordmark, so hero and band stay together. */
     .wrap {
       display: flex;
       flex-direction: column;
@@ -493,8 +493,7 @@
     }
 
     .hero {
-      flex: 1;
-      min-height: 0;
+      flex: none;
       overflow: visible;
     }
 
@@ -515,7 +514,7 @@
     /* Positioned, so it paints above the hero's photo. */
     .offers {
       --pad: max(4rem, 11svh);
-      --foot: 7.25rem;
+      --foot: clamp(4.75rem, 10svh, 6.25rem);
       position: relative;
       background: none;
       display: flex;
@@ -539,38 +538,16 @@
 
     /* Limited by the height as well, so all the cards always fit. */
     .offersGrid {
-      --gap: 0.75rem;
+      --gap: 1.25rem;
       --room: calc(100svh - var(--pad) - var(--foot) - 6rem);
-      --card: calc((var(--room) - var(--gap)) / 2);
       margin-inline: auto;
-      max-width: calc(var(--card) * 1.2 + var(--gap));
-    }
-
-    @media (min-width: 768px) {
-      .offersGrid {
-        --card: var(--room);
-        max-width: calc(var(--card) * 2.4 + 3 * var(--gap));
-      }
+      max-width: calc(var(--room) * 2.4 + 3 * var(--gap));
     }
 
     /* Fades into the spare height instead of showing the photo's top edge. */
-    @media (min-width: 1024px) and (max-aspect-ratio: 8/5) {
+    @media (max-aspect-ratio: 8/5) {
       .background {
         mask-image: linear-gradient(transparent, #000 15%);
-      }
-    }
-
-    @media (min-width: 1024px) {
-      .hero {
-        flex: none;
-      }
-
-      .offers {
-        --foot: clamp(4.75rem, 10svh, 6.25rem);
-      }
-
-      .offersGrid {
-        --gap: 1.25rem;
       }
     }
   }

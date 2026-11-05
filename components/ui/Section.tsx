@@ -51,23 +51,3 @@ export function SectionHeading({
     </div>
   );
 }
-
-/** Short page header for pages without a full hero. */
-export function PageHero({ eyebrow, headline, sub }: { eyebrow: string; headline: string; sub: string }) {
-  return (
-    <section className="bg-linear-to-b from-[#eef1f8] to-white py-20 text-midnight sm:py-24">
-      <Container>
-        <div className="flex items-start gap-4">
-          <svg viewBox="0 0 24 28" aria-hidden="true" className="mt-8 w-6 shrink-0 fill-cyan sm:mt-9 sm:w-8 lg:mt-10">
-            <path d="M0 0l24 14L0 28z" />
-          </svg>
-          <div>
-            <p className="mb-4 font-semibold text-cyan-deep">{eyebrow}</p>
-            <h1 className="max-w-4xl text-4xl sm:text-5xl lg:text-6xl">{headline}</h1>
-            <p className="mt-6 max-w-2xl text-lg text-ink-soft">{sub}</p>
-          </div>
-        </div>
-      </Container>
-    </section>
-  );
-}

@@ -4,8 +4,6 @@ export * from "./en/site";
 export * from "./en/ui";
 export * from "./en/images";
 export * from "./en/stats";
-export * from "./en/packages";
-export * from "./en/measures";
 export * from "./en/faq";
 export * from "./en/partners";
 export * from "./en/testimonials";

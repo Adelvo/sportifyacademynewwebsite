@@ -1,7 +1,6 @@
 // Interface wording, kept here so it can be translated with the rest of the content.
 export const ui = {
   skipToContent: "Skip to main content",
-  bookAssessment: "Book assessment",
   ourOffers: "Our offers",
   menuOpen: "Open menu",
   menuClose: "Close menu",
@@ -14,8 +13,6 @@ export const ui = {
   youtubeLabel: "Sportify Academy on YouTube",
   close: "Close",
   honeypotLabel: "Leave this field empty",
-  book: "Book",
-  bookThisPackage: "Book this package",
   callUs: "Call us",
   address: "Address",
   phone: "Phone",
@@ -23,7 +20,6 @@ export const ui = {
   pages: "Pages",
   legal: "Legal",
   rights: "All rights reserved.",
-  illustrationNote: "Illustration only. Not a real result.",
   map: {
     title: "Map to Sportify Academy",
     open: "Open in Google Maps",
@@ -53,23 +49,5 @@ export const ui = {
       consent: "Please tick this box to continue.",
       submit: "Sorry, we could not send your form. Please try again, or message us on WhatsApp.",
     },
-  },
-  table: {
-    included: "Included",
-    todo: "TODO",
-    todoLegend:
-      "[TODO: confirm with client: package contents. Cells marked TODO are not yet confirmed.]",
-    caption: "What each package includes",
-    scrollHint: "Swipe sideways to see all packages.",
-    price: "Price",
-    measure: "What is included",
-  },
-  helper: {
-    ageLegend: "How old is your child?",
-    goalLegend: "What is your main goal?",
-    resultLabel: "We recommend",
-    alsoConsider: "Also consider:",
-    prompt: "Choose an age and a goal to see our recommendation.",
-    draftNote: "[TODO: confirm with client: recommendation rules]",
   },
 };

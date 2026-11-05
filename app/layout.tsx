@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import { Montserrat } from "next/font/google";
-import { BookingProvider } from "@/components/forms/BookingProvider";
 import { ClosingSections } from "@/components/layout/ClosingSections";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
@@ -36,15 +35,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {ui.skipToContent}
         </a>
         <UtmCapture />
-        <BookingProvider>
-          <Header />
-          <main id="main">
-            {children}
-            <ClosingSections />
-          </main>
-          <Footer />
-          <WhatsAppButton />
-        </BookingProvider>
+        <Header />
+        <main id="main">
+          {children}
+          <ClosingSections />
+        </main>
+        <Footer />
+        <WhatsAppButton />
       </body>
     </html>
   );
