@@ -368,6 +368,21 @@
   box-shadow: 0 16px 32px rgb(10 31 51 / 0.14);
 }
 
+/* The menu button is for phones only: from tablet width up the links sit in the header. */
+@media (min-width: 768px) {
+  .navLinks {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.875rem;
+  }
+
+  .mobileActions,
+  .mobileMenu {
+    display: none;
+  }
+}
+
 /* The header sits outside the hero's size container, so its --u is measured in vw. */
 @media (min-width: 1024px) {
   .headerRow {
@@ -382,15 +397,8 @@
   }
 
   .navLinks {
-    display: flex;
-    align-items: center;
     gap: calc(var(--u) * 50);
     font-size: calc(var(--u) * 20.1);
-  }
-
-  .mobileActions,
-  .mobileMenu {
-    display: none;
   }
 
   .headerSolid .headerRow {

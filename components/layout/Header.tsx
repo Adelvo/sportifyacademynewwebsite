@@ -8,7 +8,7 @@ import styles from "../home/hero.module.css";
 import { BrandLogo } from "../ui/BrandLogo";
 import { Container } from "../ui/Section";
 
-const linkClass = "rounded text-sm font-semibold whitespace-nowrap text-midnight hover:text-cyan-deep aria-[current=page]:text-cyan-deep";
+const linkClass = "rounded text-[13px] font-semibold lg:text-sm whitespace-nowrap text-midnight hover:text-cyan-deep aria-[current=page]:text-cyan-deep";
 
 export function Logo() {
   return (
@@ -90,7 +90,7 @@ function SiteHeader({ pathname }: { pathname: string }) {
       <Container className="flex h-16 items-center justify-between gap-4 sm:h-18">
         <Logo />
 
-        <nav aria-label={ui.mainNavLabel} className="hidden items-center gap-4 xl:flex">
+        <nav aria-label={ui.mainNavLabel} className="hidden items-center gap-2.5 md:flex lg:gap-4">
           {nav.main.map((item) => (
             <Link
               key={item.href}
@@ -110,7 +110,7 @@ function SiteHeader({ pathname }: { pathname: string }) {
             aria-controls="mobile-menu"
             aria-label={menuOpen ? ui.menuClose : ui.menuOpen}
             onClick={() => setMenuOpen((value) => !value)}
-            className="grid size-11 place-items-center rounded-full border-2 border-midnight/35 xl:hidden"
+            className="grid size-11 place-items-center rounded-full border-2 border-midnight/35 md:hidden"
           >
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true" className="size-5">
               {menuOpen ? <path d="M6 6l12 12M18 6L6 18" /> : <path d="M4 7h16M4 12h16M4 17h16" />}
@@ -123,7 +123,7 @@ function SiteHeader({ pathname }: { pathname: string }) {
         <nav
           id="mobile-menu"
           aria-label={ui.mainNavLabel}
-          className="max-h-[calc(100dvh-4rem)] overflow-y-auto border-t border-line bg-white pb-6 xl:hidden"
+          className="max-h-[calc(100dvh-4rem)] overflow-y-auto border-t border-line bg-white pb-6 md:hidden"
         >
           <Container>
             <ul className="py-2">
