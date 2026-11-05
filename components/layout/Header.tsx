@@ -95,58 +95,60 @@ function HomeHeader() {
   const menuLinks = allLinks.filter((item, index) => allLinks.findIndex((other) => other.href === item.href) === index);
 
   return (
-    <header className={styles.header}>
-      <div className={styles.headerRow}>
-        <Link href="/" aria-label={`${site.name}, home`}>
-          <BrandLogo preload className={styles.logo} />
-        </Link>
+    <div className={styles.headerTrack}>
+      <header className={styles.header}>
+        <div className={styles.headerRow}>
+          <Link href="/" aria-label={`${site.name}, home`}>
+            <BrandLogo preload className={styles.logo} />
+          </Link>
 
-        <nav aria-label={ui.mainNavLabel} className={styles.navLinks}>
-          {nav.home.map((item) => (
-            <Link key={item.href} href={item.href} className={styles.navLink}>
-              {item.label}
-            </Link>
-          ))}
-          <button type="button" onClick={() => openBooking()} className={styles.navLink}>
-            {nav.bookLabel}
-          </button>
-        </nav>
+          <nav aria-label={ui.mainNavLabel} className={styles.navLinks}>
+            {nav.home.map((item) => (
+              <Link key={item.href} href={item.href} className={styles.navLink}>
+                {item.label}
+              </Link>
+            ))}
+            <button type="button" onClick={() => openBooking()} className={styles.navLink}>
+              {nav.bookLabel}
+            </button>
+          </nav>
 
-        <div className={styles.mobileActions}>
-          <button type="button" onClick={() => openBooking()} className={styles.mobileBook}>
-            {nav.bookLabel}
-          </button>
-          <button
-            type="button"
-            aria-expanded={menuOpen}
-            aria-controls="mobile-menu"
-            aria-label={menuOpen ? ui.menuClose : ui.menuOpen}
-            onClick={() => setMenuOpen((value) => !value)}
-            className={styles.menuButton}
-          >
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true" className="size-5">
-              {menuOpen ? <path d="M6 6l12 12M18 6L6 18" /> : <path d="M4 7h16M4 12h16M4 17h16" />}
-            </svg>
-          </button>
+          <div className={styles.mobileActions}>
+            <button type="button" onClick={() => openBooking()} className={styles.mobileBook}>
+              {nav.bookLabel}
+            </button>
+            <button
+              type="button"
+              aria-expanded={menuOpen}
+              aria-controls="mobile-menu"
+              aria-label={menuOpen ? ui.menuClose : ui.menuOpen}
+              onClick={() => setMenuOpen((value) => !value)}
+              className={styles.menuButton}
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true" className="size-5">
+                {menuOpen ? <path d="M6 6l12 12M18 6L6 18" /> : <path d="M4 7h16M4 12h16M4 17h16" />}
+              </svg>
+            </button>
+          </div>
         </div>
-      </div>
 
-      {menuOpen && (
-        <nav id="mobile-menu" aria-label={ui.mainNavLabel} className={`${styles.mobileMenu} max-h-[calc(100dvh-4rem)] overflow-y-auto pb-6`}>
-          <Container>
-            <ul className="py-2">
-              {menuLinks.map((item) => (
-                <li key={item.href}>
-                  <Link href={item.href} onClick={close} className="block py-3 text-lg font-semibold">
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </Container>
-        </nav>
-      )}
-    </header>
+        {menuOpen && (
+          <nav id="mobile-menu" aria-label={ui.mainNavLabel} className={`${styles.mobileMenu} max-h-[calc(100dvh-4rem)] overflow-y-auto pb-6`}>
+            <Container>
+              <ul className="py-2">
+                {menuLinks.map((item) => (
+                  <li key={item.href}>
+                    <Link href={item.href} onClick={close} className="block py-3 text-lg font-semibold">
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </Container>
+          </nav>
+        )}
+      </header>
+    </div>
   );
 }
 

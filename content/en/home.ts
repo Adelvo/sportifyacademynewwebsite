@@ -71,7 +71,7 @@ export const home = {
     ],
   },
   paths: {
-    label: "What are you looking for?",
+    title: "Our offers",
     items: [
       { href: "/test-my-child", image: "test", lines: ["Test my", "child"] },
       { href: "/train-with-us", image: "train", lines: ["Train", "with us"] },

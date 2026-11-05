@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { BookingForm } from "@/components/forms/BookingForm";
 import { AthleteStats } from "@/components/home/AthleteStats";
 import { HomeHero } from "@/components/home/HomeHero";
+import { HomeIntro } from "@/components/home/HomeIntro";
 import { PathCards } from "@/components/home/PathCards";
 import { WhySportify } from "@/components/home/WhySportify";
 import { MapEmbed } from "@/components/media/MapEmbed";
@@ -21,8 +22,10 @@ export default function HomePage() {
   return (
     <>
       <JsonLd data={faqJsonLd(homeFaq)} />
-      <HomeHero />
-      <PathCards />
+      <HomeIntro>
+        <HomeHero />
+        <PathCards />
+      </HomeIntro>
 
       <Section id="results" tone="mist">
         <h2 className="mb-10 text-3xl sm:mb-14 sm:text-4xl lg:text-5xl">{home.testimonials.title}</h2>

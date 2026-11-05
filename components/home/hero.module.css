@@ -299,14 +299,19 @@
 
 /* ---------- Header on the homepage: transparent, over the hero. */
 
+/* Only takes part in layout while the landing intro is pinned (see below). */
+.headerTrack {
+  display: contents;
+  --band: clamp(4.75rem, 10svh, 6.25rem);
+  --u: min(100vw / 1672, (100svh - var(--band)) / 885);
+}
+
 .header {
   position: absolute;
   inset: 0 0 auto;
   z-index: 40;
   color: #0a1f33;
   font-family: var(--font-hero), var(--font-sans);
-  --band: clamp(4.75rem, 10svh, 6.25rem);
-  --u: min(100vw / 1672, (100svh - var(--band)) / 885);
 }
 
 .headerRow {
@@ -387,5 +392,156 @@
   .mobileActions,
   .mobileMenu {
     display: none;
+  }
+}
+
+/* ---------- Landing intro: scrolling down slides the hero out to the left and the offers in from
+   the right. It releases the page once the cards are centred. Screens the panels don't fit, browsers
+   without scroll-driven animations and reduced motion get the same two sections stacked instead. */
+
+@keyframes introSlide {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Cancels the slide exactly, so the studio, the gym and the stats band stay in place. */
+@keyframes introHold {
+  to {
+    transform: translateX(100cqw);
+  }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) and (min-width: 1024px) and (min-height: 560px),
+    (prefers-reduced-motion: no-preference) and (max-width: 1023px) and (orientation: portrait) and (min-height: 720px) {
+    .introTrack {
+      height: calc(100dvh + 100svh);
+      view-timeline: --intro-slide block;
+      /* Otherwise the page scroll-padding starts the slide before the top of the page. */
+      view-timeline-inset: 0;
+    }
+
+    .introStage {
+      position: sticky;
+      top: 0;
+      z-index: 35;
+      height: 100dvh;
+      overflow: clip;
+      background: #eef1f8;
+    }
+
+    .introRail {
+      display: flex;
+      width: 200%;
+      height: 100%;
+      animation: introSlide linear both;
+      animation-timeline: --intro-slide;
+      animation-range: contain 0% contain 100%;
+    }
+
+    .introRail > * {
+      flex: 0 0 50%;
+      min-width: 0;
+    }
+
+    /* Spare height on tall, narrow screens goes above the wordmark, so hero and band stay together. */
+    .wrap {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      z-index: auto;
+      overflow: visible;
+      background: none;
+    }
+
+    .hero {
+      flex: 1;
+      min-height: 0;
+      overflow: visible;
+    }
+
+    .background,
+    .gym,
+    .stats {
+      animation: introHold linear both;
+      animation-timeline: --intro-slide;
+      animation-range: contain 0% contain 100%;
+    }
+
+    /* Covers the people's legs where they crop, now the hero no longer clips them. */
+    .stats {
+      position: relative;
+    }
+
+    /* Vertically centred between the header and the stats band. */
+    /* Positioned, so it paints above the hero's photo. */
+    .offers {
+      --pad: max(4rem, 11svh);
+      --foot: 7.25rem;
+      position: relative;
+      background: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-block: var(--pad) var(--foot);
+    }
+
+    /* Limited by the height as well, so all the cards always fit. */
+    .offersGrid {
+      --gap: 0.75rem;
+      --room: calc(100svh - var(--pad) - var(--foot) - 6rem);
+      --card: calc((var(--room) - var(--gap)) / 2);
+      margin-inline: auto;
+      max-width: calc(var(--card) * 1.2 + var(--gap));
+    }
+
+    /* The header stays in place for the slide, then leaves together with the cards. */
+    .headerTrack {
+      display: block;
+      position: absolute;
+      inset: 0 0 auto;
+      z-index: 40;
+      height: calc(100svh + 4rem);
+      pointer-events: none;
+    }
+
+    .header {
+      position: sticky;
+      top: 0;
+      pointer-events: auto;
+    }
+
+    @media (min-width: 768px) {
+      .offersGrid {
+        --card: var(--room);
+        max-width: calc(var(--card) * 2.4 + 3 * var(--gap));
+      }
+    }
+
+    /* Fades into the spare height instead of showing the photo's top edge. */
+    @media (min-width: 1024px) and (max-aspect-ratio: 8/5) {
+      .background {
+        mask-image: linear-gradient(transparent, #000 15%);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .hero {
+        flex: none;
+      }
+
+      .offers {
+        --foot: clamp(4.75rem, 10svh, 6.25rem);
+      }
+
+      .offersGrid {
+        --gap: 1.25rem;
+      }
+
+      .headerTrack {
+        height: calc(100svh + var(--u) * 96);
+      }
+    }
   }
 }

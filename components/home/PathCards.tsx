@@ -2,13 +2,17 @@ import Link from "next/link";
 import { Photo } from "@/components/media/Photo";
 import { Container } from "@/components/ui/Section";
 import { home, images } from "@/content";
+import styles from "./hero.module.css";
 
-/** The four ways in, directly under the stats band. Each card opens its own page. */
+/** The four ways in, which slide in after the hero. Each card opens its own page. */
 export function PathCards() {
   return (
-    <section aria-label={home.paths.label} className="bg-white py-8 sm:py-12">
+    <section aria-labelledby="offers-title" className={`bg-white py-8 sm:py-12 ${styles.offers}`}>
       <Container>
-        <ul className="grid grid-cols-2 gap-3 md:grid-cols-4 lg:gap-5">
+        <h2 id="offers-title" className="mb-5 text-center font-[family-name:var(--font-hero)]! text-3xl tracking-tight sm:mb-6 sm:text-4xl lg:text-5xl">
+          {home.paths.title}
+        </h2>
+        <ul className={`grid grid-cols-2 gap-3 md:grid-cols-4 lg:gap-5 ${styles.offersGrid}`}>
           {home.paths.items.map((item) => (
             <li key={item.href}>
               <Link
