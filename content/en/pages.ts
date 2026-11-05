@@ -1,20 +1,3 @@
-export const contactPage = {
-  meta: {
-    title: "Contact Sportify Academy | Sheikh Zayed Road, Dubai",
-    description:
-      "Visit Sportify Academy in Al Sufouh 1, Dubai, call us, or message us on WhatsApp at +971 54 201 0201.",
-    path: "/contact",
-  },
-  hero: {
-    eyebrow: "Contact",
-    headline: "Talk to us.",
-    sub: "WhatsApp is the fastest way to reach us.",
-  },
-  detailsTitle: "Find us",
-  formTitle: "Send us a message",
-  orgTitle: "Are you an organisation?",
-};
-
 export const reportPage = {
   meta: {
     title: "Get Your Child's Results | Sportify Academy",

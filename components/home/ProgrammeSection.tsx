@@ -1,5 +1,5 @@
 import { Photo } from "@/components/media/Photo";
-import { ExternalButton, LinkButton } from "@/components/ui/Button";
+import { ExternalButton } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Section";
 import type { Programmes } from "@/content/en/home";
 import type { ImageAsset } from "@/content/types";
@@ -69,23 +69,13 @@ export function ProgrammeSection<Image extends string>({
                     ))}
                   </ul>
                   <div className="mt-auto pt-7">
-                    {card.href !== undefined ? (
-                      <LinkButton
-                        href={card.href}
-                        aria-label={`${section.action}: ${card.name}`}
-                        className="w-full rounded-xl!"
-                      >
-                        {section.action}
-                      </LinkButton>
-                    ) : (
-                      <ExternalButton
-                        href={whatsappUrl(card.whatsappMessage)}
-                        aria-label={`${section.action}: ${card.name}`}
-                        className="w-full rounded-xl!"
-                      >
-                        {section.action}
-                      </ExternalButton>
-                    )}
+                    <ExternalButton
+                      href={whatsappUrl(card.whatsappMessage)}
+                      aria-label={`${section.action}: ${card.name}`}
+                      className="w-full rounded-xl!"
+                    >
+                      {section.action}
+                    </ExternalButton>
                   </div>
                 </div>
               </article>

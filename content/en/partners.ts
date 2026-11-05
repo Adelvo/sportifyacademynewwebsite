@@ -32,7 +32,3 @@ export const partners: Partner[] = [
   // [TODO: confirm with client: the name of this partner (green arrow logo)]
   { id: "unnamed-partner", name: "Partner", logo: "/partners/unnamed-partner.webp" },
 ];
-
-export function partnersById(ids: string[]): Partner[] {
-  return partners.filter((p) => ids.includes(p.id));
-}

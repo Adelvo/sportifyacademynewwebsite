@@ -2,10 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { useState, useSyncExternalStore } from "react";
 import { nav, site, ui } from "@/content";
-import { BookButton } from "../forms/BookButton";
-import { useOpenBooking } from "../forms/BookingProvider";
 import styles from "../home/hero.module.css";
 import { BrandLogo } from "../ui/BrandLogo";
 import { Container } from "../ui/Section";
@@ -20,103 +18,34 @@ export function Logo() {
   );
 }
 
-function OrganisationsDropdown({ pathname }: { pathname: string }) {
-  const [open, setOpen] = useState(false);
-  const rootRef = useRef<HTMLDivElement>(null);
-  const buttonRef = useRef<HTMLButtonElement>(null);
-
-  useEffect(() => {
-    if (!open) return;
-    function onPointer(event: PointerEvent) {
-      if (!rootRef.current?.contains(event.target as Node)) setOpen(false);
-    }
-    function onKey(event: KeyboardEvent) {
-      if (event.key === "Escape") {
-        setOpen(false);
-        buttonRef.current?.focus();
-      }
-    }
-    document.addEventListener("pointerdown", onPointer);
-    document.addEventListener("keydown", onKey);
-    return () => {
-      document.removeEventListener("pointerdown", onPointer);
-      document.removeEventListener("keydown", onKey);
-    };
-  }, [open]);
-
-  return (
-    <div
-      ref={rootRef}
-      className="relative"
-      onBlur={(event) => {
-        if (!rootRef.current?.contains(event.relatedTarget as Node | null)) setOpen(false);
-      }}
-    >
-      <button
-        ref={buttonRef}
-        type="button"
-        aria-expanded={open}
-        aria-controls="org-menu"
-        onClick={() => setOpen((value) => !value)}
-        className={`${linkClass} inline-flex items-center gap-1`}
-      >
-        {nav.organisationsLabel}
-        <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" className={`size-4 transition-transform ${open ? "rotate-180" : ""}`}>
-          <path d="M5.2 7.2a.75.75 0 0 1 1.06 0L10 10.94l3.74-3.74a.75.75 0 1 1 1.06 1.06l-4.27 4.27a.75.75 0 0 1-1.06 0L5.2 8.26a.75.75 0 0 1 0-1.06Z" />
-        </svg>
-      </button>
-      {open && (
-        <ul id="org-menu" className="absolute end-0 top-full mt-3 w-72 rounded-2xl bg-white p-2 text-midnight shadow-xl ring-1 ring-black/10">
-          {[nav.organisationsOverview, ...nav.organisations].map((item) => (
-            <li key={item.href}>
-              <Link
-                href={item.href}
-                onClick={() => setOpen(false)}
-                aria-current={pathname === item.href ? "page" : undefined}
-                className="block rounded-xl px-4 py-3 hover:bg-mist"
-              >
-                <span className="block font-bold">{item.label}</span>
-                <span className="block text-sm text-ink-soft">{item.text}</span>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
-  );
+function subscribeToScroll(onChange: () => void) {
+  window.addEventListener("scroll", onChange, { passive: true });
+  return () => window.removeEventListener("scroll", onChange);
 }
 
-/** Transparent header that sits over the homepage hero. */
+/** Stays at the top of the homepage: transparent over the hero, solid white once the page scrolls. */
 function HomeHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const openBooking = useOpenBooking();
+  const scrolled = useSyncExternalStore(subscribeToScroll, () => window.scrollY > 8, () => false);
   const close = () => setMenuOpen(false);
-  const allLinks = [...nav.home, ...nav.main, ...nav.organisations];
-  const menuLinks = allLinks.filter((item, index) => allLinks.findIndex((other) => other.href === item.href) === index);
 
   return (
     <div className={styles.headerTrack}>
-      <header className={styles.header}>
+      <header className={`${styles.header} ${scrolled || menuOpen ? styles.headerSolid : ""}`}>
         <div className={styles.headerRow}>
           <Link href="/" aria-label={`${site.name}, home`}>
             <BrandLogo preload className={styles.logo} />
           </Link>
 
           <nav aria-label={ui.mainNavLabel} className={styles.navLinks}>
-            {nav.home.map((item) => (
+            {nav.main.map((item) => (
               <Link key={item.href} href={item.href} className={styles.navLink}>
                 {item.label}
               </Link>
             ))}
-            <button type="button" onClick={() => openBooking()} className={styles.navLink}>
-              {nav.bookLabel}
-            </button>
           </nav>
 
           <div className={styles.mobileActions}>
-            <button type="button" onClick={() => openBooking()} className={styles.mobileBook}>
-              {nav.bookLabel}
-            </button>
             <button
               type="button"
               aria-expanded={menuOpen}
@@ -136,7 +65,7 @@ function HomeHeader() {
           <nav id="mobile-menu" aria-label={ui.mainNavLabel} className={`${styles.mobileMenu} max-h-[calc(100dvh-4rem)] overflow-y-auto pb-6`}>
             <Container>
               <ul className="py-2">
-                {menuLinks.map((item) => (
+                {nav.main.map((item) => (
                   <li key={item.href}>
                     <Link href={item.href} onClick={close} className="block py-3 text-lg font-semibold">
                       {item.label}
@@ -172,11 +101,9 @@ function SiteHeader({ pathname }: { pathname: string }) {
               {item.label}
             </Link>
           ))}
-          <OrganisationsDropdown pathname={pathname} />
         </nav>
 
         <div className="flex items-center gap-2">
-          <BookButton className="min-h-11! px-4! py-2! text-sm whitespace-nowrap">{ui.bookAssessment}</BookButton>
           <button
             type="button"
             aria-expanded={menuOpen}
@@ -201,21 +128,6 @@ function SiteHeader({ pathname }: { pathname: string }) {
           <Container>
             <ul className="py-2">
               {nav.main.map((item) => (
-                <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    onClick={close}
-                    aria-current={pathname === item.href ? "page" : undefined}
-                    className="block py-3 text-lg font-semibold aria-[current=page]:text-cyan-deep"
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            <p className="mt-2 text-sm font-semibold text-ink-soft">{nav.organisationsLabel}</p>
-            <ul className="pt-1">
-              {[nav.organisationsOverview, ...nav.organisations].map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}

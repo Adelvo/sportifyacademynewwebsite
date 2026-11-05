@@ -26,11 +26,12 @@ export const images = {
     recover: { src: "/paths/recover.webp", width: 1122, height: 1402, alt: "A therapist in gloves holding the bent leg of a young athlete lying on a treatment table" },
     organisations: { src: "/paths/for-organisations.webp", width: 1122, height: 1402, alt: "A coach presenting to a seated group, in front of a screen with a rising bar chart" },
   },
-  // Photos on the "Test my child" cards.
+  // Posters for the videos on the "Test my child" cards: the videos' vertical YouTube thumbnails.
   tests: {
-    kids: { src: "/tests/kids-movement.webp", width: 1086, height: 679, alt: "A coach kneeling beside a young boy who is reaching for a cone during a movement test" },
-    talent: { src: "/tests/sport-talent.webp", width: 1122, height: 701, alt: "A girl sprinting during a test while a coach watches in the background" },
-    elite: { src: "/tests/elite-dna.webp", width: 1086, height: 679, alt: "A teenage athlete with folded arms in a laboratory, next to a screen showing a DNA helix" },
+    talentIdentification: { src: "/tests/talent-identification.webp", width: 576, height: 1024, alt: "A smiling young girl reaching forward along a bench during a flexibility test" },
+    fundamentalMultiSports: { src: "/tests/fundamental-multi-sports.webp", width: 479, height: 848, alt: "A Sportify Academy coach talking to the camera, with the words Every Child on screen" },
+    physicalFitness: { src: "/tests/physical-fitness.webp", width: 464, height: 832, alt: "Three people, one in a UAE triathlon suit, standing in front of the Sportify Academy logo" },
+    postureBodyGait: { src: "/tests/posture-body-gait.webp", width: 576, height: 1024, alt: "A woman standing on a round scanner in front of a body posture analysis banner" },
   },
   // Photos on the "Train with us" cards.
   train: {
@@ -45,23 +46,17 @@ export const images = {
     returnToPlay: { src: "/recover/return-to-play.webp", width: 800, height: 1000, alt: "A coach with a tablet watching a teenage boy step up onto a box between training cones" },
   },
   session: img("test-session", 1200, 800, "A child during a test session with a Sportify Academy coach"),
-  founder: img("founder-portrait", 800, 1000, "Portrait of Dr. Sajad Karami, Founder and Director of Sportify Academy"),
-  method: img("method-measurement", 1200, 800, "A coach measuring a child's posture"),
-  centre: [
-    img("centre-1", 1000, 700, "Reception at the Sportify Academy centre in Dubai"),
-    img("centre-2", 1000, 700, "Testing area at the Sportify Academy centre"),
-    img("centre-3", 1000, 700, "Gym floor at the Sportify Academy centre"),
-  ],
-  schools: img("b2b-schools", 1200, 800, "Students taking part in a school Talent Day"),
-  nurseries: img("b2b-nurseries", 1200, 800, "Young children doing a motor-skills check at a nursery"),
-  companies: img("b2b-companies", 1200, 800, "An employee having a posture check at the office"),
-  clubs: img("b2b-clubs", 1200, 800, "A sports team during a fitness test"),
+  founder: { src: "/about/dr-sajad-karami.webp", width: 768, height: 1152, alt: "Portrait of Dr. Sajad Karami, Founder and Director of Sportify Academy" },
   // Photos on the "For organisations" cards.
   organisations: {
     schools: { src: "/organisations/schools.webp", width: 1122, height: 841, alt: "A teenage boy touching a yellow cone during an agility drill in a sports hall, while a coach and other students watch" },
     clubs: { src: "/organisations/clubs.webp", width: 1122, height: 841, alt: "A Sportify Academy coach talking to a group of young athletes on an indoor pitch" },
     companies: { src: "/organisations/companies.webp", width: 464, height: 348, alt: "A trainer leading adults through a squat exercise in a gym" },
   },
+  // Long gym photo behind the Google reviews, blended from three photos used elsewhere on the site.
+  reviewsBackground: { src: "/reviews/gym-panorama.webp", width: 2800, height: 900, alt: "" },
+  // Long team photo behind the partners, blended from three photos used elsewhere on the site.
+  partnersBackground: { src: "/partners-band/team-panorama.webp", width: 3280, height: 900, alt: "" },
   // Video posters: frames taken from the YouTube videos.
   videoAbout: { src: "/videos/about-sportify.webp", width: 1280, height: 720, alt: "An athlete in a blue bib jumping on a test platform while Sportify Academy staff record the results" },
   videoOlivia: { src: "/videos/olivia.webp", width: 1280, height: 720, alt: "Olivia in her karate uniform, smiling and holding up a gold medal" },

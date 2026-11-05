@@ -1,7 +1,7 @@
 import Image from "next/image";
-import Link from "next/link";
-import { home, images } from "@/content";
+import { home, images, ui } from "@/content";
 import { HeroStats } from "./HeroStats";
+import { OffersLink } from "./OffersLink";
 import styles from "./hero.module.css";
 import { WORDMARK_PATH } from "./wordmarkPath";
 
@@ -52,12 +52,12 @@ export function HomeHero() {
               ))}
             </h1>
             <p className={styles.description}>{hero.sub}</p>
-            <Link href="#book" className={styles.cta}>
-              {hero.cta}
+            <OffersLink className={styles.cta}>
+              {ui.ourOffers}
               <svg viewBox="0 0 26 18" fill="none" stroke="currentColor" strokeWidth="2.4" aria-hidden="true" className={styles.arrow}>
                 <path d="M1 9h23M16.5 1.5 24 9l-7.5 7.5" />
               </svg>
-            </Link>
+            </OffersLink>
           </div>
         </div>
       </section>

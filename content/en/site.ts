@@ -17,39 +17,29 @@ export const site = {
     street: "7th Floor, La Suite Dubai Hotel & Apartments, Sidra Tower, Sheikh Zayed Rd, Al Sufouh 1",
     locality: "Dubai",
     country: "AE",
-    mapQuery: "La Suite Dubai Hotel & Apartments, Sidra Tower, Sheikh Zayed Rd, Al Sufouh 1, Dubai",
+    /** The Sportify Academy listing on Google Maps. */
+    mapUrl: "https://maps.app.goo.gl/bL6yuYqm8fWgw82MA",
+    mapEmbedUrl: "https://www.google.com/maps?q=Sportify+Academy,+Dubai&ll=25.1079577,55.1785488&z=16&output=embed&hl=en",
   },
-  emailTodo: "[TODO: confirm with client: email address]",
-  hoursTodo: "[TODO: confirm with client: opening hours]",
+  social: {
+    instagram: "https://www.instagram.com/sportify_academy",
+    youtube: "https://www.youtube.com/@sportifyacademy-2020",
+  },
+  hours: [
+    { days: "Mon – Sat", time: "10:00–20:00" },
+    { days: "Sun", time: "10:00–18:00" },
+  ],
 };
 
 export const nav = {
-  /** Header links on the homepage. The other pages use "main". */
-  home: [
-    { href: "/test-my-child", label: "Test my child" },
-    { href: "/train-with-us", label: "Train with us" },
-    { href: "/recover", label: "Recover & fix pain" },
-    { href: "/for-organisations", label: "For organisations" },
-    { href: "/assessments", label: "Assessments" },
-    { href: "/#results", label: "Results" },
-  ],
-  bookLabel: "Book",
+  /** Header and footer links, the same on every page. */
   main: [
     { href: "/test-my-child", label: "Test my child" },
     { href: "/train-with-us", label: "Train with us" },
     { href: "/recover", label: "Recover & fix pain" },
-    { href: "/assessments", label: "Assessments" },
+    { href: "/for-organisations", label: "For organisations" },
+    { href: "/#results", label: "Results" },
     { href: "/about", label: "About" },
-    { href: "/contact", label: "Contact" },
-  ],
-  organisationsLabel: "For Organisations",
-  /** Shown above the list of organisation types in the menus and footer. */
-  organisationsOverview: { href: "/for-organisations", label: "All organisations", text: "Programmes for schools, clubs and companies" },
-  organisations: [
-    { href: "/for-schools", label: "For Schools", text: "Talent days for your students" },
-    { href: "/for-nurseries", label: "For Nurseries", text: "Motor-skills screening, ages 3–6" },
-    { href: "/for-companies", label: "For Companies", text: "Posture and corporate wellness" },
-    { href: "/for-clubs", label: "For Clubs & Academies", text: "Scout with data" },
   ],
   legal: [
     { href: "/privacy", label: "Privacy Policy" },

@@ -1,4 +1,4 @@
-import type { FieldDef, FormConfig } from "../types";
+import type { FormConfig } from "../types";
 
 export const bookingForm = {
   steps: {
@@ -31,55 +31,6 @@ export const bookingForm = {
   whatsappMessage: "Hello Sportify Academy. I just sent a booking request on your website.",
 };
 
-const months = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
-
-const contactNote =
-  "By sending this form, you agree that we contact you about your request.";
-
-interface B2BFormOptions {
-  source: string;
-  types: string[];
-  countLabel: string;
-  submitLabel: string;
-  whatsappMessage: string;
-}
-
-export function b2bForm(o: B2BFormOptions): FormConfig {
-  const fields: FieldDef[] = [
-    { name: "organisation_name", label: "Organisation name", type: "text", required: true, autoComplete: "organization" },
-    { name: "organisation_type", label: "Organisation type", type: "select", required: true, options: o.types },
-    { name: "contact_name", label: "Contact name", type: "text", required: true, autoComplete: "name" },
-    { name: "role", label: "Your role", type: "text", required: true, autoComplete: "organization-title" },
-    { name: "work_email", label: "Work email", type: "email", required: true, autoComplete: "email" },
-    { name: "phone", label: "Phone", type: "tel", required: true, autoComplete: "tel", defaultValue: "+971 " },
-    { name: "group_size", label: o.countLabel, type: "text", required: true },
-    { name: "preferred_pilot_month", label: "Preferred pilot month", type: "select", options: months },
-    { name: "message", label: "Message", type: "textarea", wide: true },
-  ];
-  return {
-    source: o.source,
-    submitLabel: o.submitLabel,
-    successTitle: "Thank you!",
-    successText: "We have your request. We will contact you about your free pilot.",
-    whatsappMessage: o.whatsappMessage,
-    fields,
-    note: contactNote,
-  };
-}
-
 export const reportForm: FormConfig = {
   source: "report-qr",
   submitLabel: "Get my child's results",
@@ -103,27 +54,6 @@ export const reportForm: FormConfig = {
     {
       name: "consent_offers",
       label: "I also agree to receive related offers by WhatsApp and email. (Optional)",
-    },
-  ],
-};
-
-export const contactForm: FormConfig = {
-  source: "contact",
-  submitLabel: "Send message",
-  successTitle: "Thank you!",
-  successText: "We have your message. We will reply soon.",
-  whatsappMessage: "Hello Sportify Academy. I just sent a message on your website.",
-  fields: [
-    { name: "name", label: "Your name", type: "text", required: true, autoComplete: "name" },
-    { name: "whatsapp", label: "WhatsApp number", type: "tel", required: true, autoComplete: "tel", defaultValue: "+971 " },
-    { name: "email", label: "Email", type: "email", required: true, autoComplete: "email", wide: true },
-    { name: "message", label: "Message", type: "textarea", required: true, wide: true },
-  ],
-  consents: [
-    {
-      name: "consent",
-      label: "I agree to be contacted by WhatsApp/email about my message.",
-      required: true,
     },
   ],
 };

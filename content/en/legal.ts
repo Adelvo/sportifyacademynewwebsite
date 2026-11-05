@@ -69,7 +69,7 @@ export const cookiesPage: LegalPage = {
     },
     {
       title: "Third-party content",
-      text: `Google Maps and video players load only when a visitor presses the button. These services may set their own cookies. ${todo}`,
+      text: `Pages with a map load it from Google Maps when a visitor scrolls near it. Most video players load only when a visitor presses the button. The video in the “Why Sportify Academy?” section on the homepage loads from YouTube and plays without sound when a visitor scrolls to it. These services may set their own cookies. ${todo}`,
     },
     { title: "Analytics", text: `Add this section if analytics tools are added later. ${todo}` },
   ],

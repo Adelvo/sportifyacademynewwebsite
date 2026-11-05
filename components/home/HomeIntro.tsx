@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, type FocusEvent, type ReactNode } from "react";
+import { OFFERS_ID } from "@/lib/links";
 import styles from "./hero.module.css";
 
 /** Pins the hero and the offers while scrolling slides one out and the other in. The motion is all in CSS. */
@@ -22,6 +23,7 @@ export function HomeIntro({ children }: { children: ReactNode }) {
       <div className={styles.introStage}>
         <div className={styles.introRail}>{children}</div>
       </div>
+      <span id={OFFERS_ID} className={styles.offersAnchor} />
     </div>
   );
 }

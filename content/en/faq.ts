@@ -34,7 +34,7 @@ export const homeFaq: FaqItem[] = [
     question: "Do you test groups or schools?",
     answer:
       "Yes. We work with schools, nurseries, companies and clubs. One school programme tested 300+ students.",
-    link: { href: "/for-schools", label: "See our school programme" },
+    link: { href: "/for-organisations", label: "See our programmes for organisations" },
   },
   {
     question: "What happens after I book?",

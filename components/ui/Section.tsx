@@ -25,7 +25,7 @@ export function Section({
   className?: string;
 }) {
   return (
-    <section id={id} className={`py-16 sm:py-24 ${tones[tone]} ${className}`}>
+    <section id={id} className={`py-20 sm:py-24 ${tones[tone]} ${className}`}>
       <Container>{children}</Container>
     </section>
   );
@@ -41,7 +41,7 @@ export function SectionHeading({
   tone?: Tone;
 }) {
   return (
-    <div className="mb-10 max-w-2xl sm:mb-14">
+    <div className="mb-12 max-w-2xl sm:mb-14">
       <h2 className="text-3xl sm:text-4xl lg:text-5xl">{title}</h2>
       {text && (
         <p className={`mt-4 text-lg ${tone === "midnight" ? "text-on-midnight-soft" : "text-ink-soft"}`}>
@@ -55,7 +55,7 @@ export function SectionHeading({
 /** Short page header for pages without a full hero. */
 export function PageHero({ eyebrow, headline, sub }: { eyebrow: string; headline: string; sub: string }) {
   return (
-    <section className="bg-linear-to-b from-[#eef1f8] to-white py-16 text-midnight sm:py-24">
+    <section className="bg-linear-to-b from-[#eef1f8] to-white py-20 text-midnight sm:py-24">
       <Container>
         <div className="flex items-start gap-4">
           <svg viewBox="0 0 24 28" aria-hidden="true" className="mt-8 w-6 shrink-0 fill-cyan sm:mt-9 sm:w-8 lg:mt-10">

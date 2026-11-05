@@ -297,9 +297,8 @@
   }
 }
 
-/* ---------- Header on the homepage: transparent, over the hero. */
+/* ---------- Header on the homepage: stays on screen, transparent over the hero and solid after that. */
 
-/* Only takes part in layout while the landing intro is pinned (see below). */
 .headerTrack {
   display: contents;
   --band: clamp(4.75rem, 10svh, 6.25rem);
@@ -307,11 +306,17 @@
 }
 
 .header {
-  position: absolute;
+  position: fixed;
   inset: 0 0 auto;
   z-index: 40;
   color: #0a1f33;
   font-family: var(--font-hero), var(--font-sans);
+  transition: background-color 150ms, box-shadow 150ms;
+}
+
+.headerSolid {
+  background: #fff;
+  box-shadow: 0 1px 0 var(--color-line);
 }
 
 .headerRow {
@@ -347,12 +352,6 @@
   display: flex;
   align-items: center;
   gap: 0.25rem;
-}
-
-.mobileBook {
-  min-height: 2.75rem;
-  padding-inline: 0.75rem;
-  font-weight: 600;
 }
 
 .menuButton {
@@ -393,11 +392,40 @@
   .mobileMenu {
     display: none;
   }
+
+  .headerSolid .headerRow {
+    height: max(3.5rem, var(--u) * 76);
+  }
+
+  .headerSolid .logo {
+    width: max(7.5rem, var(--u) * 170);
+    margin-top: 0;
+  }
 }
 
 /* ---------- Landing intro: scrolling down slides the hero out to the left and the offers in from
    the right. It releases the page once the cards are centred. Screens the panels don't fit, browsers
    without scroll-driven animations and reduced motion get the same two sections stacked instead. */
+
+/* Links to the offers land on this anchor, as the cards themselves sit off to the side while pinned.
+   Stacked, the wrappers step aside so that it can sit between the hero and the offers. */
+.introTrack {
+  display: flex;
+  flex-direction: column;
+}
+
+.introStage,
+.introRail {
+  display: contents;
+}
+
+.offersAnchor {
+  order: 1;
+}
+
+.offers {
+  order: 2;
+}
 
 @keyframes introSlide {
   to {
@@ -416,13 +444,22 @@
   @media (prefers-reduced-motion: no-preference) and (min-width: 1024px) and (min-height: 560px),
     (prefers-reduced-motion: no-preference) and (max-width: 1023px) and (orientation: portrait) and (min-height: 720px) {
     .introTrack {
+      display: block;
+      position: relative;
       height: calc(100dvh + 100svh);
       view-timeline: --intro-slide block;
       /* Otherwise the page scroll-padding starts the slide before the top of the page. */
       view-timeline-inset: 0;
     }
 
+    /* The scroll position where the slide ends. The 5.5rem cancels the page scroll-padding. */
+    .offersAnchor {
+      position: absolute;
+      top: calc(100svh + 5.5rem);
+    }
+
     .introStage {
+      display: block;
       position: sticky;
       top: 0;
       z-index: 35;
@@ -487,6 +524,19 @@
       padding-block: var(--pad) var(--foot);
     }
 
+    /* Evens out the background: on its own, the rack and the line on the floor are sharper than the rest. */
+    .offers {
+      isolation: isolate;
+    }
+
+    .offers::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 var(--foot);
+      z-index: -1;
+      backdrop-filter: blur(10px);
+    }
+
     /* Limited by the height as well, so all the cards always fit. */
     .offersGrid {
       --gap: 0.75rem;
@@ -494,22 +544,6 @@
       --card: calc((var(--room) - var(--gap)) / 2);
       margin-inline: auto;
       max-width: calc(var(--card) * 1.2 + var(--gap));
-    }
-
-    /* The header stays in place for the slide, then leaves together with the cards. */
-    .headerTrack {
-      display: block;
-      position: absolute;
-      inset: 0 0 auto;
-      z-index: 40;
-      height: calc(100svh + 4rem);
-      pointer-events: none;
-    }
-
-    .header {
-      position: sticky;
-      top: 0;
-      pointer-events: auto;
     }
 
     @media (min-width: 768px) {
@@ -537,10 +571,6 @@
 
       .offersGrid {
         --gap: 1.25rem;
-      }
-
-      .headerTrack {
-        height: calc(100svh + var(--u) * 96);
       }
     }
   }

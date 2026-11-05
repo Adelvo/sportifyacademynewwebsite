@@ -14,16 +14,18 @@ Run `npm run todos` to see every marker still left in `/content`, with file and 
 - [ ] **Age bands and minimum age.** 4–8, 9–12, 13–17 and 18+ are a draft. The only confirmed band is 4–8.
 
 ### Figures (`content/en/stats.ts`)
-- [ ] **Which client figures are true.** Sources conflict: 30,000 clients vs 5,000+ children assessed; 235,000 tests vs 250,000-athlete database vs 11,800+ tests. The homepage stats, in the hero and again under the athlete videos (`content/en/home.ts`), now show +1,200 talents, +30,000 clients and +23,500 tests, as requested on 2026-11-04. Confirm the last two, especially 23,500 against the 235,000 above. Other pages use only "1,200+ talents discovered". The "Why Sportify Academy" section on the homepage shows 18+ years, 30,000+ clients, 220,000+ data points, 1,200+ talents and 700+ championship medals. Confirm these too.
+- [ ] **Which client figures are true.** Sources conflict: 30,000 clients vs 5,000+ children assessed; 235,000 tests vs 250,000-athlete database vs 11,800+ tests. The homepage stats, in the hero and again under the athlete videos (`content/en/home.ts`), now show +1,200 talents, +30,000 clients and +235,000 tests, as requested on 2026-11-04 and 2026-11-05. Confirm the last two. Other pages use only "1,200+ talents discovered". The "Why Sportify Academy" section on the homepage shows 18+ years, 30,000+ clients, 220,000+ data points, 1,200+ talents and 700+ championship medals. Confirm these too.
+
+### "Hear from our athletes" section (`content/en/home.ts`)
+- [ ] **Wording.** The line under the heading ("Real success stories from Sportify Academy athletes, in their own words.") is new and not confirmed. The "Success story" label comes from the video titles on YouTube.
 
 ### "Why Sportify Academy" section (`content/en/home.ts`)
 - [ ] **Wording.** The text comes from the design and is not confirmed. It replaces the longer list, which also covered 5,000+ programmes, the national team fitness specialists and the founder's three karate titles. "Proven Results", "Proven athlete development" and "the help of AI" are claims: see the health claims item in section 2.
 
 ### "Test my child" section (`content/en/home.ts`)
-- [ ] **Card wording.** It comes from the design and is not confirmed: "Most popular", "One-time assessment", the checklists (such as "Performance insights"), the "View Packages" descriptions (such as "Fitness + skills + psychology"), and "Ages 8+". Age 8 also falls in the 4–8 band, and the package helper's next band starts at 9.
-- [ ] **Package names.** The cards say "Kids Movement Test" and so on. The booking form and `/assessments` still use the official names, such as "Fundamental Movement Assessment". Choose one set.
-- [ ] **Elite + DNA at AED 1,200.** The card shows this price without a marker, but it is still unconfirmed (see "Packages and prices").
-- [ ] **Photo for Sport Talent Test.** It reuses the "Train with us" photo. The two new photos show a triangle logo on shirts, while the others show the S logo.
+- [ ] **Prices.** The cards show no prices, as requested on 2026-11-05, and have no button of their own. The only actions are the WhatsApp and Contact Us buttons under the cards. Add prices and booking when they are ready.
+- [ ] **Package names.** The four cards use the names from the old website's screenshots, such as "Fundamental Multi Sports Tests". The booking form and `/assessments` still use six other packages, such as "Fundamental Movement Assessment". Choose one set.
+- [ ] **Card wording.** The bullet points are very short versions of the old website's text and are not confirmed. "Not sure which test fits you or your child?" is new wording too.
 
 ### Train and Recover sections (`content/en/home.ts`)
 - [ ] **Train with us.** The programmes, ages and lists come from the design and are not confirmed. Also confirm the prices, and whether "Book" should stay a WhatsApp message (the booking form only covers assessments). "Reduce risk of injury" and "Safe & Professional" are claims: see the health claims item in section 2.
@@ -32,9 +34,8 @@ Run `npm run todos` to see every marker still left in `/content`, with file and 
 - [ ] **Who delivers recovery and pain treatment**, and whether they are licensed. See the health claims item in section 2.
 
 ### "For organisations" section (`content/en/home.ts`)
-- [ ] **Card wording.** The lists and labels come from the design and are not confirmed against the B2B pages. "Certified coaches" and "Proven Results" are claims: see the health claims item in section 2.
+- [ ] **Card wording.** The lists and labels come from the design and are not confirmed. "Certified coaches" and "Proven Results" are claims: see the health claims item in section 2.
 - [ ] **Two feature lines were cut off in the design.** "Clear insights & measurable results" and "Higher performance & lasting impact" are guesses at the missing words.
-- [ ] **Nurseries.** The design has no nursery card, so the landing page no longer links to `/for-nurseries`. The header and footer still do. Confirm this is intended.
 - [ ] **Photo for Companies.** It is cut out of the design screenshot and is low resolution. Replace it with the original photo.
 - [ ] **Photo for Schools.** It shows Nike logos and a different club crest instead of the S logo, and an image generator mark in the bottom corner of the original (cropped out here).
 
@@ -43,27 +44,17 @@ Run `npm run todos` to see every marker still left in `/content`, with file and 
 - [ ] Accuracy: evidence or scientific references.
 - [ ] Club introductions: are they offered, and how do they work?
 
-### B2B pages (`content/en/b2b/`)
-- [ ] Prices after the free pilot, for all 4 segments.
-- [ ] Time needed: schools, companies and clubs. (Nurseries: "one morning" comes from the brief.)
-- [ ] Space needed, for all 4 segments.
-- [ ] Data privacy and parental or employee consent process, for all 4 segments.
-- [ ] Nursery services: only TGMD is confirmed.
-- [ ] Nursery age: the nursery page says 3–6, but the young children's package says 4–8. Is TGMD offered from age 3?
-
 ### Contact details and About
-- [ ] Email address (`content/en/site.ts`).
-- [ ] Opening hours (`content/en/site.ts`).
-- [ ] Social media URLs. No social links are on the site yet. Add them to `site.ts` and the footer.
-- [ ] Dr. Karami's personal story and why he founded the academy (`content/en/about.ts`).
+- [ ] Email address. The site shows none now that the contact page is gone. Add one to the footer if wanted.
+- [ ] Dr. Karami's personal story and why he founded the academy. It is not on the About page yet (`content/en/about.ts`).
+- [ ] **Dr. Karami's photo on the About page** shows an Adidas logo on his shirt. Confirm this is fine, or supply one with the S logo.
+- [ ] **"About Sportify Academy" section on the About page.** It repeats the homepage text, stats and highlights from "Why Sportify Academy": see that section above.
 - [ ] Official names of the UAE federations (`content/en/partners.ts`).
 
 ### Draft wording to approve
 Nothing here was in the brief as a fact. Please read and approve it:
 - [ ] "What" and "why" lines for each measure (`content/en/measures.ts`).
-- [ ] One-line service descriptions on the B2B pages (for example, "Height estimation: an estimate of how tall a student may grow").
-- [ ] Form options: current sports, goals, organisation types (`content/en/packages.ts`, `content/en/b2b/`).
-- [ ] Headings that imply a relationship: "Trusted by", "Companies we work with", "Clubs we work with".
+- [ ] Form options: current sports and goals (`content/en/packages.ts`).
 
 ## 2. For the client's lawyer
 - [ ] Write the final Privacy Policy, Terms and Cookie Policy (`content/en/legal.ts`). The current text only says what each section should cover.
@@ -87,3 +78,7 @@ Nothing here was in the brief as a fact. Please read and approve it:
 - [ ] Point the `sportify.academy` domain to Vercel.
 - [ ] After real photos are in, run Lighthouse again. See the note in `README.md`.
 - [ ] Add the Google Business Profile link if you want the rating to link to the reviews.
+- [ ] **Google reviews on the homepage (`content/en/reviews.ts`).** Confirm the client is happy showing reviewers' names next to their words. The background (`public/reviews/gym-panorama.webp`) is blended from three smaller site photos, so replace it with a real wide photo of the centre (about 2800 × 900) when there is one.
+- [ ] **Partners background (`public/partners-band/team-panorama.webp`).** Blended from three site photos. Replace it with a real wide team photo (about 3280 × 900) when there is one.
+- [ ] **Autoplay video and privacy.** The "Why Sportify Academy?" video now loads from YouTube on scroll, without a click and without a consent step. Have the updated text on the cookies page and the need for consent checked.
+- [ ] **"Why Sportify Academy?" video as our own file.** Get the MP4 (YouTube Studio has a download option for your own videos, or use the editor's original) and play it with a plain video tag. This removes YouTube's overlays for good, and with them the poster workaround in `components/media/VideoSlot.tsx`, the skipped opening seconds and the privacy question above. YouTube's API policies also don't allow covering the player, which the workaround does.

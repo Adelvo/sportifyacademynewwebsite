@@ -2,7 +2,7 @@
 export const testPage = {
   meta: {
     title: "Test My Child | Sportify Academy Dubai",
-    description: "Find the right assessment for your child at Sportify Academy in Dubai. Compare the tests, ages and prices, and book online.",
+    description: "Find the right assessment for your child at Sportify Academy in Dubai. Watch how each test works and contact us to get started.",
     path: "/test-my-child",
   },
 };

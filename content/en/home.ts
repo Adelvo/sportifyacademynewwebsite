@@ -1,5 +1,5 @@
 import type { FeatureIconName } from "@/components/home/FeatureIcon";
-import type { PackageId } from "../types";
+import type { VideoTestimonial } from "../types";
 import { images } from "./images";
 
 interface Feature {
@@ -22,7 +22,8 @@ type ProgrammeCard<Image extends string> = {
   tag?: string;
   badge?: string;
   checklist: string[];
-} & ({ whatsappMessage: string; href?: never } | { href: string; whatsappMessage?: never });
+  whatsappMessage: string;
+};
 
 export interface Programmes<Image extends string> {
   title: string;
@@ -39,18 +40,14 @@ type OrganisationPhoto = "schools" | "clubs" | "companies";
 
 interface TestCard {
   id: string;
-  image: "kids" | "talent" | "elite";
   name: string;
-  ages: string;
-  badge?: string;
-  /** One package: the card shows its price and books it directly. */
-  bookPackage?: PackageId;
-  priceNote?: string;
+  video: VideoTestimonial;
   checklist: string[];
-  /** Several packages: the card shows the lowest price and lists them under "View Packages". */
-  options?: { packageId: PackageId; label: string; text?: string }[];
-  /** Shown under the list in the "View Packages" dialog. */
-  note?: string;
+}
+
+/** A YouTube video on a "Test my child" card. It starts on the visitor's click. */
+function testVideo(videoId: string, name: string, poster: VideoTestimonial["poster"]): VideoTestimonial {
+  return { id: videoId, name, embedUrl: `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`, poster };
 }
 
 export const home = {
@@ -63,11 +60,10 @@ export const home = {
   hero: {
     headlineLines: ["Discover Athletic", "Potential"],
     sub: "AI-powered assessments and expert coaching for young athletes.",
-    cta: "Book an Assessment",
     stats: [
       { value: 1200, label: "Talents Discovered" },
       { value: 30000, label: "Clients" },
-      { value: 23500, label: "Specialized Physical Tests Taken" },
+      { value: 235000, label: "Specialized Physical Tests Taken" },
     ],
   },
   paths: {
@@ -104,55 +100,53 @@ export const home = {
   test: {
     title: "Test my child",
     text: "Find the right assessment for your child",
-    startingAt: "Starting at",
-    bookNow: "Book Now",
-    viewPackages: "View Packages",
+    contact: "Contact Us",
+    help: {
+      title: "Not sure which test fits you or your child?",
+      text: "No problem. Message us on WhatsApp and we'll help you choose.",
+    },
     cards: [
       {
-        id: "kids",
-        image: "kids",
-        name: "Kids Movement Test",
-        ages: "Ages 4–8",
-        bookPackage: "fundamental-movement",
-        priceNote: "One-time assessment",
-        checklist: ["Balance & coordination", "Speed & movement", "Parent report"],
-      },
-      {
-        id: "talent",
-        image: "talent",
-        name: "Sport Talent Test",
-        ages: "Ages 8+",
-        badge: "Most popular",
-        checklist: ["Fitness assessment", "Strength & endurance", "Full talent option"],
-        options: [
-          { packageId: "physical-fitness", label: "Fitness Test", text: "Strength, speed, endurance" },
-          {
-            packageId: "sports-talent",
-            label: "Full Talent Test",
-            text: "Fitness + skills + psychology → the 2–3 best sports for your child",
-          },
+        id: "talent-identification",
+        name: "Sports Talent Identification",
+        video: testVideo("Ra_2hO5UDew", "Sports Talent Identification", images.tests.talentIdentification),
+        checklist: [
+          "Fitness & mindset",
+          "Multi-sport skills",
+          "Posture & nutrition",
         ],
       },
       {
-        id: "elite",
-        image: "elite",
-        name: "Elite DNA Test",
-        ages: "Ages 8+",
-        checklist: ["DNA analysis", "Performance insights", "Premium package options"],
-        options: [
-          { packageId: "sports-elite", label: "Elite + DNA" },
-          { packageId: "genetics-elite", label: "Elite Premium + DNA" },
-          { packageId: "genetics-talent", label: "Complete (DNA + Full Talent Test)" },
+        id: "fundamental-multi-sports",
+        name: "Fundamental Multi Sports Tests",
+        video: testVideo("lOfv-x0nXYs", "Fundamental Multi Sports Tests", images.tests.fundamentalMultiSports),
+        checklist: [
+          "Movement & ball skills",
+          "Balance & strength",
+          "Skills consultation",
         ],
-        note: "Everything: DNA, psychology, body, posture, foot scan, diet analysis",
+      },
+      {
+        id: "physical-fitness",
+        name: "Specialized Physical Fitness Assessment",
+        video: testVideo("_eYmrPcCJh0", "Specialized Physical Fitness Assessment", images.tests.physicalFitness),
+        checklist: [
+          "Fitness assessment",
+          "Body composition",
+          "VO2 max analysis",
+        ],
+      },
+      {
+        id: "posture-body-gait",
+        name: "Posture, Body Composition & Gait",
+        video: testVideo("ytGnTGl6OdU", "Posture, Body Composition & Gait", images.tests.postureBodyGait),
+        checklist: [
+          "Posture scan",
+          "Body composition",
+          "Walking analysis",
+        ],
       },
     ] satisfies TestCard[] as TestCard[],
-    features: [
-      { icon: "report", title: "Detailed Reports", text: "Clear results" },
-      { icon: "target", title: "Talent Insights", text: "Discover strengths" },
-      { icon: "pathway", title: "Personalised Pathway", text: "Next steps" },
-      { icon: "people", title: "Expert Consultation", text: "Parent guidance" },
-    ] satisfies Feature[] as Feature[],
   },
   train: {
     title: "Train with us",
@@ -230,6 +224,16 @@ export const home = {
   },
   testimonials: {
     title: "Hear from our athletes",
+    text: "Real success stories from Sportify Academy athletes, in their own words.",
+    label: "Success story",
+  },
+  reviews: {
+    title: "What our clients say on Google",
+    rating: "4.9",
+    ratingLabel: "Sportify Academy is rated 4.9 out of 5 on Google. Opens the listing on Google in a new tab",
+    readMore: "Read more",
+    opensOnGoogle: "opens the full review on Google in a new tab",
+    stars: "Rated 5 out of 5 stars",
   },
   why: {
     title: "Why Sportify Academy?",
@@ -256,6 +260,8 @@ export const home = {
     cta: "Read our story",
   },
   partners: { title: "Our Partners" },
+  /** The last section of every page except the homepage. */
+  closing: { title: "Ready to find your child's best sport?", text: "One session. Report the same day." },
   organisations: {
     title: "For organisations",
     text: "Tailored programmes for schools, clubs and companies.",
@@ -267,7 +273,7 @@ export const home = {
         name: "For Schools",
         tag: "Student Programmes",
         checklist: ["Movement & fitness assessments", "Talent identification", "School sports programmes"],
-        href: "/for-schools",
+        whatsappMessage: "Hello Sportify Academy. I am from a school and I would like to know more about your programmes.",
       },
       {
         id: "clubs",
@@ -275,7 +281,7 @@ export const home = {
         name: "For Sports Clubs",
         tag: "Athlete Performance",
         checklist: ["Individual & team testing", "Performance analysis", "Athlete development programmes"],
-        href: "/for-clubs",
+        whatsappMessage: "Hello Sportify Academy. I am from a sports club and I would like to know more about your programmes.",
       },
       {
         id: "companies",
@@ -283,7 +289,7 @@ export const home = {
         name: "For Companies",
         tag: "Corporate Wellness",
         checklist: ["Employee fitness assessments", "Health & performance programmes", "Workshops & training sessions"],
-        href: "/for-companies",
+        whatsappMessage: "Hello Sportify Academy. I am from a company and I would like to know more about your programmes.",
       },
     ] satisfies ProgrammeCard<OrganisationPhoto>[] as ProgrammeCard<OrganisationPhoto>[],
     features: [
@@ -294,9 +300,5 @@ export const home = {
     ] satisfies Feature[] as Feature[],
   },
   faq: { title: "Questions parents ask" },
-  final: {
-    title: "Find your child's best sport.",
-    text: "Answer a few short questions. We will message you on WhatsApp within 24 hours.",
-  },
   location: { title: "Where to find us" },
 };

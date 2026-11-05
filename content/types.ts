@@ -80,6 +80,15 @@ export interface ImageAsset {
   height: number;
 }
 
+export interface GoogleReview {
+  id: string;
+  name: string;
+  /** The opening of the review, word for word. */
+  text: string;
+  /** Link to the full review on Google Maps. */
+  url: string;
+}
+
 export interface VideoTestimonial {
   id: string;
   name: string;
@@ -132,27 +141,6 @@ export interface TitledText {
 export interface StatItem {
   value: string;
   label: string;
-}
-
-export interface B2BContent {
-  id: "schools" | "nurseries" | "companies" | "clubs";
-  /** Short name for menus. */
-  navLabel: string;
-  navText: string;
-  meta: PageMeta;
-  hero: { eyebrow: string; headline: string; sub: string; cta: string; image: ImageAsset };
-  pilot: { label: string; title: string; text: string };
-  includedTitle: string;
-  included: TitledText[];
-  stepsTitle: string;
-  steps: TitledText[];
-  proofTitle: string;
-  stats: StatItem[];
-  partnerIds: string[];
-  faq: FaqItem[];
-  formTitle: string;
-  formText: string;
-  form: FormConfig;
 }
 
 export interface LegalPage {

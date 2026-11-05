@@ -8,7 +8,7 @@ import { validateValue, withoutKey } from "@/lib/validate";
 import { buttonClass } from "../ui/Button";
 import { Consent, Field, Honeypot, PrivacyLine, SubmitError, SuccessPanel } from "./parts";
 
-/** Used for the B2B, report and contact forms. The fields come from /content. */
+/** Used for the report form. The fields come from /content. */
 export function ConfigForm({ config }: { config: FormConfig }) {
   const idPrefix = useId();
   const [errors, setErrors] = useState<Record<string, string>>({});

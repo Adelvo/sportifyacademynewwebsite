@@ -1,112 +1,68 @@
 import type { Metadata } from "next";
-import { BookButton } from "@/components/forms/BookButton";
-import { ScoreRing } from "@/components/data-viz/ScoreRing";
-import { MapEmbed } from "@/components/media/MapEmbed";
+import { HeadingMark } from "@/components/home/SectionAccents";
+import { WhySportify } from "@/components/home/WhySportify";
 import { Photo } from "@/components/media/Photo";
-import { PartnerMarquee } from "@/components/sections/PartnerLogos";
-import { PageHero, Section, SectionHeading } from "@/components/ui/Section";
-import { Txt } from "@/components/ui/Txt";
-import { about, images, measures, ui } from "@/content";
+import { Container } from "@/components/ui/Section";
+import { InstagramIcon } from "@/components/ui/SocialIcons";
+import { about, images } from "@/content";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata(about.meta);
 
 export default function AboutPage() {
-  const { founder, method } = about;
+  const { founder } = about;
   return (
     <>
-      <PageHero {...about.hero} />
+      <WhySportify as="h1" title={about.title} storyLink={false} />
 
-      <Section>
-        <div className="grid grid-cols-1 items-start gap-10 md:grid-cols-[2fr_3fr]">
-          <Photo
-            image={images.founder}
-            sizes="(min-width: 768px) 40vw, 100vw"
-            preload
-            className="aspect-[4/5] w-full rounded-3xl"
-          />
-          <div>
-            <p className="font-semibold text-ink-soft">{founder.title}</p>
-            <h2 className="mt-1 text-3xl sm:text-4xl lg:text-5xl">{founder.name}</h2>
-            <p className="mt-2 text-xl font-bold">{founder.role}</p>
-            <div className="mt-5 space-y-3 text-lg text-ink-soft">
-              {founder.story.map((line) => (
-                <p key={line}>
-                  <Txt>{line}</Txt>
-                </p>
-              ))}
+      <section className="bg-white py-16 text-midnight sm:py-20">
+        <Container>
+          <div className="mb-10 flex flex-col items-center text-center">
+            <HeadingMark className="mb-3" />
+            <h2 className="text-3xl sm:text-4xl xl:text-[2.75rem]">{founder.title}</h2>
+          </div>
+
+          <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[2fr_3fr] xl:gap-14">
+            {/* The cyan shows only at two corners, where the gradient is not transparent. */}
+            <div className="mx-auto w-full max-w-lg rounded-[1.25rem] bg-[linear-gradient(135deg,var(--color-cyan),transparent_35%,transparent_75%,var(--color-cyan))] pt-1.5 pr-0.5 pb-0.5 pl-1.5">
+              <Photo
+                image={images.founder}
+                sizes="(min-width: 1024px) 40vw, (min-width: 512px) 512px, 100vw"
+                className="aspect-[4/5] w-full rounded-2xl object-top"
+              />
             </div>
-            <h3 className="mt-8 text-2xl">{founder.credentialsTitle}</h3>
-            <ul className="mt-3 space-y-2">
-              {founder.credentials.map((item) => (
-                <li key={item} className="flex gap-3">
-                  <span aria-hidden="true" className="mt-2 size-2 shrink-0 rounded-full bg-midnight" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </Section>
 
-      <Section tone="midnight">
-        <SectionHeading title={method.title} text={method.text} tone="midnight" />
-        <ul className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {measures.map((measure) => (
-            <li key={measure.id} className="rounded-2xl bg-midnight-800 p-6">
-              <div className="flex items-center gap-3">
-                <ScoreRing value={measure.ring} size={44} className="shrink-0" />
-                <h3 className="text-xl text-white">{measure.name}</h3>
+            <div>
+              <h3 className="text-3xl sm:text-4xl">{founder.name}</h3>
+              <p className="mt-1 text-lg font-semibold text-[#0b7a8f]">{founder.role}</p>
+              <div className="mt-5 space-y-3 text-lg text-midnight-800">
+                {founder.story.map((line) => (
+                  <p key={line}>
+                    {line.split("**").map((part, index) =>
+                      index % 2 === 1 ? (
+                        <strong key={part} className="font-bold text-midnight">
+                          {part}
+                        </strong>
+                      ) : (
+                        part
+                      ),
+                    )}
+                  </p>
+                ))}
               </div>
-              <p className="mt-3 text-on-midnight-soft">
-                <strong className="text-white">{method.whatLabel}</strong> {measure.what}
-              </p>
-              <p className="mt-1 text-on-midnight-soft">
-                <strong className="text-white">{method.whyLabel}</strong> {measure.why}
-              </p>
-            </li>
-          ))}
-        </ul>
-        <p className="mt-5 text-sm text-on-midnight-soft">{ui.illustrationNote}</p>
-        <div className="mt-10 max-w-2xl rounded-2xl bg-electric-gradient p-6 text-midnight">
-          <h3 className="text-2xl">{method.resultTitle}</h3>
-          <p className="mt-2 text-lg">{method.resultText}</p>
-        </div>
-      </Section>
-
-      <Section>
-        <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-2">
-          <div>
-            <h2 className="text-3xl sm:text-4xl">{about.recognition.title}</h2>
-            <p className="mt-4 text-lg text-ink-soft">{about.recognition.text}</p>
+              <a
+                href={founder.instagram.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 inline-flex min-h-11 items-center gap-2.5 rounded-xl border border-line bg-white px-4 py-2 font-semibold transition-colors hover:border-[#0b7a8f] hover:text-[#0b7a8f]"
+              >
+                <InstagramIcon className="size-5 text-[#0b7a8f]" />
+                {founder.instagram.handle}
+              </a>
+            </div>
           </div>
-          <Photo image={images.method} sizes="(min-width: 768px) 50vw, 100vw" className="aspect-[3/2] w-full rounded-3xl" />
-        </div>
-      </Section>
-
-      <Section tone="mist" className="py-14! sm:py-16!">
-        <h2 className="mb-6 text-2xl sm:text-3xl">{about.partners.title}</h2>
-        <PartnerMarquee />
-      </Section>
-
-      <Section>
-        <SectionHeading title={about.centre.title} text={about.centre.text} />
-        <ul className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-          {images.centre.map((image) => (
-            <li key={image.src}>
-              <Photo image={image} sizes="(min-width: 640px) 33vw, 100vw" className="aspect-[10/7] w-full rounded-2xl" />
-            </li>
-          ))}
-        </ul>
-        <div className="mt-8">
-          <MapEmbed />
-        </div>
-      </Section>
-
-      <Section tone="midnight">
-        <SectionHeading title={about.cta.title} text={about.cta.text} tone="midnight" />
-        <BookButton className="w-full sm:w-auto">{ui.bookAssessment}</BookButton>
-      </Section>
+        </Container>
+      </section>
     </>
   );
 }

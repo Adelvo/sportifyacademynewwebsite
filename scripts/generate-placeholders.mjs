@@ -6,15 +6,6 @@ import sharp from "sharp";
 const items = [
   ["hero-child-sprint", 960, 1100, "Child sprinting during a fitness test"],
   ["test-session", 1200, 800, "Child during a 90-minute test session"],
-  ["founder-portrait", 800, 1000, "Portrait of Dr. Sajad Karami"],
-  ["method-measurement", 1200, 800, "Coach measuring a child's posture"],
-  ["centre-1", 1000, 700, "Sportify Academy centre: reception"],
-  ["centre-2", 1000, 700, "Sportify Academy centre: testing area"],
-  ["centre-3", 1000, 700, "Sportify Academy centre: gym floor"],
-  ["b2b-schools", 1200, 800, "Students in a school Talent Day"],
-  ["b2b-nurseries", 1200, 800, "Young children in a motor-skills check"],
-  ["b2b-companies", 1200, 800, "Employee in an office posture check"],
-  ["b2b-clubs", 1200, 800, "Team during a fitness test"],
 ];
 
 const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
