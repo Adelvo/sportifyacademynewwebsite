@@ -34,10 +34,10 @@ export const site = {
 export const nav = {
   /** Header and footer links, the same on every page. */
   main: [
-    { href: "/test-my-child", label: "Test my child" },
-    { href: "/train-with-us", label: "Train with us" },
-    { href: "/recover", label: "Recover & fix pain" },
-    { href: "/for-organisations", label: "For organisations" },
+    { href: "/test-my-child", label: "Kids" },
+    { href: "/train-with-us", label: "Athlete" },
+    { href: "/adult", label: "Adult" },
+    { href: "/for-organisations", label: "Coaches" },
     { href: "/#results", label: "Results" },
     { href: "/about", label: "About" },
   ],

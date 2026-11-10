@@ -10,23 +10,23 @@ export const testPage = {
 export const trainPage = {
   meta: {
     title: "Train With Us | Sportify Academy Dubai",
-    description: "Personalised coaching in Dubai to build skills, performance and confidence. Strength & conditioning, sport-specific training and more.",
+    description: "Physical assessments, personal training, nutrition plans and physical therapy for athletes in Dubai.",
     path: "/train-with-us",
   },
 };
 
-export const recoverPage = {
+export const adultPage = {
   meta: {
-    title: "Recover & Fix Pain | Sportify Academy Dubai",
-    description: "Expert recovery support in Dubai to reduce pain, restore movement and get back to sport safely.",
-    path: "/recover",
+    title: "Adult Programmes | Sportify Academy Dubai",
+    description: "Body analysis, posture assessments, longevity testing and personal training for adults in Dubai.",
+    path: "/adult",
   },
 };
 
 export const organisationsPage = {
   meta: {
-    title: "For Organisations | Sportify Academy Dubai",
-    description: "Tailored programmes in Dubai for schools, clubs and companies.",
+    title: "For Coaches | Sportify Academy Dubai",
+    description: "Workshops, conferences and CPD for coaches in Dubai.",
     path: "/for-organisations",
   },
 };

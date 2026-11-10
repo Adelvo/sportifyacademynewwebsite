@@ -1,11 +1,11 @@
 import type { MetadataRoute } from "next";
 import {
   about,
+  adultPage,
   cookiesPage,
   home,
   organisationsPage,
   privacyPage,
-  recoverPage,
   site,
   termsPage,
   testPage,
@@ -18,7 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     home,
     testPage,
     trainPage,
-    recoverPage,
+    adultPage,
     organisationsPage,
     about,
     privacyPage,

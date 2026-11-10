@@ -25,6 +25,7 @@ export function TestPackages({ headingLevel = 2 }: { headingLevel?: 1 | 2 }) {
 
                 <div className="flex flex-1 flex-col p-5 lg:p-4 xl:p-5">
                   <h3 className="font-[family-name:var(--font-hero)]! text-xl tracking-tight md:min-h-[2lh] lg:min-h-[3lh] xl:min-h-[2lh]">{card.name}</h3>
+                  {card.tag && <p className="mt-2 w-fit rounded-full bg-[#e6eaf2] px-3 py-1 text-sm font-medium">{card.tag}</p>}
 
                   <ul className="mt-4 space-y-3 border-t border-line pt-4 text-[0.9375rem]/snug font-medium">
                     {card.checklist.map((item) => (

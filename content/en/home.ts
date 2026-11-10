@@ -34,13 +34,15 @@ export interface Programmes<Image extends string> {
   features: Feature[];
 }
 
-type TrainPhoto = "strength" | "sport" | "performance";
-type RecoverPhoto = "assessment" | "therapy" | "returnToPlay";
-type OrganisationPhoto = "schools" | "clubs" | "companies";
+type TrainPhoto = "generalAssessment" | "specificAssessment" | "oneOnOne" | "semiPrivate" | "nutritionPlan" | "physicalTherapy";
+type AdultPhoto = "bodyAnalysis" | "bodyComposition" | "bodyPosture" | "longevity" | "physicalTherapy" | "oneOnOne" | "semiPrivate";
+type OrganisationPhoto = "workshop" | "conferences" | "cpd";
 
 interface TestCard {
   id: string;
   name: string;
+  /** The grey label under the name, such as "Ages 8-14". */
+  tag?: string;
   video: VideoTestimonial;
   checklist: string[];
 }
@@ -69,10 +71,10 @@ export const home = {
   paths: {
     title: "Our offers",
     items: [
-      { href: "/test-my-child", image: "test", lines: ["Test my", "child"] },
-      { href: "/train-with-us", image: "train", lines: ["Train", "with us"] },
-      { href: "/recover", image: "recover", lines: ["Recover &", "fix pain"] },
-      { href: "/for-organisations", image: "organisations", lines: ["For", "organisations"] },
+      { href: "/test-my-child", image: "kids", lines: ["Kids"] },
+      { href: "/train-with-us", image: "athlete", lines: ["Athlete"] },
+      { href: "/adult", image: "adult", lines: ["Adult"] },
+      { href: "/for-organisations", image: "coaches", lines: ["Coaches"] },
     ] as const,
   },
   pain: {
@@ -109,6 +111,7 @@ export const home = {
       {
         id: "talent-identification",
         name: "Sports Talent Identification",
+        tag: "Ages 8-14",
         video: testVideo("Ra_2hO5UDew", "Sports Talent Identification", images.tests.talentIdentification),
         checklist: [
           "Fitness & mindset",
@@ -119,6 +122,7 @@ export const home = {
       {
         id: "fundamental-multi-sports",
         name: "Fundamental Multi Sports Tests",
+        tag: "Ages 4-7",
         video: testVideo("lOfv-x0nXYs", "Fundamental Multi Sports Tests", images.tests.fundamentalMultiSports),
         checklist: [
           "Movement & ball skills",
@@ -129,6 +133,7 @@ export const home = {
       {
         id: "physical-fitness",
         name: "Specialized Physical Fitness Assessment",
+        tag: "Ages 8+",
         video: testVideo("_eYmrPcCJh0", "Specialized Physical Fitness Assessment", images.tests.physicalFitness),
         checklist: [
           "Fitness assessment",
@@ -139,6 +144,7 @@ export const home = {
       {
         id: "posture-body-gait",
         name: "Posture, Body Composition & Gait",
+        tag: "Ages 4+",
         video: testVideo("ytGnTGl6OdU", "Posture, Body Composition & Gait", images.tests.postureBodyGait),
         checklist: [
           "Posture scan",
@@ -146,36 +152,66 @@ export const home = {
           "Walking analysis",
         ],
       },
+      {
+        id: "nutrition-plan",
+        name: "Nutrition Plan",
+        video: { id: "nutrition-plan", name: "Nutrition Plan", poster: images.tests.nutritionPlan },
+        checklist: [
+          "Personalised meal guidance",
+          "Supports growth & recovery",
+          "For young athletes",
+        ],
+      },
     ] satisfies TestCard[] as TestCard[],
   },
   train: {
     title: "Train with us",
-    text: "Personalised coaching to build skills, performance and confidence.",
+    text: "Assessments, personal training and recovery to build performance and confidence.",
     action: "Book",
     cards: [
       {
-        id: "strength",
-        image: "strength",
-        name: "Strength & Conditioning",
-        tag: "Ages 10+",
-        checklist: ["Build strength & power", "Improve speed & endurance", "Reduce risk of injury"],
-        whatsappMessage: "Hello Sportify Academy. I would like to book Strength & Conditioning.",
+        id: "general-assessment",
+        image: "generalAssessment",
+        name: "General Physical Assessment",
+        checklist: ["Full-body movement screening", "Baseline fitness benchmarks", "Clear next-step recommendations"],
+        whatsappMessage: "Hello Sportify Academy. I would like to book a General Physical Assessment.",
       },
       {
-        id: "sport",
-        image: "sport",
-        name: "Sport-Specific Training",
-        tag: "Ages 8+",
-        checklist: ["Individual technical coaching", "Position-specific development", "For football, tennis, swimming & more"],
-        whatsappMessage: "Hello Sportify Academy. I would like to book Sport-Specific Training.",
+        id: "specific-assessment",
+        image: "specificAssessment",
+        name: "Specific Physical Assessment",
+        checklist: ["Sport-specific performance testing", "In-depth strength & conditioning data", "Tailored training recommendations"],
+        whatsappMessage: "Hello Sportify Academy. I would like to book a Specific Physical Assessment.",
       },
       {
-        id: "performance",
-        image: "performance",
-        name: "Performance Academy",
-        tag: "Ages 12+",
-        checklist: ["Long-term athlete development", "Advanced training programmes", "Trackable performance progress"],
-        whatsappMessage: "Hello Sportify Academy. I would like to book the Performance Academy.",
+        id: "one-on-one",
+        image: "oneOnOne",
+        name: "One-on-One Training",
+        tag: "Personal Training",
+        checklist: ["Fully personalised sessions", "Dedicated coach", "Flexible scheduling"],
+        whatsappMessage: "Hello Sportify Academy. I would like to book One-on-One Personal Training.",
+      },
+      {
+        id: "semi-private",
+        image: "semiPrivate",
+        name: "Semi-Private Training",
+        tag: "Personal Training",
+        checklist: ["Small-group coaching", "Shared motivation, individual attention", "Cost-effective personal coaching"],
+        whatsappMessage: "Hello Sportify Academy. I would like to book Semi-Private Training.",
+      },
+      {
+        id: "nutrition-plan",
+        image: "nutritionPlan",
+        name: "Nutrition Plan",
+        checklist: ["Personalised meal guidance", "Supports performance & recovery", "Ongoing adjustments"],
+        whatsappMessage: "Hello Sportify Academy. I would like to book a Nutrition Plan.",
+      },
+      {
+        id: "physical-therapy",
+        image: "physicalTherapy",
+        name: "Physical Therapy",
+        checklist: ["Injury assessment & treatment", "Guided rehab exercises", "Safe return to training"],
+        whatsappMessage: "Hello Sportify Academy. I would like to book Physical Therapy.",
       },
     ] satisfies ProgrammeCard<TrainPhoto>[] as ProgrammeCard<TrainPhoto>[],
     features: [
@@ -185,41 +221,69 @@ export const home = {
       { icon: "shield", title: "Safe & Professional" },
     ] satisfies Feature[] as Feature[],
   },
-  recover: {
-    title: "Recover & fix pain",
-    text: "Expert recovery support to reduce pain, restore movement and get back to sport safely.",
+  adult: {
+    title: "Adult Programmes",
+    text: "Assessments and coaching to help adults move, train and recover better.",
     action: "Book",
     cards: [
       {
-        id: "assessment",
-        image: "assessment",
-        name: "Pain & Movement Assessment",
-        tag: "Ages 8+",
-        checklist: ["Identify pain triggers", "Check mobility & movement patterns", "Clear next-step recommendations"],
-        whatsappMessage: "Hello Sportify Academy. I would like to book a Pain & Movement Assessment.",
+        id: "body-analysis",
+        image: "bodyAnalysis",
+        name: "Body Analysis",
+        checklist: ["Full-body composition scan", "Baseline health metrics", "Clear, actionable report"],
+        whatsappMessage: "Hello Sportify Academy. I would like to book a Body Analysis.",
       },
       {
-        id: "therapy",
-        image: "therapy",
-        name: "Sports Therapy & Recovery",
-        badge: "Most popular",
-        checklist: ["Guided rehab exercises", "Hands-on support", "Improve strength, stability & mobility"],
-        whatsappMessage: "Hello Sportify Academy. I would like to book Sports Therapy & Recovery.",
+        id: "body-composition",
+        image: "bodyComposition",
+        name: "Body Composition",
+        checklist: ["Muscle & fat percentage", "Track changes over time", "Personalised recommendations"],
+        whatsappMessage: "Hello Sportify Academy. I would like to book a Body Composition assessment.",
       },
       {
-        id: "return-to-play",
-        image: "returnToPlay",
-        name: "Return to Play Rehab",
-        tag: "Ages 10+",
-        checklist: ["Progressive recovery plan", "Sport-specific return-to-play work", "Track progress safely"],
-        whatsappMessage: "Hello Sportify Academy. I would like to book Return to Play Rehab.",
+        id: "body-posture",
+        image: "bodyPosture",
+        name: "Body Posture",
+        checklist: ["Full posture scan", "Identify imbalances", "Corrective exercise guidance"],
+        whatsappMessage: "Hello Sportify Academy. I would like to book a Body Posture assessment.",
       },
-    ] satisfies ProgrammeCard<RecoverPhoto>[] as ProgrammeCard<RecoverPhoto>[],
+      {
+        id: "longevity",
+        image: "longevity",
+        name: "Longevity Assessment",
+        tag: "Ages 40+",
+        checklist: ["Long-term health & mobility check", "Personalised longevity plan", "Ongoing progress tracking"],
+        whatsappMessage: "Hello Sportify Academy. I would like to book a Longevity Assessment.",
+      },
+      {
+        id: "physical-therapy",
+        image: "physicalTherapy",
+        name: "Physical Therapy",
+        checklist: ["Injury assessment & treatment", "Guided rehab exercises", "Safe return to activity"],
+        whatsappMessage: "Hello Sportify Academy. I would like to book Physical Therapy.",
+      },
+      {
+        id: "one-on-one",
+        image: "oneOnOne",
+        name: "One-on-One Personal Training",
+        tag: "Personal Training",
+        checklist: ["Fully personalised sessions", "Dedicated coach", "Flexible scheduling"],
+        whatsappMessage: "Hello Sportify Academy. I would like to book One-on-One Personal Training.",
+      },
+      {
+        id: "semi-private",
+        image: "semiPrivate",
+        name: "Semi-Private Training",
+        tag: "Personal Training",
+        checklist: ["Small-group coaching", "Shared motivation, individual attention", "Cost-effective personal coaching"],
+        whatsappMessage: "Hello Sportify Academy. I would like to book Semi-Private Training.",
+      },
+    ] satisfies ProgrammeCard<AdultPhoto>[] as ProgrammeCard<AdultPhoto>[],
     features: [
       { icon: "assessment", title: "Expert Assessment" },
-      { icon: "care", title: "Personalised Recovery Plan" },
-      { icon: "run", title: "Safe Return to Sport" },
+      { icon: "care", title: "Personalised Plans" },
       { icon: "bars", title: "Progress Tracking" },
+      { icon: "shield", title: "Safe & Professional" },
     ] satisfies Feature[] as Feature[],
   },
   testimonials: {
@@ -263,39 +327,39 @@ export const home = {
   /** The last section of every page except the homepage. */
   closing: { title: "Ready to find your child's best sport?", text: "One session. Report the same day." },
   organisations: {
-    title: "For organisations",
-    text: "Tailored programmes for schools, clubs and companies.",
+    title: "For Coaches",
+    text: "Professional development programmes for coaches.",
     action: "Enquire Now",
     cards: [
       {
-        id: "schools",
-        image: "schools",
-        name: "For Schools",
-        tag: "Student Programmes",
-        checklist: ["Movement & fitness assessments", "Talent identification", "School sports programmes"],
-        whatsappMessage: "Hello Sportify Academy. I am from a school and I would like to know more about your programmes.",
+        id: "workshop",
+        image: "workshop",
+        name: "Workshops",
+        tag: "Hands-on Learning",
+        checklist: ["Practical coaching sessions", "Latest training methods", "Certificate of attendance"],
+        whatsappMessage: "Hello Sportify Academy. I would like to know more about your coaching workshops.",
       },
       {
-        id: "clubs",
-        image: "clubs",
-        name: "For Sports Clubs",
-        tag: "Athlete Performance",
-        checklist: ["Individual & team testing", "Performance analysis", "Athlete development programmes"],
-        whatsappMessage: "Hello Sportify Academy. I am from a sports club and I would like to know more about your programmes.",
+        id: "conferences",
+        image: "conferences",
+        name: "Conferences",
+        tag: "Industry Events",
+        checklist: ["Expert speakers & panels", "Networking with coaches", "Latest research & trends"],
+        whatsappMessage: "Hello Sportify Academy. I would like to know more about your coaching conferences.",
       },
       {
-        id: "companies",
-        image: "companies",
-        name: "For Companies",
-        tag: "Corporate Wellness",
-        checklist: ["Employee fitness assessments", "Health & performance programmes", "Workshops & training sessions"],
-        whatsappMessage: "Hello Sportify Academy. I am from a company and I would like to know more about your programmes.",
+        id: "cpd",
+        image: "cpd",
+        name: "CPD",
+        tag: "Continuing Education",
+        checklist: ["Accredited CPD points", "Flexible learning formats", "Career progression support"],
+        whatsappMessage: "Hello Sportify Academy. I would like to know more about CPD for coaches.",
       },
     ] satisfies ProgrammeCard<OrganisationPhoto>[] as ProgrammeCard<OrganisationPhoto>[],
     features: [
       { icon: "people", title: "Expert Team", text: "Certified coaches & specialists" },
       { icon: "bars", title: "Data-Driven", text: "Clear insights & measurable results" },
-      { icon: "target", title: "Tailored Programmes", text: "For schools, clubs & businesses" },
+      { icon: "target", title: "Tailored Programmes", text: "For every coaching level" },
       { icon: "shield", title: "Proven Results", text: "Higher performance & lasting impact" },
     ] satisfies Feature[] as Feature[],
   },
