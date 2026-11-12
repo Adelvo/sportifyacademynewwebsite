@@ -1,53 +1,78 @@
-import { Photo } from "@/components/media/Photo";
-import { ExternalButton, WhatsAppIcon } from "@/components/ui/Button";
+import { WhatsAppIcon } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
-import { Container } from "@/components/ui/Section";
 import { kids } from "@/content";
 import { whatsappUrl } from "@/lib/links";
-import { HomeHeading } from "../home/HomeHeading";
+import { InlineVideoPlayer } from "./InlineVideoPlayer";
+import { BalanceIcon, SpeedIcon } from "./KidsIcons";
+import { KidsButton } from "./KidsButton";
+import { KidsContainer } from "./KidsContainer";
+import { KidsHelpBanner } from "./KidsHelpBanner";
+import { KidsProcess } from "./KidsProcess";
 
-/** "Find the right starting point": the two assessment cards, then a WhatsApp help prompt. */
+const assessmentIcons: Record<string, typeof BalanceIcon> = {
+  "fundamental-multisports-test": BalanceIcon,
+  "specialized-physical-fitness-assessment": SpeedIcon,
+};
+
+/** "Find the right starting point": the intro video beside the two assessments, a WhatsApp help prompt, and the process strip. */
 export function KidsAssessments() {
   const { assessments } = kids;
   return (
-    <section className="bg-mist py-16 sm:py-24">
-      <Container>
+    <section className="bg-[#F4F7F9] py-[18px] sm:py-7">
+      <KidsContainer>
         <Reveal>
-          <HomeHeading title={assessments.title} />
+          <h2 className="text-[clamp(26px,2.4vw,34px)] font-bold leading-[1.2]">{assessments.title}</h2>
         </Reveal>
 
-        <ul className="mt-10 grid gap-6 sm:mt-12 md:grid-cols-2 lg:gap-8">
-          {assessments.items.map((item, index) => (
-            <li key={item.id}>
-              <Reveal delay={index * 90} className="h-full">
-                <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-line/60 bg-white shadow-[0_10px_30px_rgb(10_31_51/0.08)]">
-                  <Photo image={item.image} sizes="(min-width: 768px) 46vw, 100vw" className="aspect-[16/9] w-full" />
-                  <div aria-hidden="true" className="h-1 bg-electric-gradient" />
-                  <div className="flex flex-1 flex-col p-6 sm:p-7">
-                    <p className="w-fit rounded-full bg-[#e6eaf2] px-3 py-1 text-sm font-bold tracking-wide">{item.age}</p>
-                    <h3 className="mt-3 font-[family-name:var(--font-hero)]! text-2xl tracking-tight sm:text-[1.75rem]">{item.name}</h3>
-                    <p className="mt-3 text-ink-soft">{item.text}</p>
-                    <div className="mt-auto pt-7">
-                      <ExternalButton href={whatsappUrl(item.whatsappMessage)} variant="whatsapp" className="w-full">
-                        <WhatsAppIcon className="size-5" />
-                        {item.cta}
-                      </ExternalButton>
-                    </div>
+        <Reveal delay={90} className="mt-6 grid gap-8 sm:mt-7 md:grid-cols-[260px_minmax(0,1fr)] md:items-center">
+          <InlineVideoPlayer
+            video={assessments.video}
+            sizes="(min-width: 768px) 260px, 70vw"
+            className="mx-auto aspect-[9/16] w-[220px] rounded-[14px] sm:w-[260px] md:w-full"
+            unmuteButtonClassName="size-14"
+          />
+
+          <ul className="flex flex-col gap-6">
+            {assessments.items.map((item) => {
+              const Icon = assessmentIcons[item.id];
+              return (
+                <li key={item.id} className="flex items-start gap-4 border-b border-[#DCE5EB] pb-6 last:border-0 last:pb-0">
+                  {Icon && (
+                    <span className="grid size-10 shrink-0 place-items-center rounded-full bg-[#67D5E5]/15 text-[#007a99]">
+                      <Icon className="size-5" />
+                    </span>
+                  )}
+                  <div className="min-w-0 flex-1">
+                    <p className="w-fit rounded-full bg-white px-3 py-1 text-[12px] font-bold tracking-wide text-[#081C2C]">{item.age}</p>
+                    <h3 className="mt-2 text-[20px] leading-[1.3] font-bold">{item.name}</h3>
+                    <ul className="mt-2 space-y-1.5">
+                      {item.points.map((point) => (
+                        <li key={point} className="flex items-start gap-2 text-base leading-[1.4] text-[#526271]">
+                          <span className="mt-2.5 size-1.5 shrink-0 rounded-full bg-[#67D5E5]" />
+                          {point}
+                        </li>
+                      ))}
+                    </ul>
+                    <KidsButton href={whatsappUrl(item.whatsappMessage)} className="mt-4">
+                      <WhatsAppIcon className="size-5" />
+                      {item.cta}
+                    </KidsButton>
                   </div>
-                </article>
-              </Reveal>
-            </li>
-          ))}
-        </ul>
-
-        <Reveal className="mt-6 flex flex-col items-start gap-4 rounded-2xl bg-midnight p-6 text-white sm:mt-8 sm:flex-row sm:items-center sm:justify-between sm:p-7">
-          <p className="text-lg font-bold">{assessments.help.text}</p>
-          <ExternalButton href={whatsappUrl(assessments.help.whatsappMessage)} variant="whatsapp" className="w-full shrink-0 sm:w-auto">
-            <WhatsAppIcon className="size-5" />
-            {assessments.help.cta}
-          </ExternalButton>
+                </li>
+              );
+            })}
+          </ul>
         </Reveal>
-      </Container>
+
+        <KidsHelpBanner
+          text={assessments.help.text}
+          cta={assessments.help.cta}
+          whatsappMessage={assessments.help.whatsappMessage}
+          className="mt-6 sm:mt-7"
+        />
+
+        <KidsProcess />
+      </KidsContainer>
     </section>
   );
 }

@@ -1,44 +1,72 @@
-import { Photo } from "@/components/media/Photo";
 import { Reveal } from "@/components/ui/Reveal";
-import { Container } from "@/components/ui/Section";
 import { kids } from "@/content";
-import { HomeHeading } from "../home/HomeHeading";
-import { VideoModal } from "./VideoModal";
+import { InlineVideoPlayer } from "./InlineVideoPlayer";
+import { BalanceIcon, BallIcon, CameraIcon } from "./KidsIcons";
+import { KidsContainer } from "./KidsContainer";
+import { KidsHelpBanner } from "./KidsHelpBanner";
+
+const supportIcons: Record<string, typeof BalanceIcon> = {
+  "motor-skills": BalanceIcon,
+  "multisport-class": BallIcon,
+  "talent-identification": CameraIcon,
+};
 
 /**
- * "Support beyond the assessment": three equal cards, photo only, with no booking or contact CTA.
- * The Talent Identification card's photo doubles as the poster for its video, opened in a modal.
+ * "Support beyond the assessment": one video on the left (plays inline on click, no modal, no
+ * fullscreen takeover) next to a plain text list of the three programmes, then a WhatsApp prompt.
  */
 export function KidsSupport() {
   const { support } = kids;
   return (
-    <section className="bg-white py-16 sm:py-24">
-      <Container>
+    <section className="bg-white pt-10 pb-[18px] sm:pt-16 sm:pb-7">
+      <KidsContainer>
         <Reveal>
-          <HomeHeading title={support.title} text={support.text} />
+          <h2 className="text-[clamp(26px,2.4vw,34px)] font-bold leading-[1.2]">{support.title}</h2>
+          <p className="mt-2 text-base leading-[1.55] text-[#526271]">{support.text}</p>
         </Reveal>
 
-        <ul className="mt-10 grid gap-6 sm:mt-12 md:grid-cols-3 lg:gap-8">
-          {support.items.map((item, index) => (
-            <li key={item.id}>
-              <Reveal delay={index * 90} className="h-full">
-                <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-line/60 bg-white shadow-[0_10px_30px_rgb(10_31_51/0.08)]">
-                  {item.video ? (
-                    <VideoModal video={item.video} className="aspect-[16/9] w-full" />
-                  ) : (
-                    <Photo image={item.image} sizes="(min-width: 768px) 32vw, 100vw" className="aspect-[16/9] w-full" />
+        <Reveal delay={90} className="mt-6 grid gap-8 sm:mt-7 md:grid-cols-[260px_minmax(0,1fr)] md:items-center">
+          <InlineVideoPlayer
+            video={support.video}
+            sizes="(min-width: 768px) 260px, 70vw"
+            className="mx-auto aspect-[9/16] w-[220px] rounded-[14px] sm:w-[260px] md:w-full"
+            unmuteButtonClassName="size-14"
+          />
+
+          <ul className="flex flex-col gap-5">
+            {support.items.map((item) => {
+              const Icon = supportIcons[item.id];
+              return (
+                <li key={item.id} className="flex items-start gap-4 border-b border-[#DCE5EB] pb-5 last:border-0 last:pb-0">
+                  {Icon && (
+                    <span className="grid size-10 shrink-0 place-items-center rounded-full bg-[#67D5E5]/15 text-[#007a99]">
+                      <Icon className="size-5" />
+                    </span>
                   )}
-                  <div aria-hidden="true" className="h-1 bg-electric-gradient" />
-                  <div className="flex flex-1 flex-col p-6 sm:p-7">
-                    <h3 className="font-[family-name:var(--font-hero)]! text-xl tracking-tight sm:text-2xl md:min-h-[2.5lh]">{item.name}</h3>
-                    <p className="mt-3 text-ink-soft">{item.text}</p>
+                  <div>
+                    <h3 className="text-[20px] leading-[1.3] font-bold">{item.name}</h3>
+                    <ul className="mt-2 space-y-1.5">
+                      {item.points.map((point) => (
+                        <li key={point} className="flex items-start gap-2 text-base leading-[1.4] text-[#526271]">
+                          <span className="mt-2.5 size-1.5 shrink-0 rounded-full bg-[#67D5E5]" />
+                          {point}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                </article>
-              </Reveal>
-            </li>
-          ))}
-        </ul>
-      </Container>
+                </li>
+              );
+            })}
+          </ul>
+        </Reveal>
+
+        <KidsHelpBanner
+          text={support.help.text}
+          cta={support.help.cta}
+          whatsappMessage={support.help.whatsappMessage}
+          className="mt-6 sm:mt-7"
+        />
+      </KidsContainer>
     </section>
   );
 }

@@ -255,8 +255,6 @@ export const home = {
     cta: "Read our story",
   },
   partners: { title: "Our Partners" },
-  /** The last section of every page except the homepage. */
-  closing: { title: "Ready to find your child's best sport?", text: "One session. Report the same day." },
   organisations: {
     title: "For Coaches",
     text: "Professional development programmes for coaches.",

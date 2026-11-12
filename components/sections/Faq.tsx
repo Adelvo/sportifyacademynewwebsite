@@ -18,6 +18,14 @@ const variants = {
     tile: "grid size-9 shrink-0 place-items-center rounded-xl bg-cyan/12 text-[#0b7a8f]",
     answer: "px-5 pb-5 sm:px-6",
   },
+  /** Compact cards matching the Kids page's tighter card spec. */
+  kids: {
+    wrap: "space-y-3",
+    item: "group rounded-[14px] border border-[#DCE5EB] bg-white shadow-[0_2px_8px_rgba(8,28,44,0.05)] transition-colors open:border-[#67D5E5]",
+    summary: "px-5 py-4",
+    tile: "grid size-9 shrink-0 place-items-center rounded-xl bg-[#67D5E5]/15 text-[#007a99]",
+    answer: "px-5 pb-4",
+  },
 };
 
 export function Faq({ items, variant = "list" }: { items: FaqItem[]; variant?: keyof typeof variants }) {

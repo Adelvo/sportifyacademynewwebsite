@@ -1,29 +1,34 @@
 import { Photo } from "@/components/media/Photo";
-import { ExternalButton, WhatsAppIcon } from "@/components/ui/Button";
+import { WhatsAppIcon } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
-import { Container } from "@/components/ui/Section";
 import { images, kids } from "@/content";
 import { whatsappUrl } from "@/lib/links";
+import { KidsButton } from "./KidsButton";
+import { KidsContainer } from "./KidsContainer";
+import { LeafIcon } from "./KidsIcons";
 
-/** A larger, light-turquoise panel for the Kids Nutrition Plan: photo beside the pitch and CTA. */
+/** A compact, light-turquoise panel for the Kids Nutrition Plan: photo beside the pitch and CTA. */
 export function KidsNutrition() {
   const { nutrition } = kids;
   return (
-    <section className="bg-mist py-16 sm:py-24">
-      <Container>
-        <Reveal className="grid overflow-hidden rounded-3xl bg-cyan/15 md:grid-cols-2 md:items-stretch">
-          <Photo image={images.kids.nutritionPlan} sizes="(min-width: 768px) 50vw, 100vw" className="aspect-[16/9] w-full md:aspect-auto md:h-full" />
-          <div className="flex flex-col justify-center px-6 py-10 text-center sm:px-10 sm:py-12 md:px-12 md:text-start lg:px-16">
-            <p className="text-sm font-bold tracking-widest text-cyan-deep">{nutrition.label}</p>
-            <h2 className="mt-3 font-[family-name:var(--font-hero)]! text-3xl tracking-tight sm:text-4xl">{nutrition.title}</h2>
-            <p className="mx-auto mt-4 max-w-xl text-lg text-ink-soft md:mx-0">{nutrition.text}</p>
-            <ExternalButton href={whatsappUrl(nutrition.whatsappMessage)} variant="whatsapp" className="mx-auto mt-8 md:mx-0">
+    <section className="bg-white py-[18px] sm:py-7">
+      <KidsContainer>
+        <Reveal className="grid overflow-hidden rounded-[14px] bg-[#E7F7FA] p-7 md:grid-cols-[320px_minmax(0,1fr)] md:items-center md:gap-7">
+          <Photo image={images.kids.nutritionPlan} sizes="(min-width: 768px) 320px, 100vw" className="aspect-[16/9] w-full rounded-[10px]" />
+          <div className="mt-6 flex flex-col md:mt-0">
+            <p className="flex items-center gap-2 text-[12px] font-bold tracking-widest text-[#007a99]">
+              <LeafIcon className="size-4" />
+              {nutrition.label}
+            </p>
+            <h2 className="mt-2 text-[28px] sm:text-[30px] font-bold leading-[1.2]">{nutrition.title}</h2>
+            <p className="mt-3 max-w-xl text-base leading-[1.55] text-[#526271]">{nutrition.text}</p>
+            <KidsButton href={whatsappUrl(nutrition.whatsappMessage)} className="mt-6">
               <WhatsAppIcon className="size-5" />
               {nutrition.cta}
-            </ExternalButton>
+            </KidsButton>
           </div>
         </Reveal>
-      </Container>
+      </KidsContainer>
     </section>
   );
 }

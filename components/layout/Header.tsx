@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useSyncExternalStore } from "react";
-import { kids, nav, site, ui } from "@/content";
+import { athlete, kids, nav, site, ui } from "@/content";
 import { whatsappUrl } from "@/lib/links";
 import styles from "../home/hero.module.css";
 import { BrandLogo } from "../ui/BrandLogo";
@@ -106,14 +106,14 @@ function SiteHeader({ pathname }: { pathname: string }) {
         </nav>
 
         <div className="flex items-center gap-2">
-          {pathname === "/test-my-child" && (
+          {(pathname === "/test-my-child" || pathname === "/train-with-us") && (
             <ExternalButton
-              href={whatsappUrl(kids.hero.headerWhatsappMessage)}
+              href={whatsappUrl(pathname === "/test-my-child" ? kids.hero.headerWhatsappMessage : athlete.hero.headerWhatsappMessage)}
               variant="whatsapp"
-              className="min-h-9! gap-1.5 rounded-full! px-3! py-2! text-xs! sm:min-h-10! sm:px-4! sm:text-sm!"
+              className="min-h-9! gap-1.5 rounded-full! bg-[#67D5E5]! px-3! py-2! text-xs! text-[#081C2C]! hover:bg-[#8EE3EF]! sm:min-h-10! sm:px-4! sm:text-sm!"
             >
               <WhatsAppIcon className="size-4" />
-              {kids.hero.headerCta}
+              {pathname === "/test-my-child" ? kids.hero.headerCta : athlete.hero.headerCta}
             </ExternalButton>
           )}
           <button

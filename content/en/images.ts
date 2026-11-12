@@ -79,6 +79,13 @@ export const images = {
     semiPrivate: { src: "/train/semi-private.webp", width: 1000, height: 750, alt: "" },
     nutritionPlan: { src: "/train/nutrition-plan.webp", width: 1000, height: 750, alt: "" },
     physicalTherapy: { src: "/train/physical-therapy.webp", width: 1000, height: 750, alt: "" },
+    // The real YouTube thumbnail for the Athlete page's football assessment video (sn179z2l1Hw).
+    footballAssessmentPoster: {
+      src: "/train/football-assessment-poster.webp",
+      width: 1280,
+      height: 720,
+      alt: "A Sportify Academy coach standing with young footballers in front of a microphone during a filmed assessment session",
+    },
   },
   // Photos on the "Adult Programmes" cards.
   adult: {

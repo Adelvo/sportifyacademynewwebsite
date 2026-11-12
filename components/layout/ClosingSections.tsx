@@ -1,20 +1,22 @@
+"use client";
+
+import { usePathname } from "next/navigation";
 import { HomeLocation } from "@/components/home/HomeLocation";
-import { OffersButton } from "@/components/home/OffersLink";
 import { PartnersBand } from "@/components/home/PartnersBand";
-import { Section, SectionHeading } from "@/components/ui/Section";
-import { home } from "@/content";
+import { KidsFaqSection } from "@/components/kids/KidsFaqSection";
 import { NotOnHome } from "./NotOnHome";
 
-/** The end of every page except the homepage, which has its own partners and location sections. */
+/**
+ * The end of every page except the homepage, which has its own partners and location sections.
+ * On the Kids page, its FAQ slots in here too, between the partners band and the location block.
+ */
 export function ClosingSections() {
+  const pathname = usePathname();
   return (
     <NotOnHome>
       <PartnersBand />
+      {pathname === "/test-my-child" && <KidsFaqSection />}
       <HomeLocation />
-      <Section tone="midnight">
-        <SectionHeading title={home.closing.title} text={home.closing.text} tone="midnight" />
-        <OffersButton className="w-full sm:w-auto" />
-      </Section>
     </NotOnHome>
   );
 }
