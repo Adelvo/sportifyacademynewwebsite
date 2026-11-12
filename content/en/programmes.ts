@@ -1,8 +1,8 @@
 // Page details for the four "ways in" on the landing page. The sections themselves are in home.ts.
 export const testPage = {
   meta: {
-    title: "Test My Child | Sportify Academy Dubai",
-    description: "Find the right assessment for your child at Sportify Academy in Dubai. Watch how each test works and contact us to get started.",
+    title: "Kids Assessments & Programmes | Sportify Academy Dubai",
+    description: "Understand your child's strengths and support their next step. Assessments, movement classes and talent identification for kids in Dubai.",
     path: "/test-my-child",
   },
 };

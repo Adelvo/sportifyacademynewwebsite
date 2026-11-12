@@ -36,6 +36,15 @@ export interface VideoTestimonial {
   poster: ImageAsset;
 }
 
+/** A self-hosted video file, played with a native <video> element. Starts only on click. */
+export interface LocalVideo {
+  id: string;
+  name: string;
+  /** Path to the video file in /public. */
+  src: string;
+  poster: ImageAsset;
+}
+
 export interface PageMeta {
   title: string;
   description: string;

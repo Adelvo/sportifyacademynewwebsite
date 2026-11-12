@@ -26,13 +26,50 @@ export const images = {
     adult: { src: "/paths/adult.webp", width: 1122, height: 1402, alt: "" },
     coaches: { src: "/paths/for-organisations.webp", width: 1122, height: 1402, alt: "A coach presenting to a seated group, in front of a screen with a rising bar chart" },
   },
-  // Posters for the videos on the "Test my child" cards: the videos' vertical YouTube thumbnails.
-  tests: {
-    talentIdentification: { src: "/tests/talent-identification.webp", width: 576, height: 1024, alt: "A smiling young girl reaching forward along a bench during a flexibility test" },
-    fundamentalMultiSports: { src: "/tests/fundamental-multi-sports.webp", width: 479, height: 848, alt: "A Sportify Academy coach talking to the camera, with the words Every Child on screen" },
-    physicalFitness: { src: "/tests/physical-fitness.webp", width: 464, height: 832, alt: "Three people, one in a UAE triathlon suit, standing in front of the Sportify Academy logo" },
-    postureBodyGait: { src: "/tests/posture-body-gait.webp", width: 576, height: 1024, alt: "A woman standing on a round scanner in front of a body posture analysis banner" },
-    nutritionPlan: { src: "/tests/nutrition-plan.webp", width: 576, height: 1024, alt: "" },
+  // Photos and video posters for the Kids page, taken in the Sportify Academy studio.
+  kids: {
+    heroPoster: {
+      src: "/kids/hero-video-poster.webp",
+      width: 1080,
+      height: 1920,
+      alt: "A Sportify Academy coach talking to camera, holding a basketball, in the blue training studio",
+    },
+    fundamentalMultisports: {
+      src: "/kids/fundamental-multisports.webp",
+      width: 1672,
+      height: 941,
+      alt: "A young girl balancing on one leg on a small disc during a fundamental movement exercise",
+    },
+    specializedFitness: {
+      src: "/kids/specialized-fitness.webp",
+      width: 1672,
+      height: 941,
+      alt: "A boy moving quickly along a coordination ladder during a fitness assessment",
+    },
+    motorSkills: {
+      src: "/kids/motor-skills.webp",
+      width: 1672,
+      height: 941,
+      alt: "A young boy walking along a low balance beam with his arms out",
+    },
+    multisportClass: {
+      src: "/kids/multisport-class.webp",
+      width: 1672,
+      height: 941,
+      alt: "A smiling girl holding a blue and white ball during a multisport class",
+    },
+    talentIdentification: {
+      src: "/kids/talent-identification.webp",
+      width: 1672,
+      height: 941,
+      alt: "A boy sprinting between two cones in front of a motion-tracking camera on a tripod",
+    },
+    nutritionPlan: {
+      src: "/kids/nutrition-plan.webp",
+      width: 1672,
+      height: 941,
+      alt: "An open lunchbox with a sandwich, cucumber and strawberries, next to a glass of water, yoghurt with banana and blueberries, an apple and a banana",
+    },
   },
   // Photos on the "Train with us" cards.
   train: {

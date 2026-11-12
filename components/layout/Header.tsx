@@ -3,9 +3,11 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useSyncExternalStore } from "react";
-import { nav, site, ui } from "@/content";
+import { kids, nav, site, ui } from "@/content";
+import { whatsappUrl } from "@/lib/links";
 import styles from "../home/hero.module.css";
 import { BrandLogo } from "../ui/BrandLogo";
+import { ExternalButton, WhatsAppIcon } from "../ui/Button";
 import { Container } from "../ui/Section";
 
 const linkClass = "rounded text-[13px] font-semibold lg:text-sm whitespace-nowrap text-midnight hover:text-cyan-deep aria-[current=page]:text-cyan-deep";
@@ -104,6 +106,16 @@ function SiteHeader({ pathname }: { pathname: string }) {
         </nav>
 
         <div className="flex items-center gap-2">
+          {pathname === "/test-my-child" && (
+            <ExternalButton
+              href={whatsappUrl(kids.hero.headerWhatsappMessage)}
+              variant="whatsapp"
+              className="min-h-9! gap-1.5 rounded-full! px-3! py-2! text-xs! sm:min-h-10! sm:px-4! sm:text-sm!"
+            >
+              <WhatsAppIcon className="size-4" />
+              {kids.hero.headerCta}
+            </ExternalButton>
+          )}
           <button
             type="button"
             aria-expanded={menuOpen}

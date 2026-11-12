@@ -11,6 +11,7 @@ export * from "./en/reviews";
 export * from "./en/forms";
 export * from "./en/whatsapp";
 export * from "./en/home";
+export * from "./en/kids";
 export * from "./en/programmes";
 export * from "./en/about";
 export * from "./en/pages";

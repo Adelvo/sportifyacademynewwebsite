@@ -1,5 +1,4 @@
 import type { FeatureIconName } from "@/components/home/FeatureIcon";
-import type { VideoTestimonial } from "../types";
 import { images } from "./images";
 
 interface Feature {
@@ -39,22 +38,6 @@ export interface Programmes<Image extends string> {
 type TrainPhoto = "generalAssessment" | "specificAssessment" | "oneOnOne" | "semiPrivate" | "nutritionPlan" | "physicalTherapy";
 type AdultPhoto = "bodyAnalysis" | "bodyComposition" | "bodyPosture" | "longevity" | "physicalTherapy" | "oneOnOne" | "semiPrivate";
 type OrganisationPhoto = "workshop" | "conferences" | "cpd";
-
-interface TestCard {
-  id: string;
-  name: string;
-  /** The grey label under the name, such as "Ages 8-14". */
-  tag?: string;
-  /** Groups consecutive cards with the same value under one sub-heading, such as "Assessments". */
-  group?: string;
-  video: VideoTestimonial;
-  checklist: string[];
-}
-
-/** A YouTube video on a "Test my child" card. It starts on the visitor's click. */
-function testVideo(videoId: string, name: string, poster: VideoTestimonial["poster"]): VideoTestimonial {
-  return { id: videoId, name, embedUrl: `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`, poster };
-}
 
 export const home = {
   meta: {
@@ -102,76 +85,6 @@ export const home = {
   measure: {
     title: "What we measure",
     text: "We look at the whole child. The tests depend on the package.",
-  },
-  test: {
-    title: "Test my child",
-    text: "Find the right assessment for your child",
-    contact: "Contact Us",
-    help: {
-      title: "Not sure which test fits you or your child?",
-      text: "No problem. Message us on WhatsApp and we'll help you choose.",
-    },
-    cards: [
-      {
-        id: "talent-identification",
-        name: "Sports Talent Identification",
-        tag: "Ages 8-14",
-        group: "Assessments",
-        video: testVideo("Ra_2hO5UDew", "Sports Talent Identification", images.tests.talentIdentification),
-        checklist: [
-          "Fitness & mindset",
-          "Multi-sport skills",
-          "Posture & nutrition",
-        ],
-      },
-      {
-        id: "fundamental-multi-sports",
-        name: "Fundamental Multi Sports Tests",
-        tag: "Ages 4-7",
-        group: "Assessments",
-        video: testVideo("lOfv-x0nXYs", "Fundamental Multi Sports Tests", images.tests.fundamentalMultiSports),
-        checklist: [
-          "Movement & ball skills",
-          "Balance & strength",
-          "Skills consultation",
-        ],
-      },
-      {
-        id: "physical-fitness",
-        name: "Specialized Physical Fitness Assessment",
-        tag: "Ages 8+",
-        group: "Assessments",
-        video: testVideo("_eYmrPcCJh0", "Specialized Physical Fitness Assessment", images.tests.physicalFitness),
-        checklist: [
-          "Fitness assessment",
-          "Body composition",
-          "VO2 max analysis",
-        ],
-      },
-      {
-        id: "posture-body-gait",
-        name: "Posture, Body Composition & Gait",
-        tag: "Ages 4+",
-        group: "Assessments",
-        video: testVideo("ytGnTGl6OdU", "Posture, Body Composition & Gait", images.tests.postureBodyGait),
-        checklist: [
-          "Posture scan",
-          "Body composition",
-          "Walking analysis",
-        ],
-      },
-      {
-        id: "nutrition-plan",
-        name: "Nutrition Plan",
-        group: "Eat Better",
-        video: { id: "nutrition-plan", name: "Nutrition Plan", poster: images.tests.nutritionPlan },
-        checklist: [
-          "Personalised meal guidance",
-          "Supports growth & recovery",
-          "For young athletes",
-        ],
-      },
-    ] satisfies TestCard[] as TestCard[],
   },
   train: {
     title: "Athletes",
