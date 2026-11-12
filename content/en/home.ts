@@ -21,6 +21,8 @@ type ProgrammeCard<Image extends string> = {
   /** The grey label under the name, such as "Ages 8+". */
   tag?: string;
   badge?: string;
+  /** Groups consecutive cards with the same value under one sub-heading, such as "Assessments". */
+  group?: string;
   checklist: string[];
   whatsappMessage: string;
 };
@@ -43,6 +45,8 @@ interface TestCard {
   name: string;
   /** The grey label under the name, such as "Ages 8-14". */
   tag?: string;
+  /** Groups consecutive cards with the same value under one sub-heading, such as "Assessments". */
+  group?: string;
   video: VideoTestimonial;
   checklist: string[];
 }
@@ -112,6 +116,7 @@ export const home = {
         id: "talent-identification",
         name: "Sports Talent Identification",
         tag: "Ages 8-14",
+        group: "Assessments",
         video: testVideo("Ra_2hO5UDew", "Sports Talent Identification", images.tests.talentIdentification),
         checklist: [
           "Fitness & mindset",
@@ -123,6 +128,7 @@ export const home = {
         id: "fundamental-multi-sports",
         name: "Fundamental Multi Sports Tests",
         tag: "Ages 4-7",
+        group: "Assessments",
         video: testVideo("lOfv-x0nXYs", "Fundamental Multi Sports Tests", images.tests.fundamentalMultiSports),
         checklist: [
           "Movement & ball skills",
@@ -134,6 +140,7 @@ export const home = {
         id: "physical-fitness",
         name: "Specialized Physical Fitness Assessment",
         tag: "Ages 8+",
+        group: "Assessments",
         video: testVideo("_eYmrPcCJh0", "Specialized Physical Fitness Assessment", images.tests.physicalFitness),
         checklist: [
           "Fitness assessment",
@@ -145,6 +152,7 @@ export const home = {
         id: "posture-body-gait",
         name: "Posture, Body Composition & Gait",
         tag: "Ages 4+",
+        group: "Assessments",
         video: testVideo("ytGnTGl6OdU", "Posture, Body Composition & Gait", images.tests.postureBodyGait),
         checklist: [
           "Posture scan",
@@ -155,6 +163,7 @@ export const home = {
       {
         id: "nutrition-plan",
         name: "Nutrition Plan",
+        group: "Eat Better",
         video: { id: "nutrition-plan", name: "Nutrition Plan", poster: images.tests.nutritionPlan },
         checklist: [
           "Personalised meal guidance",
@@ -165,14 +174,15 @@ export const home = {
     ] satisfies TestCard[] as TestCard[],
   },
   train: {
-    title: "Train with us",
-    text: "Assessments, personal training and recovery to build performance and confidence.",
+    title: "Athletes",
+    text: "",
     action: "Book",
     cards: [
       {
         id: "general-assessment",
         image: "generalAssessment",
         name: "General Physical Assessment",
+        group: "Assessments",
         checklist: ["Full-body movement screening", "Baseline fitness benchmarks", "Clear next-step recommendations"],
         whatsappMessage: "Hello Sportify Academy. I would like to book a General Physical Assessment.",
       },
@@ -180,6 +190,7 @@ export const home = {
         id: "specific-assessment",
         image: "specificAssessment",
         name: "Specific Physical Assessment",
+        group: "Assessments",
         checklist: ["Sport-specific performance testing", "In-depth strength & conditioning data", "Tailored training recommendations"],
         whatsappMessage: "Hello Sportify Academy. I would like to book a Specific Physical Assessment.",
       },
@@ -187,7 +198,7 @@ export const home = {
         id: "one-on-one",
         image: "oneOnOne",
         name: "One-on-One Training",
-        tag: "Personal Training",
+        group: "Train With Us",
         checklist: ["Fully personalised sessions", "Dedicated coach", "Flexible scheduling"],
         whatsappMessage: "Hello Sportify Academy. I would like to book One-on-One Personal Training.",
       },
@@ -195,7 +206,7 @@ export const home = {
         id: "semi-private",
         image: "semiPrivate",
         name: "Semi-Private Training",
-        tag: "Personal Training",
+        group: "Train With Us",
         checklist: ["Small-group coaching", "Shared motivation, individual attention", "Cost-effective personal coaching"],
         whatsappMessage: "Hello Sportify Academy. I would like to book Semi-Private Training.",
       },
@@ -203,6 +214,7 @@ export const home = {
         id: "nutrition-plan",
         image: "nutritionPlan",
         name: "Nutrition Plan",
+        group: "Eat Better",
         checklist: ["Personalised meal guidance", "Supports performance & recovery", "Ongoing adjustments"],
         whatsappMessage: "Hello Sportify Academy. I would like to book a Nutrition Plan.",
       },
@@ -210,6 +222,7 @@ export const home = {
         id: "physical-therapy",
         image: "physicalTherapy",
         name: "Physical Therapy",
+        group: "Recover",
         checklist: ["Injury assessment & treatment", "Guided rehab exercises", "Safe return to training"],
         whatsappMessage: "Hello Sportify Academy. I would like to book Physical Therapy.",
       },
@@ -230,6 +243,7 @@ export const home = {
         id: "body-analysis",
         image: "bodyAnalysis",
         name: "Body Analysis",
+        group: "Assessments",
         checklist: ["Full-body composition scan", "Baseline health metrics", "Clear, actionable report"],
         whatsappMessage: "Hello Sportify Academy. I would like to book a Body Analysis.",
       },
@@ -237,6 +251,7 @@ export const home = {
         id: "body-composition",
         image: "bodyComposition",
         name: "Body Composition",
+        group: "Assessments",
         checklist: ["Muscle & fat percentage", "Track changes over time", "Personalised recommendations"],
         whatsappMessage: "Hello Sportify Academy. I would like to book a Body Composition assessment.",
       },
@@ -244,6 +259,7 @@ export const home = {
         id: "body-posture",
         image: "bodyPosture",
         name: "Body Posture",
+        group: "Assessments",
         checklist: ["Full posture scan", "Identify imbalances", "Corrective exercise guidance"],
         whatsappMessage: "Hello Sportify Academy. I would like to book a Body Posture assessment.",
       },
@@ -252,21 +268,15 @@ export const home = {
         image: "longevity",
         name: "Longevity Assessment",
         tag: "Ages 40+",
+        group: "Assessments",
         checklist: ["Long-term health & mobility check", "Personalised longevity plan", "Ongoing progress tracking"],
         whatsappMessage: "Hello Sportify Academy. I would like to book a Longevity Assessment.",
-      },
-      {
-        id: "physical-therapy",
-        image: "physicalTherapy",
-        name: "Physical Therapy",
-        checklist: ["Injury assessment & treatment", "Guided rehab exercises", "Safe return to activity"],
-        whatsappMessage: "Hello Sportify Academy. I would like to book Physical Therapy.",
       },
       {
         id: "one-on-one",
         image: "oneOnOne",
         name: "One-on-One Personal Training",
-        tag: "Personal Training",
+        group: "Train With Us",
         checklist: ["Fully personalised sessions", "Dedicated coach", "Flexible scheduling"],
         whatsappMessage: "Hello Sportify Academy. I would like to book One-on-One Personal Training.",
       },
@@ -274,9 +284,17 @@ export const home = {
         id: "semi-private",
         image: "semiPrivate",
         name: "Semi-Private Training",
-        tag: "Personal Training",
+        group: "Train With Us",
         checklist: ["Small-group coaching", "Shared motivation, individual attention", "Cost-effective personal coaching"],
         whatsappMessage: "Hello Sportify Academy. I would like to book Semi-Private Training.",
+      },
+      {
+        id: "physical-therapy",
+        image: "physicalTherapy",
+        name: "Physical Therapy",
+        group: "Recover",
+        checklist: ["Injury assessment & treatment", "Guided rehab exercises", "Safe return to activity"],
+        whatsappMessage: "Hello Sportify Academy. I would like to book Physical Therapy.",
       },
     ] satisfies ProgrammeCard<AdultPhoto>[] as ProgrammeCard<AdultPhoto>[],
     features: [
