@@ -1,5 +1,6 @@
 import { VideoSlot } from "@/components/media/VideoSlot";
 import { LinkButton } from "@/components/ui/Button";
+import { Reveal } from "@/components/ui/Reveal";
 import { Container } from "@/components/ui/Section";
 import { home } from "@/content";
 import { FeatureIcon } from "./FeatureIcon";
@@ -28,11 +29,11 @@ export function WhySportify({
       <Container className="relative">
         <div className="grid grid-cols-1 items-center gap-12 sm:gap-10 xl:grid-cols-[2fr_3fr] xl:gap-9">
           {/* The cyan shows only at two corners, where the gradient is not transparent. */}
-          <div className="mx-auto w-full max-w-2xl rounded-[1.25rem] bg-[linear-gradient(135deg,var(--color-cyan),transparent_35%,transparent_75%,var(--color-cyan))] pt-1.5 pr-0.5 pb-0.5 pl-1.5 xl:max-w-none">
+          <Reveal className="mx-auto w-full max-w-2xl rounded-[1.25rem] bg-[linear-gradient(135deg,var(--color-cyan),transparent_35%,transparent_75%,var(--color-cyan))] pt-1.5 pr-0.5 pb-0.5 pl-1.5 xl:max-w-none">
             <VideoSlot video={why.video} hideCaption autoplayInView />
-          </div>
+          </Reveal>
 
-          <div>
+          <Reveal delay={90}>
             <HeadingMark className="mb-3" />
             <Heading className="text-3xl sm:text-4xl xl:text-[2.75rem]">{title}</Heading>
             <p className="mt-4 text-lg text-midnight-800">{why.text}</p>
@@ -55,12 +56,12 @@ export function WhySportify({
                 </li>
               ))}
             </ul>
-          </div>
+          </Reveal>
         </div>
 
         <ul className="mt-12 grid grid-cols-1 gap-5 sm:mt-9 sm:gap-4 lg:grid-cols-3 lg:gap-5">
-          {why.highlights.map((item) => (
-            <li key={item.title} className={`${card} flex items-center gap-5 p-6 sm:gap-4 sm:p-5`}>
+          {why.highlights.map((item, index) => (
+            <Reveal key={item.title} as="li" delay={index * 90} className={`${card} flex items-center gap-5 p-6 sm:gap-4 sm:p-5`}>
               <span className={`${iconTile} size-12 text-midnight sm:size-14`}>
                 <FeatureIcon name={item.icon} className="size-8" />
               </span>
@@ -69,11 +70,11 @@ export function WhySportify({
                 <h3 className="text-lg">{item.title}</h3>
                 <p className="mt-1 text-sm text-midnight-800">{item.text}</p>
               </div>
-            </li>
+            </Reveal>
           ))}
         </ul>
 
-        <div className="mt-12 flex flex-col items-center gap-4 sm:mt-8 sm:gap-3">
+        <Reveal className="mt-12 flex flex-col items-center gap-4 sm:mt-8 sm:gap-3">
           {storyLink && (
             <LinkButton href="/about" variant="midnight" className="w-full sm:w-80">
               {why.cta}
@@ -84,7 +85,7 @@ export function WhySportify({
           )}
           {/* Next to the story link, phones show only that one button. */}
           <OffersButton className={`w-full sm:w-80 ${storyLink ? "max-sm:hidden" : ""}`} />
-        </div>
+        </Reveal>
       </Container>
     </section>
   );

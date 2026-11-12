@@ -20,10 +20,22 @@
   --font-sans: var(--font-hero), ui-sans-serif, system-ui, sans-serif;
 
   --animate-marquee: marquee 110s linear infinite;
+  --animate-menu-in: menu-in 200ms ease-out;
 
   @keyframes marquee {
     to {
       transform: translateX(-50%);
+    }
+  }
+
+  @keyframes menu-in {
+    from {
+      opacity: 0;
+      transform: translateY(-6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 }
@@ -92,6 +104,23 @@ details > summary {
 }
 details > summary::-webkit-details-marker {
   display: none;
+}
+
+/* FAQ answers ease in instead of snapping open; height itself still toggles instantly,
+   display:none -> block, but @starting-style lets the fade/slide bridge that jump. */
+details > summary ~ * {
+  transition: opacity 220ms ease, translate 220ms ease;
+  transition-behavior: allow-discrete;
+}
+details:not([open]) > summary ~ * {
+  opacity: 0;
+  translate: 0 -4px;
+}
+@starting-style {
+  details[open] > summary ~ * {
+    opacity: 0;
+    translate: 0 -4px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

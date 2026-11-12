@@ -38,6 +38,16 @@ export function AthleteVideoModal({ video, className = "" }: { video: AthleteVid
     <>
       <div className={`relative overflow-hidden rounded-[14px] ${className}`}>
         <Photo image={video.poster} sizes="(min-width: 1024px) 480px, 100vw" className="absolute inset-0 size-full" />
+        {/* Poster frames can carry their own burned-in captions; this scrim keeps the play button legible over them. */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(to bottom, transparent 0%, rgba(8,28,44,0.55) 38%, rgba(8,28,44,0.55) 62%, transparent 100%), " +
+              "radial-gradient(circle at center, rgba(8,28,44,0.55) 0%, rgba(8,28,44,0.3) 45%, transparent 70%)",
+          }}
+        />
         <button
           type="button"
           ref={triggerRef}
@@ -45,8 +55,8 @@ export function AthleteVideoModal({ video, className = "" }: { video: AthleteVid
           aria-label={`${ui.video.play}: ${video.name}`}
           className="absolute inset-0 grid place-items-center"
         >
-          <span className="grid size-12 place-items-center rounded-full bg-[#67D5E5] text-[#081C2C] shadow-lg transition-transform hover:scale-105">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className="ms-0.5 size-5">
+          <span className="grid size-14 place-items-center rounded-full bg-[#67D5E5] text-[#081C2C] shadow-lg transition-transform hover:scale-105">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className="ms-1 size-6">
               <path d="M8 5v14l11-7z" />
             </svg>
           </span>
@@ -91,7 +101,7 @@ export function AthleteVideoModal({ video, className = "" }: { video: AthleteVid
             )}
           </div>
           <p className="mt-3 text-center text-sm text-white/80">
-            <a href={video.watchUrl} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 hover:text-white">
+            <a href={video.watchUrl} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 transition-colors hover:text-white">
               Watch on YouTube
             </a>
           </p>

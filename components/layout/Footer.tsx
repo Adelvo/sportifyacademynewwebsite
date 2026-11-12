@@ -7,7 +7,7 @@ import { Container } from "../ui/Section";
 import { InstagramIcon, YouTubeIcon } from "../ui/SocialIcons";
 
 const headingClass = "mb-3 font-display font-bold text-white";
-const linkClass = "inline-block py-1 text-on-midnight-soft hover:text-cyan";
+const linkClass = "inline-block py-1 text-on-midnight-soft transition-colors hover:text-cyan";
 const socialClass = "grid size-11 place-items-center rounded-xl bg-white/10 text-white transition-colors hover:bg-cyan hover:text-midnight";
 
 export function Footer() {

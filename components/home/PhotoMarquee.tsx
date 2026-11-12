@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { Photo } from "@/components/media/Photo";
+import { Reveal } from "@/components/ui/Reveal";
 import type { ImageAsset } from "@/content/types";
 
 /**
@@ -33,7 +34,7 @@ export function PhotoMarquee<T extends { id: string }>({
       <span aria-hidden="true" className="absolute inset-0 bg-midnight/55" />
       <div className="relative">
         {/* The equal side columns keep the heading centred and stop it running under the aside. */}
-        <div className={aside ? "flex flex-col items-center gap-5 lg:grid lg:grid-cols-[14rem_1fr_14rem] lg:items-start" : undefined}>
+        <Reveal as="div" className={aside ? "flex flex-col items-center gap-5 lg:grid lg:grid-cols-[14rem_1fr_14rem] lg:items-start" : undefined}>
           <h2
             id={id}
             className="mx-auto max-w-4xl px-5 text-center text-3xl tracking-wide text-white uppercase [text-shadow:0_2px_16px_rgb(10_31_51/0.6)] sm:px-8 sm:text-4xl lg:col-start-2 lg:text-5xl"
@@ -41,7 +42,7 @@ export function PhotoMarquee<T extends { id: string }>({
             {title}
           </h2>
           {aside ? <div className="lg:justify-self-end lg:pr-8">{aside}</div> : null}
-        </div>
+        </Reveal>
         <div className="mt-12 snap-x snap-mandatory scroll-px-5 overflow-x-auto [scrollbar-width:none] sm:mt-14 sm:snap-none sm:overflow-hidden sm:mask-[linear-gradient(to_right,transparent,#000_12%,#000_88%,transparent)] sm:motion-reduce:mask-none">
           <div
             style={{ animationDuration: `${seconds}s` }}

@@ -4,8 +4,19 @@ import { useEffect, useRef, useState } from "react";
 import type { ReactNode } from "react";
 
 /** Fades and lifts its children into place once they scroll into view. Skipped for reduced motion. */
-export function Reveal({ children, className = "", delay = 0 }: { children: ReactNode; className?: string; delay?: number }) {
-  const ref = useRef<HTMLDivElement>(null);
+export function Reveal({
+  children,
+  className = "",
+  delay = 0,
+  as: Tag = "div",
+}: {
+  children: ReactNode;
+  className?: string;
+  delay?: number;
+  /** Lets Reveal wrap a <li> (for list/grid items) instead of a <div>. */
+  as?: "div" | "li";
+}) {
+  const ref = useRef<HTMLDivElement & HTMLLIElement>(null);
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -25,12 +36,12 @@ export function Reveal({ children, className = "", delay = 0 }: { children: Reac
   }, []);
 
   return (
-    <div
+    <Tag
       ref={ref}
       style={{ transitionDelay: visible ? `${delay}ms` : "0ms" }}
       className={`transition-all duration-700 ease-out motion-reduce:transition-none ${visible ? "translate-y-0 opacity-100" : "translate-y-7 opacity-0"} ${className}`}
     >
       {children}
-    </div>
+    </Tag>
   );
 }

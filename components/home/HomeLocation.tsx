@@ -1,5 +1,6 @@
 import { MapFrame } from "@/components/media/MapEmbed";
 import { ExternalButton, WhatsAppIcon } from "@/components/ui/Button";
+import { Reveal } from "@/components/ui/Reveal";
 import { Container } from "@/components/ui/Section";
 import { home, site, ui } from "@/content";
 import { whatsappUrlForPath } from "@/lib/links";
@@ -12,12 +13,12 @@ export function HomeLocation() {
   return (
     <section id="location" className="bg-white py-20 text-midnight sm:py-24">
       <Container>
-        <div className="mb-12 flex flex-col items-center text-center sm:mb-14">
+        <Reveal className="mb-12 flex flex-col items-center text-center sm:mb-14">
           <HeadingMark className="mb-3" />
           <h2 className="text-3xl sm:text-4xl xl:text-[2.75rem]">{home.location.title}</h2>
-        </div>
+        </Reveal>
 
-        <div className="grid grid-cols-1 overflow-hidden rounded-2xl border border-line/50 shadow-[0_8px_24px_rgb(10_31_51/0.07)] lg:grid-cols-[2fr_3fr]">
+        <Reveal delay={90} className="grid grid-cols-1 overflow-hidden rounded-2xl border border-line/50 shadow-[0_8px_24px_rgb(10_31_51/0.07)] lg:grid-cols-[2fr_3fr]">
           <div className="flex flex-col gap-8 bg-midnight p-7 text-white sm:gap-7 sm:p-9">
             <div className="flex items-start gap-4">
               <span className={iconTile}>
@@ -41,7 +42,7 @@ export function HomeLocation() {
               </span>
               <div>
                 <h3 className="text-lg">{ui.phone}</h3>
-                <a href={`tel:${site.phoneE164}`} className="mt-2 inline-block text-on-midnight-soft hover:text-cyan">
+                <a href={`tel:${site.phoneE164}`} className="mt-2 inline-block text-on-midnight-soft transition-colors hover:text-cyan">
                   {site.phoneDisplay}
                 </a>
               </div>
@@ -52,8 +53,8 @@ export function HomeLocation() {
                 <WhatsAppIcon className="size-6" />
               </span>
               <span>
-                <span className="block font-display text-lg font-bold group-hover:text-cyan">{ui.whatsappButton}</span>
-                <span className="mt-2 block text-on-midnight-soft group-hover:text-cyan">{site.phoneDisplay}</span>
+                <span className="block font-display text-lg font-bold transition-colors group-hover:text-cyan">{ui.whatsappButton}</span>
+                <span className="mt-2 block text-on-midnight-soft transition-colors group-hover:text-cyan">{site.phoneDisplay}</span>
               </span>
             </a>
 
@@ -66,7 +67,7 @@ export function HomeLocation() {
           </div>
 
           <MapFrame className="min-h-80 lg:min-h-[28rem]" />
-        </div>
+        </Reveal>
       </Container>
     </section>
   );

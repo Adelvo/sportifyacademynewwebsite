@@ -10,7 +10,7 @@ import { BrandLogo } from "../ui/BrandLogo";
 import { ExternalButton, WhatsAppIcon } from "../ui/Button";
 import { Container } from "../ui/Section";
 
-const linkClass = "rounded text-[13px] font-semibold lg:text-sm whitespace-nowrap text-midnight hover:text-cyan-deep aria-[current=page]:text-cyan-deep";
+const linkClass = "rounded text-[13px] font-semibold lg:text-sm whitespace-nowrap text-midnight transition-colors hover:text-cyan-deep aria-[current=page]:text-cyan-deep";
 
 export function Logo() {
   return (
@@ -64,7 +64,7 @@ function HomeHeader() {
         </div>
 
         {menuOpen && (
-          <nav id="mobile-menu" aria-label={ui.mainNavLabel} className={`${styles.mobileMenu} max-h-[calc(100dvh-4rem)] overflow-y-auto pb-6`}>
+          <nav id="mobile-menu" aria-label={ui.mainNavLabel} className={`${styles.mobileMenu} max-h-[calc(100dvh-4rem)] origin-top animate-menu-in overflow-y-auto pb-6`}>
             <Container>
               <ul className="py-2">
                 {nav.main.map((item) => (
@@ -135,7 +135,7 @@ function SiteHeader({ pathname }: { pathname: string }) {
         <nav
           id="mobile-menu"
           aria-label={ui.mainNavLabel}
-          className="max-h-[calc(100dvh-4rem)] overflow-y-auto border-t border-line bg-white pb-6 md:hidden"
+          className="max-h-[calc(100dvh-4rem)] origin-top animate-menu-in overflow-y-auto border-t border-line bg-white pb-6 md:hidden"
         >
           <Container>
             <ul className="py-2">

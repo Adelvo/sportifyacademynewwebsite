@@ -17,7 +17,7 @@ export function PathCards() {
             <li key={item.href}>
               <Link
                 href={item.href}
-                className="group @container relative flex aspect-[3/5] flex-col justify-end overflow-hidden rounded-2xl bg-[#0a1f33] text-white lg:rounded-3xl"
+                className="group @container relative flex aspect-[3/5] flex-col justify-end overflow-hidden rounded-2xl bg-[#0a1f33] text-white transition-[transform,box-shadow] duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_44px_rgba(10,31,51,0.35)] focus-visible:-translate-y-1.5 focus-visible:shadow-[0_20px_44px_rgba(10,31,51,0.35)] lg:rounded-3xl"
               >
                 <Photo
                   image={images.paths[item.image]}

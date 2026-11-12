@@ -1,4 +1,5 @@
 import { VideoSlot } from "@/components/media/VideoSlot";
+import { Reveal } from "@/components/ui/Reveal";
 import { Container } from "@/components/ui/Section";
 import { home, testimonials } from "@/content";
 import { AthleteStats } from "./AthleteStats";
@@ -14,13 +15,15 @@ export function AthleteStories() {
       <CornerArc className="end-0 bottom-0 rotate-180" />
 
       <Container className="relative">
-        <HeadingMark className="mb-3" />
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl">{section.title}</h2>
-        <p className="mt-4 text-lg text-midnight-800">{section.text}</p>
+        <Reveal>
+          <HeadingMark className="mb-3" />
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl">{section.title}</h2>
+          <p className="mt-4 text-lg text-midnight-800">{section.text}</p>
+        </Reveal>
 
         <ul className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-5 lg:gap-6">
-          {testimonials.map((video) => (
-            <li key={video.id}>
+          {testimonials.map((video, index) => (
+            <Reveal key={video.id} as="li" delay={index * 100}>
               <article className="flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-[0_10px_30px_rgb(10_31_51/0.1)] ring-[#00b8d9] transition-[scale,box-shadow] duration-200 focus-within:ring-2 hover:ring-2 motion-safe:hover:relative motion-safe:hover:z-10 motion-safe:hover:scale-[1.02]">
                 <VideoSlot video={video} frameClassName="aspect-video rounded-none!" hideCaption />
                 <div aria-hidden="true" className="h-1 bg-electric-gradient" />
@@ -33,15 +36,15 @@ export function AthleteStories() {
                   <p className="rounded-full bg-cyan/12 px-3 py-1 text-sm font-semibold text-[#0b7a8f] max-sm:hidden">{section.label}</p>
                 </div>
               </article>
-            </li>
+            </Reveal>
           ))}
         </ul>
 
         <AthleteStats />
 
-        <div className="mt-10 flex justify-center sm:mt-8">
+        <Reveal className="mt-10 flex justify-center sm:mt-8">
           <OffersButton className="w-full sm:w-80" />
-        </div>
+        </Reveal>
       </Container>
     </section>
   );
