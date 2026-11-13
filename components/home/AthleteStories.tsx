@@ -2,30 +2,31 @@ import { VideoSlot } from "@/components/media/VideoSlot";
 import { Reveal } from "@/components/ui/Reveal";
 import { Container } from "@/components/ui/Section";
 import { home, testimonials } from "@/content";
-import { AthleteStats } from "./AthleteStats";
 import { OffersButton } from "./OffersLink";
 import { CornerArc, HeadingMark } from "./SectionAccents";
 
-/** "Hear from our athletes": the success story videos, with the headline figures under them. */
+/** "Hear from our athletes": the success story videos and the offers link. */
 export function AthleteStories() {
   const { testimonials: section } = home;
   return (
-    <section id="results" className="relative overflow-hidden bg-[#f8fbfd] py-20 text-midnight">
+    <section id="results" className="relative scroll-mt-[clamp(4.75rem,10svh,6.25rem)] overflow-hidden bg-[#f8fbfd] pt-[18px] pb-20 text-midnight sm:pt-7">
       <CornerArc className="start-0 top-0" />
       <CornerArc className="end-0 bottom-0 rotate-180" />
 
       <Container className="relative">
         <Reveal>
-          <HeadingMark className="mb-3" />
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl">{section.title}</h2>
+          <div className="flex items-center gap-4">
+            <HeadingMark className="shrink-0" />
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl">{section.title}</h2>
+          </div>
           <p className="mt-4 text-lg text-midnight-800">{section.text}</p>
         </Reveal>
 
-        <ul className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-5 lg:gap-6">
+        <ul className="mt-6 grid grid-cols-1 gap-8 sm:mt-7 md:grid-cols-2 md:gap-5 lg:gap-6">
           {testimonials.map((video, index) => (
             <Reveal key={video.id} as="li" delay={index * 100}>
               <article className="flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-[0_10px_30px_rgb(10_31_51/0.1)] ring-[#00b8d9] transition-[scale,box-shadow] duration-200 focus-within:ring-2 hover:ring-2 motion-safe:hover:relative motion-safe:hover:z-10 motion-safe:hover:scale-[1.02]">
-                <VideoSlot video={video} frameClassName="aspect-video rounded-none!" hideCaption />
+                <VideoSlot video={video} hideCaption autoplayInView />
                 <div aria-hidden="true" className="h-1 bg-electric-gradient" />
 
                 <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 p-5 lg:px-6">
@@ -39,8 +40,6 @@ export function AthleteStories() {
             </Reveal>
           ))}
         </ul>
-
-        <AthleteStats />
 
         <Reveal className="mt-10 flex justify-center sm:mt-8">
           <OffersButton className="w-full sm:w-80" />

@@ -47,8 +47,6 @@ export const home = {
     path: "/",
   },
   hero: {
-    headlineLines: ["Discover Athletic", "Potential"],
-    sub: "AI-powered assessments and expert coaching for young athletes.",
     stats: [
       { value: 1200, label: "Talents Discovered" },
       { value: 30000, label: "Clients" },
@@ -231,7 +229,7 @@ export const home = {
     stars: "Rated 5 out of 5 stars",
   },
   why: {
-    title: "Why Sportify Academy?",
+    title: "Why SPORTIFY ACADEMY?",
     text: "Proven athlete development and talent identification, backed by expertise, data, and a track record of champion success.",
     /** The line breaks in the labels are shown on the page. */
     stats: [
@@ -292,6 +290,6 @@ export const home = {
       { icon: "shield", title: "Proven Results", text: "Higher performance & lasting impact" },
     ] satisfies Feature[] as Feature[],
   },
-  faq: { title: "Questions parents ask" },
+  faq: { title: "Frequently asked questions" },
   location: { title: "Where to find us" },
 };

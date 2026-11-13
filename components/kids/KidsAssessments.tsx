@@ -1,49 +1,47 @@
+import { CornerArc, HeadingMark } from "@/components/home/SectionAccents";
 import { WhatsAppIcon } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
 import { kids } from "@/content";
 import { whatsappUrl } from "@/lib/links";
 import { InlineVideoPlayer } from "./InlineVideoPlayer";
-import { BalanceIcon, SpeedIcon } from "./KidsIcons";
 import { KidsButton } from "./KidsButton";
 import { KidsContainer } from "./KidsContainer";
-import { KidsHelpBanner } from "./KidsHelpBanner";
 import { KidsProcess } from "./KidsProcess";
 
-const assessmentIcons: Record<string, typeof BalanceIcon> = {
-  "fundamental-multisports-test": BalanceIcon,
-  "specialized-physical-fitness-assessment": SpeedIcon,
-};
-
-/** "Find the right starting point": the intro video beside the two assessments, a WhatsApp help prompt, and the process strip. */
+/** "Find the right starting point": the intro video beside the two assessments and their framed process strip. */
 export function KidsAssessments() {
   const { assessments } = kids;
   return (
-    <section className="bg-[#F4F7F9] py-[18px] sm:py-7">
-      <KidsContainer>
+    <section className="relative overflow-hidden bg-[#F4F7F9] py-[18px] sm:py-7">
+      <CornerArc className="pointer-events-none start-0 top-0" />
+      <KidsContainer className="relative">
         <Reveal>
-          <h2 className="text-[clamp(26px,2.4vw,34px)] font-bold leading-[1.2]">{assessments.title}</h2>
+          <h2 className="flex flex-wrap items-center gap-x-4 gap-y-2 text-[clamp(26px,2.4vw,34px)] font-bold leading-[1.2] md:grid md:grid-cols-[260px_minmax(0,1fr)] md:gap-x-12 lg:gap-x-16">
+            <span className="inline-flex shrink-0 items-center gap-3">
+              <HeadingMark className="shrink-0" />
+              {assessments.label}
+            </span>
+            <span className="font-normal">{assessments.title}</span>
+          </h2>
         </Reveal>
 
-        <Reveal delay={90} className="mt-6 grid gap-8 sm:mt-7 md:grid-cols-[260px_minmax(0,1fr)] md:items-center">
+        <Reveal delay={90} className="mt-6 grid gap-8 sm:mt-7 md:grid-cols-[260px_minmax(0,1fr)] md:items-center md:gap-x-12 lg:gap-x-16">
           <InlineVideoPlayer
             video={assessments.video}
             sizes="(min-width: 768px) 260px, 70vw"
-            className="mx-auto aspect-[9/16] w-[220px] rounded-[14px] sm:w-[260px] md:w-full"
+            className="mx-auto aspect-[9/16] w-[220px] sm:w-[260px] md:w-full"
             unmuteButtonClassName="size-14"
           />
 
           <ul className="flex flex-col gap-6">
             {assessments.items.map((item) => {
-              const Icon = assessmentIcons[item.id];
               return (
-                <li key={item.id} className="flex items-start gap-4 border-b border-[#DCE5EB] pb-6 last:border-0 last:pb-0">
-                  {Icon && (
-                    <span className="grid size-10 shrink-0 place-items-center rounded-full bg-[#67D5E5]/15 text-[#007a99]">
-                      <Icon className="size-5" />
-                    </span>
-                  )}
+                <li
+                  key={item.id}
+                  className={`flex items-start gap-4 border-b border-[#DCE5EB] pb-6 last:border-0 last:pb-0 ${item.id === "specialized-physical-fitness-assessment" ? "ml-4 sm:ml-10 lg:ml-16" : ""}`}
+                >
                   <div className="min-w-0 flex-1">
-                    <p className="w-fit rounded-full bg-white px-3 py-1 text-[12px] font-bold tracking-wide text-[#081C2C]">{item.age}</p>
+                    <p className="w-fit rounded-full bg-[#fbbc05] px-3 py-1 text-[12px] font-bold tracking-wide text-[#081C2C]">{item.age}</p>
                     <h3 className="mt-2 text-[20px] leading-[1.3] font-bold">{item.name}</h3>
                     <ul className="mt-2 space-y-1.5">
                       {item.points.map((point) => (
@@ -63,13 +61,6 @@ export function KidsAssessments() {
             })}
           </ul>
         </Reveal>
-
-        <KidsHelpBanner
-          text={assessments.help.text}
-          cta={assessments.help.cta}
-          whatsappMessage={assessments.help.whatsappMessage}
-          className="mt-6 sm:mt-7"
-        />
 
         <KidsProcess />
       </KidsContainer>

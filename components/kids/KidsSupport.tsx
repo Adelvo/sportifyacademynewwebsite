@@ -1,19 +1,19 @@
 import { Reveal } from "@/components/ui/Reveal";
 import { kids } from "@/content";
 import { InlineVideoPlayer } from "./InlineVideoPlayer";
-import { BalanceIcon, BallIcon, CameraIcon } from "./KidsIcons";
 import { KidsContainer } from "./KidsContainer";
 import { KidsHelpBanner } from "./KidsHelpBanner";
+import { KidsSupportCard } from "./KidsSupportCard";
 
-const supportIcons: Record<string, typeof BalanceIcon> = {
-  "motor-skills": BalanceIcon,
-  "multisport-class": BallIcon,
-  "talent-identification": CameraIcon,
+const supportOffsets: Record<string, string> = {
+  "multisport-class": "ml-8 sm:ml-16 lg:ml-24",
+  "talent-identification": "ml-16 sm:ml-32 lg:ml-48",
 };
 
 /**
- * "Support beyond the assessment": one video on the left (plays inline on click, no modal, no
- * fullscreen takeover) next to a plain text list of the three programmes, then a WhatsApp prompt.
+ * "Support beyond the assessment": one video on the left (plays inline, muted, as soon as it
+ * scrolls into view, no modal, no fullscreen takeover) next to three staggered, framed
+ * programmes, then a WhatsApp prompt.
  */
 export function KidsSupport() {
   const { support } = kids;
@@ -29,34 +29,14 @@ export function KidsSupport() {
           <InlineVideoPlayer
             video={support.video}
             sizes="(min-width: 768px) 260px, 70vw"
-            className="mx-auto aspect-[9/16] w-[220px] rounded-[14px] sm:w-[260px] md:w-full"
+            className="mx-auto aspect-[9/16] w-[220px] sm:w-[260px] md:w-full"
             unmuteButtonClassName="size-14"
           />
 
           <ul className="flex flex-col gap-5">
-            {support.items.map((item) => {
-              const Icon = supportIcons[item.id];
-              return (
-                <li key={item.id} className="flex items-start gap-4 border-b border-[#DCE5EB] pb-5 last:border-0 last:pb-0">
-                  {Icon && (
-                    <span className="grid size-10 shrink-0 place-items-center rounded-full bg-[#67D5E5]/15 text-[#007a99]">
-                      <Icon className="size-5" />
-                    </span>
-                  )}
-                  <div>
-                    <h3 className="text-[20px] leading-[1.3] font-bold">{item.name}</h3>
-                    <ul className="mt-2 space-y-1.5">
-                      {item.points.map((point) => (
-                        <li key={point} className="flex items-start gap-2 text-base leading-[1.4] text-[#526271]">
-                          <span className="mt-2.5 size-1.5 shrink-0 rounded-full bg-[#67D5E5]" />
-                          {point}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </li>
-              );
-            })}
+            {support.items.map((item, index) => (
+              <KidsSupportCard key={item.id} item={item} index={index} className={supportOffsets[item.id] ?? ""} />
+            ))}
           </ul>
         </Reveal>
 

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Photo } from "@/components/media/Photo";
+import { VideoFrame } from "@/components/media/VideoFrame";
 import { ui } from "@/content";
 import type { LocalVideo } from "@/content/types";
 import { SpeakerMutedIcon } from "./KidsIcons";
@@ -10,6 +11,10 @@ import { SpeakerMutedIcon } from "./KidsIcons";
  * Plays muted and inline as soon as it scrolls into view, no click and no sound needed. A
  * centred "unmute" button restarts it from the beginning with sound; from then on it's a normal
  * video with native controls. `playsInline` keeps it from taking over the screen in fullscreen.
+ *
+ * While still muted and autoplaying, it pauses once scrolled out of view and resumes on return,
+ * so it isn't decoding in the background (several of these on one page otherwise compete for the
+ * main thread and cause visible stutter). Once unmuted, the visitor is in control and it's left alone.
  */
 export function InlineVideoPlayer({
   video,
@@ -46,6 +51,20 @@ export function InlineVideoPlayer({
     if (inView) videoRef.current?.play().catch(() => {});
   }, [inView]);
 
+  useEffect(() => {
+    const el = wrapperRef.current;
+    if (!inView || unmuted || !el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) videoRef.current?.play().catch(() => {});
+        else videoRef.current?.pause();
+      },
+      { threshold: 0.2 },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [inView, unmuted]);
+
   const handleUnmute = () => {
     const el = videoRef.current;
     if (!el) return;
@@ -56,7 +75,7 @@ export function InlineVideoPlayer({
   };
 
   return (
-    <div ref={wrapperRef} className={`relative overflow-hidden bg-black ${className}`}>
+    <VideoFrame ref={wrapperRef} className={className}>
       <Photo image={video.poster} sizes={sizes} className="absolute inset-0 size-full" />
 
       {inView && (
@@ -88,6 +107,6 @@ export function InlineVideoPlayer({
           </span>
         </button>
       )}
-    </div>
+    </VideoFrame>
   );
 }

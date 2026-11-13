@@ -13,6 +13,7 @@ export * from "./en/whatsapp";
 export * from "./en/home";
 export * from "./en/kids";
 export * from "./en/athlete";
+export * from "./en/adult";
 export * from "./en/programmes";
 export * from "./en/about";
 export * from "./en/pages";

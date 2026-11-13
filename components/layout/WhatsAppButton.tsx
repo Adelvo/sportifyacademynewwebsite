@@ -7,8 +7,6 @@ import { WhatsAppIcon } from "../ui/Button";
 
 export function WhatsAppButton() {
   const pathname = usePathname();
-  // The Kids and Athlete pages have their own WhatsApp CTAs throughout, so this redundant floating button is hidden there.
-  if (pathname === "/test-my-child" || pathname === "/train-with-us") return null;
   return (
     <aside aria-label={ui.whatsappLabel}>
       <a

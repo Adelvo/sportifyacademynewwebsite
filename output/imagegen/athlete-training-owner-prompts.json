@@ -1,0 +1,23 @@
+{
+  "tool": "Built-in image_gen",
+  "purpose": "Replace only the coach's likeness in the existing Athlete training photos using user-provided identity reference photos",
+  "references": [
+    "/Users/kriswagner/Desktop/Bildschirmfoto 2026-11-13 um 12.36.25.png",
+    "/Users/kriswagner/Desktop/Bildschirmfoto 2026-11-13 um 12.04.42.png",
+    "/Users/kriswagner/Desktop/Bildschirmfoto 2026-11-13 um 12.04.07.png"
+  ],
+  "assets": [
+    {
+      "path": "public/train/athlete-one-on-one-owner.webp",
+      "sourceTarget": "/Users/kriswagner/Desktop/SportifyWebsite/sportifyacademynewwebsite/public/train/athlete-one-on-one.webp",
+      "generatedSource": "/Users/kriswagner/.codex/generated_images/01a1d47e-ced6-7641-8dab-bfae535d55e5/exec-0dc5e8e6-50da-4ec4-8e84-2e28ad0ae45e.png",
+      "prompt": "Use case: compositing. Asset type: existing photorealistic training photograph for Sportify Academy's website. Image 1 is the EDIT TARGET and must remain the same photograph. Images 2, 3 and 4 are identity references of the same academy owner; image 2 is the main frontal face reference and images 3 and 4 support profile and hairstyle. Replace ONLY the coach's facial identity and hair with this same man's recognizable likeness. Match his actual facial proportions, broad dark eyebrows, nose, jaw, short dark hair with gray at temples, natural skin tone and very light stubble/mostly clean-shaven appearance from the references. Preserve the coach's exact head location, head orientation, body proportions, posture, clothing, hands, gesture and gaze from the edit target; adapt only facial identity, hair and necessary head/neck skin integration. Blend naturally into the target's existing light, shadows, focus and photographic texture. Preserve ALL other people with their exact original faces, bodies, clothing and positions. Preserve every piece of equipment, gym background, floor markings, windows, lighting, composition, camera angle and framing. Do not add logos, lettering, objects or people. No beautification, no stylization, no collage. Output only the edited target image as one landscape 16:9 photograph with the same framing as image 1. SPECIFIC TARGET: edit only the coach on the RIGHT in the dark long-sleeved zip athletic top who leans forward with both hands extended. Keep the young athlete on the LEFT doing a squat and holding the kettlebell completely unchanged. Keep coach's dark long-sleeved top unchanged; do not copy the reference white T-shirt or suit."
+    },
+    {
+      "path": "public/train/athlete-semi-private-owner.webp",
+      "sourceTarget": "/Users/kriswagner/Desktop/SportifyWebsite/sportifyacademynewwebsite/public/train/athlete-semi-private.webp",
+      "generatedSource": "/Users/kriswagner/.codex/generated_images/01a1d47e-ced6-7641-8dab-bfae535d55e5/exec-ab6c0d86-a08f-4509-a53f-69d843df0c63.png",
+      "prompt": "Use case: compositing. Asset type: existing photorealistic training photograph for Sportify Academy's website. Image 1 is the EDIT TARGET and must remain the same photograph. Images 2, 3 and 4 are identity references of the same academy owner; image 2 is the main frontal face reference and images 3 and 4 support profile and hairstyle. Replace ONLY the coach's facial identity and hair with this same man's recognizable likeness. Match his actual facial proportions, broad dark eyebrows, nose, jaw, short dark hair with gray at temples, natural skin tone and very light stubble/mostly clean-shaven appearance from the references. Preserve the coach's exact head location, head orientation, body proportions, posture, clothing, hands, gesture and gaze from the edit target; adapt only facial identity, hair and necessary head/neck skin integration. Blend naturally into the target's existing light, shadows, focus and photographic texture. Preserve ALL other people with their exact original faces, bodies, clothing and positions. Preserve every piece of equipment, gym background, floor markings, windows, lighting, composition, camera angle and framing. Do not add logos, lettering, objects or people. No beautification, no stylization, no collage. Output only the edited target image as one landscape 16:9 photograph with the same framing as image 1. SPECIFIC TARGET: edit only the kneeling COACH, SECOND PERSON FROM THE LEFT in the dark navy short-sleeved polo, between the two women. Keep all three exercising athletes (left woman in navy, center-right blonde woman in blue, far-right man in gray) completely unchanged. Keep coach's navy polo unchanged; do not copy the reference white T-shirt or suit."
+    }
+  ]
+}

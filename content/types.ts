@@ -36,7 +36,7 @@ export interface VideoTestimonial {
   poster: ImageAsset;
 }
 
-/** A self-hosted video file, played with a native <video> element. Starts only on click. */
+/** A self-hosted video file, played with a native <video> element. Autoplays muted once in view. */
 export interface LocalVideo {
   id: string;
   name: string;

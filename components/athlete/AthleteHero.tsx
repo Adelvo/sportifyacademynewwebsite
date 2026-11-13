@@ -1,29 +1,25 @@
-import { WhatsAppIcon } from "@/components/ui/Button";
+import { BrandLogo } from "@/components/ui/BrandLogo";
+import { GoogleRatingBadge } from "@/components/ui/GoogleRating";
 import { athlete } from "@/content";
-import { whatsappUrl } from "@/lib/links";
-import { AthleteButton } from "./AthleteButton";
 import { AthleteContainer } from "./AthleteContainer";
-import { AthleteVideoModal } from "./AthleteVideoModal";
 
-/** The top of the Athlete page: headline and WhatsApp CTA beside a compact football assessment video preview. */
+/** Compact Athlete introduction with the Google rating directly below the brand mark. */
 export function AthleteHero() {
   const { hero } = athlete;
   return (
-    <section className="bg-[#081C2C] py-10 text-white sm:py-12 lg:py-14">
-      <AthleteContainer className="grid grid-cols-1 items-center gap-8 lg:grid-cols-[minmax(0,1fr)_480px] lg:gap-10">
-        <div className="min-w-0 max-w-[560px]">
-          <h1 className="text-[clamp(34px,3.4vw,48px)] font-bold leading-[1.1]">
-            <span className="block">{hero.headlineLines[0]}</span>
-            <span className="block text-[#67D5E5]">{hero.headlineLines[1]}</span>
+    <section id="athlete-intro" className="bg-midnight py-3 text-white sm:py-3.5">
+      <AthleteContainer className="grid grid-cols-1 items-center gap-3 sm:grid-cols-[minmax(0,1fr)_180px] sm:gap-6">
+        <div className="min-w-0 text-center sm:text-left">
+          <h1 className="text-[clamp(16px,4.4vw,24px)] font-bold leading-[1.15] tracking-normal whitespace-nowrap sm:text-[clamp(18px,2.5vw,32px)]">
+            {hero.headline}
           </h1>
-          <p className="mt-4 text-base leading-[1.55] text-white/75">{hero.text}</p>
-          <AthleteButton href={whatsappUrl(hero.whatsappMessage)} className="mt-6">
-            <WhatsAppIcon className="size-5" />
-            {hero.cta}
-          </AthleteButton>
+          <p className="mt-2 text-sm leading-[1.4] text-[#67D5E5] sm:text-base">{hero.text}</p>
         </div>
 
-        <AthleteVideoModal video={hero.video} className="aspect-video w-full" />
+        <div className="mx-auto flex min-w-0 flex-col items-center justify-center gap-2">
+          <BrandLogo variant="light" className="h-auto w-[140px] sm:w-[160px]" />
+          <GoogleRatingBadge className="px-3! py-2! text-sm [&_svg]:size-5" />
+        </div>
       </AthleteContainer>
     </section>
   );

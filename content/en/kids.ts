@@ -21,12 +21,11 @@ interface SupportItem {
 /** Content for the Kids page (app/test-my-child). */
 export const kids = {
   hero: {
-    headlineLines: ["Understand your child's strength.", "Support their next steps."],
+    headline: "Understand your child's strength.",
     text: "Assessments and guidance for your child's development.",
-    headerCta: "Message us",
-    headerWhatsappMessage: "Hi Sportify Academy, I have a question about the Kids programmes.",
   },
   assessments: {
+    label: "For Kids",
     title: "Find the right starting point",
     video: {
       id: "kids-hero",

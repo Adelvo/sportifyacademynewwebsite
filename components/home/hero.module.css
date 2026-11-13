@@ -1,8 +1,8 @@
-/* Homepage hero and its header. Desktop positions come straight from the 1672 x 941
-   art-direction frame: --u is one frame pixel, so "calc(var(--u) * 48)" is 48 frame pixels.
+/* Homepage hero: one full-width photo (the team in front of the SPORTIFY wordmark, baked into the
+   image itself) with the headline, subcopy and CTA overlaid in a readable panel at the bottom.
 
-   Hero and stats band fit one screen together. On desktop --u follows whichever runs out first:
-   the width (the whole frame fits) or the height (the frame down to the foot of the gym rack, 885 px, fits). */
+   Hero and stats band fit one screen together: the hero's height follows the photo's own ratio
+   (809 / 1942 = 41.66cqw) but never grows past the room left after the stats band. */
 
 .wrap {
   container-type: inline-size;
@@ -16,14 +16,12 @@
   font-family: var(--font-hero), var(--font-sans);
   --ink: #0a1f33;
   --band: clamp(4.75rem, 10svh, 6.25rem);
-  --u: min(100cqw / 1672, (100svh - var(--band)) / 885);
 }
 
 .hero {
-  display: flex;
-  flex-direction: column;
   position: relative;
   overflow: hidden;
+  height: clamp(26rem, 41.66cqw, calc(100svh - var(--band)));
 }
 
 .background {
@@ -33,97 +31,51 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: bottom center;
+  object-position: top center;
 }
 
-/* The copy fills this corner on small screens. */
-.gym {
+/* The same room with no coach, no kids and no wordmark. Hidden everywhere except the pinned
+   scroll effect below, where it crossfades in over the photo above. */
+.backgroundFade {
   display: none;
 }
 
-/* ---------- Mobile and tablet: scene first, copy below, so the CTA never meets the people. */
-
-.stage {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-}
-
-/* Shrinks on short phones, leaving room for the copy and stats on the first screen. */
-.scene {
-  position: relative;
-  --scene: clamp(66cqw, 100svh - 22.5rem, 106cqw);
-  height: var(--scene);
-}
-
-@media (min-width: 640px) {
-  .scene {
-    --scene: clamp(66cqw, 100svh - 25.5rem, 106cqw);
-  }
-}
-
-.wordmark {
-  position: absolute;
-  top: 18cqw;
-  left: 4cqw;
-  width: 92cqw;
-  height: auto;
-  fill: var(--ink);
-}
-
-.team {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: auto;
-  height: calc(var(--scene) - 32cqw);
-  transform: translateX(-50%);
-}
-
 .copy {
-  position: relative;
+  position: absolute;
+  inset: auto 0 0 0;
   display: flex;
-  flex: 1;
   flex-direction: column;
-  justify-content: center;
-  padding: 1.25rem 1.25rem 1.5rem;
-  background: #fff;
+  padding: 1.5rem 1.25rem 1.75rem;
+  color: #fff;
 }
 
 .headline {
   font-family: inherit;
-  font-size: clamp(1.625rem, 8.6cqw, 3.25rem);
+  font-size: clamp(1.375rem, 7cqw, 2.25rem);
   font-weight: 800;
-  line-height: 1.02;
+  line-height: 1.04;
   letter-spacing: -0.015em;
   text-wrap: wrap;
+  text-shadow: 0 2px 18px rgb(8 20 33 / 0.45);
 }
 
 .line {
   display: block;
 }
 
-.description {
-  margin-top: 0.75rem;
-  max-width: 34rem;
-  font-size: 1.0625rem;
-  font-weight: 500;
-  line-height: 1.4;
-}
-
 .cta {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.875rem;
-  margin-top: 1.25rem;
+  gap: 0.75rem;
+  margin-top: 1rem;
   width: 100%;
-  max-width: 26rem;
-  min-height: 3.5rem;
+  max-width: 20rem;
+  min-height: 2.75rem;
   border-radius: 0.625rem;
   background: #00dafa;
   color: var(--ink);
-  font-size: 1.125rem;
+  font-size: 0.9375rem;
   font-weight: 700;
   letter-spacing: -0.01em;
   transition: background-color 150ms;
@@ -135,106 +87,26 @@
 
 .arrow {
   flex: none;
-  width: 1.5rem;
+  width: 1.25rem;
   height: auto;
 }
 
-/* ---------- Desktop: every layer sits on the art-direction frame. */
+/* ---------- Desktop: a wider panel, roomier type, the button back to an inline width. */
 
 @media (min-width: 1024px) {
-  .hero {
-    display: block;
-    height: min(100svh - var(--band), var(--u) * 941);
-  }
-
-  /* Gym rack: pinned to the right edge at frame scale, just below the CTA, so it stays clear of the copy. */
-  .gym {
-    display: block;
-    position: absolute;
-    z-index: -1;
-    top: max(var(--u) * 715, 100% - var(--u) * 206);
-    right: 0;
-    width: calc(var(--u) * 292);
-    height: auto;
-  }
-
-  /* The empty studio, always full width, placed so its floor line meets the rack's. */
-  .background {
-    inset: auto;
-    top: calc(max(var(--u) * 715, 100% - var(--u) * 206) + var(--u) * 165 - 100cqw * 900 / 1672);
-    left: 0;
-    height: auto;
-    object-fit: fill;
-  }
-
-  /* Centred; the people's legs crop at the bottom when the height runs out. */
-  .stage {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: calc(50% - var(--u) * 836);
-    width: calc(var(--u) * 1672);
-    height: calc(var(--u) * 941);
-  }
-
-  .scene {
-    position: absolute;
-    inset: 0;
-    height: auto;
-  }
-
-  .wordmark {
-    top: calc(var(--u) * 130);
-    left: calc(var(--u) * 63);
-    width: calc(var(--u) * 1574);
-  }
-
-  .team {
-    top: calc(var(--u) * 215);
-    bottom: auto;
-    left: calc(var(--u) * 325);
-    width: calc(var(--u) * 880);
-    height: auto;
-    transform: none;
-  }
-
   .copy {
-    display: block;
-    position: absolute;
-    top: calc(var(--u) * 483);
-    left: calc(var(--u) * 1236);
-    width: calc(var(--u) * 400);
-    padding: 0;
-    background: none;
+    padding: 2.5rem clamp(1.5rem, 5vw, 4rem) 3rem;
   }
 
   .headline {
-    font-size: calc(var(--u) * 42.2);
-    line-height: calc(var(--u) * 46);
-    letter-spacing: -0.012em;
-    white-space: nowrap;
-  }
-
-  .description {
-    margin-top: calc(var(--u) * 14);
-    max-width: none;
-    font-size: calc(var(--u) * 21.7);
-    line-height: calc(var(--u) * 30);
+    font-size: clamp(1.75rem, 2.6vw, 2.5rem);
+    line-height: 1.08;
   }
 
   .cta {
-    gap: calc(var(--u) * 20);
-    margin-top: calc(var(--u) * 24);
-    margin-left: calc(var(--u) * 2);
-    width: calc(var(--u) * 389);
-    max-width: none;
-    min-height: calc(var(--u) * 63);
-    border-radius: calc(var(--u) * 10);
-    font-size: calc(var(--u) * 25);
-  }
-
-  .arrow {
-    width: calc(var(--u) * 26);
+    width: auto;
+    min-height: 3rem;
+    padding-inline: 1.5rem;
   }
 }
 
@@ -277,7 +149,7 @@
     align-items: center;
     gap: 2rem;
     height: var(--band);
-    padding: 0 calc(50cqw - var(--u) * 836 + var(--u) * 65);
+    padding-inline: clamp(1.5rem, 5vw, 4rem);
   }
 
   .stat {
@@ -320,12 +192,26 @@
 }
 
 .headerRow {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
-  justify-content: space-between;
   gap: 1rem;
   height: 4rem;
   padding-inline: 1.25rem;
+}
+
+/* Pin each child to its column by DOM position (not by box generation), so the nav
+   staying "display: none" below tablet width can't shift the actions column inward. */
+.headerRow > :first-child {
+  grid-column: 1;
+}
+
+.headerRow > :nth-child(2) {
+  grid-column: 2;
+}
+
+.headerRow > :last-child {
+  grid-column: 3;
 }
 
 .logo {
@@ -373,6 +259,7 @@
   .navLinks {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 1rem;
     font-size: 0.875rem;
   }
@@ -449,6 +336,13 @@
   }
 }
 
+/* Fades the empty-room photo in over the full photo, in step with the slide below. */
+@keyframes introReveal {
+  to {
+    opacity: 1;
+  }
+}
+
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) and (min-width: 1024px) and (min-height: 420px) {
     .introTrack {
@@ -506,11 +400,22 @@
     }
 
     .background,
-    .gym,
     .stats {
       animation: introHold linear both;
       animation-timeline: --intro-slide;
       animation-range: contain 0% contain 100%;
+    }
+
+    .backgroundFade {
+      display: block;
+      opacity: 0;
+      animation:
+        introHold linear both,
+        introReveal linear both;
+      animation-timeline: --intro-slide, --intro-slide;
+      animation-range:
+        contain 0% contain 100%,
+        contain 0% contain 100%;
     }
 
     /* Covers the people's legs where they crop, now the hero no longer clips them. */
@@ -529,19 +434,6 @@
       flex-direction: column;
       justify-content: center;
       padding-block: var(--pad) var(--foot);
-    }
-
-    /* Evens out the background: on its own, the rack and the line on the floor are sharper than the rest. */
-    .offers {
-      isolation: isolate;
-    }
-
-    .offers::before {
-      content: "";
-      position: absolute;
-      inset: 0 0 var(--foot);
-      z-index: -1;
-      backdrop-filter: blur(10px);
     }
 
     /* Limited by the height as well, so all the cards always fit. */

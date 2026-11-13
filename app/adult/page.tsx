@@ -1,10 +1,22 @@
 import type { Metadata } from "next";
-import { ProgrammeSection } from "@/components/home/ProgrammeSection";
-import { adultPage, home, images } from "@/content";
+import { AdultAssessments } from "@/components/adult/AdultAssessments";
+import { AdultFaqSection } from "@/components/adult/AdultFaqSection";
+import { AdultHero } from "@/components/adult/AdultHero";
+import { AdultSupport } from "@/components/adult/AdultSupport";
+import { AdultTraining } from "@/components/adult/AdultTraining";
+import { adultPage } from "@/content";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata(adultPage.meta);
 
 export default function AdultPage() {
-  return <ProgrammeSection id="adult" section={home.adult} photos={images.adult} photoAspect="aspect-[4/3]" twoLineTitles headingLevel={1} />;
+  return (
+    <>
+      <AdultHero />
+      <AdultAssessments />
+      <AdultTraining />
+      <AdultSupport />
+      <AdultFaqSection />
+    </>
+  );
 }

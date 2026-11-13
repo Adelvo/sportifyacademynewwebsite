@@ -5,6 +5,7 @@ import { ui } from "@/content";
 import type { VideoTestimonial } from "@/content/types";
 import { Txt } from "../ui/Txt";
 import { Photo } from "./Photo";
+import { VideoFrame } from "./VideoFrame";
 
 /**
  * The same YouTube link, muted, without YouTube's controls and able to take commands from this page.
@@ -35,12 +36,14 @@ const controlButton = "grid size-11 place-items-center rounded-full bg-midnight/
 /**
  * Loads the video player after a click. Until a link is set, it shows a TODO.
  *
- * With "autoplayInView" it also plays by itself, muted. YouTube shows its title and controls for some
- * seconds every time the video starts, resumes, jumps or loops, and has no setting to stop that. So the
- * poster covers the player for those seconds, and the player starts one screen early and keeps running
- * off screen, so that it is already clear on arrival. A layer over the player keeps them from returning
- * on hover, which leaves our own pause and sound buttons. Reduced-motion users keep the play button.
- * Only for YouTube links. See TODO.md: a video file of our own would make all of this unnecessary.
+ * With "autoplayInView" it also plays by itself, muted, with a centred unmute button like
+ * InlineVideoPlayer's: clicking it turns sound on and restarts from the beginning. YouTube shows
+ * its title and controls for some seconds every time the video starts, resumes, jumps or loops,
+ * and has no setting to stop that. So the poster covers the player for those seconds, and the
+ * player starts one screen early and keeps running off screen, so that it is already clear on
+ * arrival. A layer over the player keeps them from returning on hover, which leaves our own pause
+ * button and, once unmuted, a mute button. Reduced-motion users keep the play button. Only for
+ * YouTube links. See TODO.md: a video file of our own would make all of this unnecessary.
  */
 export function VideoSlot({
   video,
@@ -165,11 +168,23 @@ export function VideoSlot({
     sendCommand(playerRef.current, embedUrl, next ? "unMute" : "mute");
   }
 
+  /**
+   * The centred unmute button: turns sound on and keeps playing from the current position.
+   * It deliberately doesn't seek back to 0 — doing that made YouTube rebuffer for a few
+   * seconds, which showed as a frozen, then jumping, video.
+   */
+  function handleUnmute() {
+    if (!embedUrl) return;
+    setSoundOn(true);
+    sendCommand(playerRef.current, embedUrl, "unMute");
+    sendCommand(playerRef.current, embedUrl, "playVideo");
+  }
+
   const title = video.role ? `${video.name}, ${video.role}` : video.name;
 
   return (
     <figure>
-      <div ref={frameRef} className={`relative overflow-hidden rounded-2xl bg-midnight-800 ${frameClassName}`}>
+      <VideoFrame ref={frameRef} className={frameClassName}>
         {playing !== "no" && embedUrl && (
           <iframe
             ref={playerRef}
@@ -203,6 +218,22 @@ export function VideoSlot({
             </span>
           </button>
         )}
+        {playing === "auto" && !soundOn && (
+          <button
+            type="button"
+            onClick={handleUnmute}
+            aria-label={ui.video.soundOn}
+            className="absolute inset-0 grid place-items-center"
+          >
+            <span className="grid size-14 place-items-center rounded-full bg-white text-midnight shadow-md transition-transform hover:scale-105">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="size-5">
+                <path fill="currentColor" d="M11 5 6 9H3v6h3l5 4z" />
+                <path d="m16 9.5 5 5M21 9.5l-5 5" />
+              </svg>
+            </span>
+          </button>
+        )}
+
         {playing === "auto" && (
           <div className="absolute end-3 bottom-3 flex gap-2">
             <button type="button" onClick={togglePaused} aria-label={paused ? ui.video.resume : ui.video.pause} className={controlButton}>
@@ -210,15 +241,17 @@ export function VideoSlot({
                 <path d={paused ? "M8 5v14l11-7z" : "M7 5h4v14H7zM13 5h4v14h-4z"} />
               </svg>
             </button>
-            <button type="button" onClick={toggleSound} aria-label={soundOn ? ui.video.soundOff : ui.video.soundOn} className={controlButton}>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="size-5">
-                <path fill="currentColor" d="M11 5 6 9H3v6h3l5 4z" />
-                <path d={soundOn ? "M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13" : "m16 9.5 5 5M21 9.5l-5 5"} />
-              </svg>
-            </button>
+            {soundOn && (
+              <button type="button" onClick={toggleSound} aria-label={ui.video.soundOff} className={controlButton}>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="size-5">
+                  <path fill="currentColor" d="M11 5 6 9H3v6h3l5 4z" />
+                  <path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13" />
+                </svg>
+              </button>
+            )}
           </div>
         )}
-      </div>
+      </VideoFrame>
       {!hideCaption && (
         <figcaption className="mt-3">
           <span className="block font-bold">{video.name}</span>

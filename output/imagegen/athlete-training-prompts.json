@@ -1,0 +1,14 @@
+{
+  "tool": "Built-in image_gen",
+  "purpose": "Illustrative training photos for Athlete training cards",
+  "assets": [
+    {
+      "path": "public/train/athlete-one-on-one.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: landscape 16:9 photograph for the top of a sports academy website card titled 1:1 Training; no text in the image. Create an extremely realistic candid sports photograph of one adult athlete receiving individual instruction from one qualified-looking coach in a modern, clean performance gym. Exactly two people. The athlete is holding a modest kettlebell at chest height practicing a controlled squat while the coach stands nearby attentively demonstrating correct hand placement and posture. Both people fully visible, natural proportions and hands, focused friendly expressions. Navy and charcoal sportswear, subtle cyan details in the gym, rubber gym floor, soft daylight, authentic skin and fabric texture, premium editorial photography, 35mm lens. Wide horizontal composition, subjects comfortably within the middle 75% of the frame with heads and equipment uncropped, suitable for a wide card crop. No logos, no lettering, no watermark, no collage. This is an illustrative fitness image, not a depiction of a specific real business or person."
+    },
+    {
+      "path": "public/train/athlete-semi-private.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: landscape 16:9 photograph for the top of a sports academy website card titled Semi Private Training; no text in the image. Create an extremely realistic candid editorial sports photograph showing a coach leading a small group of three adult athletes in a modern, clean performance gym. Exactly four people: one coach in a navy polo attentively supervising, and three athletes of mixed genders practicing controlled bodyweight lunges on an indoor training surface. Each athlete has their own space, natural proportions and believable posture; welcoming focused atmosphere. Navy, charcoal, muted blue sportswear, subtle cyan gym accents, soft daylight and authentic skin and fabric textures. Coordinated visual style with premium sports coaching photography, 35mm lens. Wide horizontal composition with all heads and key action comfortably inside the middle 75% so the photo reads well in a wide website card. No logos, no lettering, no watermark, no collage. This is an illustrative fitness image, not a depiction of a specific real business or person."
+    }
+  ]
+}

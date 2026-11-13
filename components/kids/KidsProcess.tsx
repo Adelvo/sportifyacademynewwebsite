@@ -1,4 +1,3 @@
-import { Reveal } from "@/components/ui/Reveal";
 import { kids } from "@/content";
 import { ChatIcon, CheckIcon, ClipboardIcon, TargetIcon } from "./KidsIcons";
 
@@ -9,27 +8,27 @@ const CYCLE_SECONDS = 7.5;
 
 /**
  * "01 Assessment → 02 Feedback → 03 Personal recommendations" strip, rendered inline
- * inside KidsAssessments rather than as its own section, to keep it close to its neighbours.
- * Steps complete one at a time on a loop: each icon flips into a checkmark, the arrow after
+ * inside the always-visible cyan frame below the assessments.
+ * Steps complete one at a time on a loop: each icon flips into a checkmark on yellow, the arrow after
  * it lights up to hand off to the next step, and once all three are done the loop resets.
  */
 export function KidsProcess() {
   return (
-    <Reveal className="mt-6 sm:mt-7">
+    <div className="mt-6 sm:mt-7">
       <style>{`
         @keyframes kids-step-fill-0 {
           0%, 13% { background-color: rgba(103, 213, 229, 0.15); }
-          17%, 90% { background-color: #007a99; }
+          17%, 90% { background-color: #fbbc05; }
           95%, 100% { background-color: rgba(103, 213, 229, 0.15); }
         }
         @keyframes kids-step-fill-1 {
           0%, 37% { background-color: rgba(103, 213, 229, 0.15); }
-          41%, 90% { background-color: #007a99; }
+          41%, 90% { background-color: #fbbc05; }
           95%, 100% { background-color: rgba(103, 213, 229, 0.15); }
         }
         @keyframes kids-step-fill-2 {
           0%, 61% { background-color: rgba(103, 213, 229, 0.15); }
-          65%, 90% { background-color: #007a99; }
+          65%, 90% { background-color: #fbbc05; }
           95%, 100% { background-color: rgba(103, 213, 229, 0.15); }
         }
         @keyframes kids-icon-fade-0 {
@@ -75,7 +74,7 @@ export function KidsProcess() {
           95%, 100% { color: #C7D3DA; transform: translateX(0); }
         }
       `}</style>
-      <div className="relative rounded-[18px] border border-[#DCE5EB] bg-white px-6 py-7 sm:px-10 sm:py-9">
+      <div className="relative rounded-[14px] border-2 border-[#67D5E5] bg-[#67D5E5]/10 p-5 shadow-[0_4px_16px_rgba(103,213,229,0.25)] sm:p-6">
         <ol className="relative flex flex-wrap items-center justify-center gap-x-5 gap-y-6 text-base font-semibold sm:gap-x-7 sm:text-lg">
           {kids.process.steps.map((step, index) => {
             const Icon = stepIcons[index];
@@ -94,7 +93,7 @@ export function KidsProcess() {
                       style={{ animation: `kids-icon-fade-${index} ${CYCLE_SECONDS}s ease-in-out infinite` }}
                     />
                     <CheckIcon
-                      className="absolute size-5 text-white opacity-0 sm:size-6"
+                      className="absolute size-5 text-[#081C2C] opacity-0 sm:size-6"
                       style={{ animation: `kids-check-pop-${index} ${CYCLE_SECONDS}s ease-in-out infinite` }}
                     />
                   </span>
@@ -124,6 +123,6 @@ export function KidsProcess() {
           })}
         </ol>
       </div>
-    </Reveal>
+    </div>
   );
 }

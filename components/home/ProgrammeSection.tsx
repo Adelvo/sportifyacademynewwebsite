@@ -34,8 +34,11 @@ export function ProgrammeSection<Image extends string>({
   divided = false,
   twoLineTitles = false,
   headingLevel = 2,
+  hideHeading = false,
+  hideFeatures = false,
 }: {
-  id: string;
+  /** Omit for a second ProgrammeSection continuing the same page section, so ids stay unique. */
+  id?: string;
   section: Programmes<Image>;
   photos: Record<Image, ImageAsset>;
   /** Tailwind aspect class for the card photos. */
@@ -46,18 +49,24 @@ export function ProgrammeSection<Image extends string>({
   twoLineTitles?: boolean;
   /** 1 when this section is the main content of its own page. */
   headingLevel?: 1 | 2;
+  /** Skip the title/text/rating row, for a second ProgrammeSection continuing the same page section. */
+  hideHeading?: boolean;
+  /** Skip the bottom feature row, for a ProgrammeSection continued by another one below it. */
+  hideFeatures?: boolean;
 }) {
   const groups = groupCards(section.cards);
   return (
-    <section id={id} className="relative overflow-hidden bg-linear-to-b from-[#eef1f8] to-white py-16 font-[family-name:var(--font-hero)] text-[#0a1f33] sm:py-24">
+    <section id={id} className="relative overflow-hidden bg-linear-to-b from-[#eef1f8] to-white pt-[18px] pb-16 font-[family-name:var(--font-hero)] text-[#0a1f33] sm:pt-7 sm:pb-24">
       <CornerArc className="start-0 top-0" />
       <CornerArc className="end-0 bottom-0 rotate-180" />
 
       <Container className="relative">
-        <Reveal className="mb-8 flex flex-col gap-5 sm:mb-12 sm:flex-row sm:items-end sm:justify-between">
-          <HomeHeading title={section.title} text={section.text} level={headingLevel} />
-          <GoogleRatingBadge className="self-start sm:self-auto" />
-        </Reveal>
+        {!hideHeading && (
+          <Reveal className="mb-8 flex flex-col gap-5 sm:mb-12 sm:flex-row sm:items-end sm:justify-between">
+            <HomeHeading title={section.title} text={section.text} level={headingLevel} />
+            <GoogleRatingBadge className="self-start sm:self-auto" />
+          </Reveal>
+        )}
 
         {groups.map((group, groupIndex) => {
           const icon = group.label ? GROUP_ICONS[group.label] : undefined;
@@ -124,19 +133,21 @@ export function ProgrammeSection<Image extends string>({
           );
         })}
 
-        <Reveal>
-          <ul className="mt-6 grid grid-cols-2 gap-y-8 md:grid-cols-4 md:divide-x md:divide-line">
-            {section.features.map((feature) => (
-              <li key={feature.title} className="flex flex-col items-center gap-3 px-3 text-center font-semibold">
-                <span className="grid size-14 shrink-0 place-items-center rounded-full bg-cyan/12 text-[#0b7a8f]">
-                  <FeatureIcon name={feature.icon} className="size-7" />
-                </span>
-                {feature.title}
-                {feature.text && <span className="-mt-2 text-sm font-medium text-ink-soft">{feature.text}</span>}
-              </li>
-            ))}
-          </ul>
-        </Reveal>
+        {!hideFeatures && (
+          <Reveal>
+            <ul className="mt-6 grid grid-cols-2 gap-y-8 md:grid-cols-4 md:divide-x md:divide-line">
+              {section.features.map((feature) => (
+                <li key={feature.title} className="flex flex-col items-center gap-3 px-3 text-center font-semibold">
+                  <span className="grid size-14 shrink-0 place-items-center rounded-full bg-cyan/12 text-[#0b7a8f]">
+                    <FeatureIcon name={feature.icon} className="size-7" />
+                  </span>
+                  {feature.title}
+                  {feature.text && <span className="-mt-2 text-sm font-medium text-ink-soft">{feature.text}</span>}
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+        )}
       </Container>
     </section>
   );

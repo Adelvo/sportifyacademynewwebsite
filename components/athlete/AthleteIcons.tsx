@@ -79,6 +79,14 @@ export function TargetIcon({ className = "size-5", style }: IconProps) {
   );
 }
 
+export function CheckIcon({ className = "size-5", style }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className={className} style={style} {...strokeProps}>
+      <path d="M5 12.5 10 17.5 19 7" />
+    </svg>
+  );
+}
+
 export function QuestionIcon({ className = "size-5" }: IconProps) {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true" className={className} {...strokeProps}>

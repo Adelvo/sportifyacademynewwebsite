@@ -1,8 +1,8 @@
 import type { VideoTestimonial } from "../types";
 import { images } from "./images";
 
-// Add each YouTube or Vimeo embed link to "embedUrl". The play button then appears.
-// The video starts on the visitor's click, so keep autoplay=1 or they must click twice.
+// Add each YouTube or Vimeo embed link to "embedUrl". The video then autoplays muted once
+// scrolled into view (see AthleteStories). Keep autoplay=1 in the link or it won't autoplay.
 export const testimonials: VideoTestimonial[] = [
   {
     id: "olivia",

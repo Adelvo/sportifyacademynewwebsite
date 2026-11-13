@@ -1,23 +1,24 @@
 import { BrandLogo } from "@/components/ui/BrandLogo";
+import { GoogleRatingBadge } from "@/components/ui/GoogleRating";
 import { kids } from "@/content";
 import { KidsContainer } from "./KidsContainer";
 
-/** The top of the Kids page: a slim headline bar on dark blue, the brand mark beside it. */
+/** Compact Kids introduction with the Google rating directly below the brand mark. */
 export function KidsHero() {
   const { hero } = kids;
   return (
-    <section className="bg-midnight py-6 text-white sm:py-7">
-      <KidsContainer className="grid grid-cols-1 items-center gap-6 lg:grid-cols-[minmax(0,1fr)_240px] lg:gap-12">
-        <div className="min-w-0 max-w-[620px]">
-          <h1 className="text-[clamp(28px,2.8vw,40px)] font-bold leading-[1.15] tracking-normal">
-            <span className="block">{hero.headlineLines[0]}</span>
-            <span className="block text-[#67D5E5]">{hero.headlineLines[1]}</span>
+    <section id="kids-intro" className="bg-midnight py-3 text-white sm:py-3.5">
+      <KidsContainer className="grid grid-cols-1 items-center gap-3 sm:grid-cols-[minmax(0,1fr)_180px] sm:gap-6">
+        <div className="min-w-0 text-center sm:text-left">
+          <h1 className="text-[clamp(16px,4.4vw,24px)] font-bold leading-[1.15] tracking-normal whitespace-nowrap sm:text-[clamp(18px,2.5vw,32px)]">
+            {hero.headline}
           </h1>
-          <p className="mt-3 text-base leading-[1.55] text-on-midnight-soft">{hero.text}</p>
+          <p className="mt-2 text-sm leading-[1.4] text-[#67D5E5] sm:text-base">{hero.text}</p>
         </div>
 
-        <div className="mx-auto flex min-w-0 items-center justify-center">
-          <BrandLogo variant="light" className="h-auto w-[140px] lg:w-[180px]" />
+        <div className="mx-auto flex min-w-0 flex-col items-center justify-center gap-2">
+          <BrandLogo variant="light" className="h-auto w-[140px] sm:w-[160px]" />
+          <GoogleRatingBadge className="px-3! py-2! text-sm [&_svg]:size-5" />
         </div>
       </KidsContainer>
     </section>

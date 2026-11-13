@@ -1,10 +1,12 @@
 import { images } from "./images";
+import type { ImageAsset } from "../types";
 
 interface AssessmentCard {
   id: string;
-  image: (typeof images.train)["generalAssessment"];
   name: string;
+  tag?: string;
   text: string;
+  points: string[];
   cta: string;
   whatsappMessage: string;
 }
@@ -13,6 +15,7 @@ interface TrainingCard {
   id: string;
   name: string;
   text: string;
+  image: ImageAsset;
 }
 
 interface SupportPanel {
@@ -27,37 +30,41 @@ interface SupportPanel {
 /** Content for the Athlete page (app/train-with-us). */
 export const athlete = {
   hero: {
-    headlineLines: ["Understand your performance.", "Train with purpose."],
+    headline: "Understand your performance.",
     text: "Assessments and training tailored to your sport and goals.",
-    cta: "Book an assessment",
-    whatsappMessage: "Hi Sportify Academy, I would like to book an assessment.",
-    headerCta: "Message us",
-    headerWhatsappMessage: "Hi Sportify Academy, I have a question about the Athlete programmes.",
     video: {
       id: "sn179z2l1Hw",
       name: "See a football assessment",
       embedUrl: "https://www.youtube-nocookie.com/embed/sn179z2l1Hw?autoplay=1&rel=0",
-      watchUrl: "https://www.youtube.com/watch?v=sn179z2l1Hw",
       poster: images.train.footballAssessmentPoster,
-      caption: "See a football assessment",
     },
   },
   assessments: {
+    label: "For Athletes",
     title: "Start with the right assessment",
     items: [
       {
         id: "general-assessment",
-        image: images.train.generalAssessment,
         name: "General Physical Assessment",
-        text: "Understand your overall physical fitness and identify areas to develop.",
+        text: "A complete baseline check of your overall physical fitness.",
+        points: [
+          "Strength, speed, agility and endurance tested",
+          "Mobility and movement quality screening",
+          "A clear report with your results and next steps",
+        ],
         cta: "Book this assessment",
         whatsappMessage: "Hi Sportify Academy, I would like to book a General Physical Assessment.",
       },
       {
         id: "specialized-assessment",
-        image: images.train.specificAssessment,
         name: "Specialized Physical Assessment",
-        text: "Understand your physical strengths and development needs for your sport.",
+        tag: "Specialized for your sport",
+        text: "Benchmarked against the physical demands of your sport.",
+        points: [
+          "Sport-specific strength, speed and agility benchmarks",
+          "Position-based movement and performance analysis",
+          "A development plan built around your sport and goals",
+        ],
         cta: "Book this assessment",
         whatsappMessage: "Hi Sportify Academy, I would like to book a Specialized Physical Assessment. My sport is …",
       },
@@ -75,8 +82,28 @@ export const athlete = {
     title: "Training built around your goals",
     text: "Find the right format for your next step.",
     items: [
-      { id: "one-on-one", name: "1:1 Training", text: "Individual coaching focused on your goals." },
-      { id: "semi-private", name: "Semi Private Training", text: "Train in a small group with focused coaching." },
+      {
+        id: "one-on-one",
+        name: "1:1 Training",
+        text: "Individual coaching focused on your goals.",
+        image: {
+          src: "/train/athlete-one-on-one-owner.webp",
+          width: 1440,
+          height: 810,
+          alt: "A coach guiding an athlete during a one-on-one training session",
+        },
+      },
+      {
+        id: "semi-private",
+        name: "Semi Private Training",
+        text: "Train in a small group with focused coaching.",
+        image: {
+          src: "/train/athlete-semi-private-owner.webp",
+          width: 1440,
+          height: 810,
+          alt: "A coach guiding three athletes through lunges during a small group training session",
+        },
+      },
     ] satisfies TrainingCard[] as TrainingCard[],
   },
   support: {

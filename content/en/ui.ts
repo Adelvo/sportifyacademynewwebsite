@@ -8,6 +8,8 @@ export const ui = {
   footerNavLabel: "Footer",
   whatsappLabel: "Chat with us on WhatsApp",
   whatsappButton: "Message us on WhatsApp",
+  /** Short label for the WhatsApp pill in the site header, where "on WhatsApp" doesn't fit. */
+  headerWhatsappButton: "Message us",
   followUs: "Follow us",
   instagramLabel: "Sportify Academy on Instagram",
   youtubeLabel: "Sportify Academy on YouTube",

@@ -1,0 +1,7 @@
+{
+  "tool": "Built-in image_gen",
+  "purpose": "Distinct coach portrait for the existing 24px circular homepage FAQ labels",
+  "path": "public/faq/coaches-portrait.webp",
+  "generatedSource": "/Users/kriswagner/.codex/generated_images/01a1d47e-ced6-7641-8dab-bfae535d55e5/exec-5304d5dc-f1bd-4e72-8282-e8883d91c8fe.png",
+  "prompt": "Use case: photorealistic-natural. Asset type: a tiny circular category portrait for the Coaches label of a sports academy website. Generate ONE square photorealistic head-and-shoulders portrait of a fictional sports coach, an experienced man about 55 years old with a bald head and neatly trimmed salt-and-pepper beard. He wears a light gray athletic polo with a navy collar and a clearly visible whistle on a dark lanyard at the upper chest. Warm approachable smile, looking toward camera, realistic skin texture. Natural soft daylight, gently blurred warm beige indoor sports hall background. Head and hair completely visible, face centered within the central 65% of the square; include shoulders and upper chest so polo and whistle remain recognizable. Designed to be legible at 24 pixels and cropped to a circle by CSS. Make the look recognizably different from a young male athlete with short brown hair in a navy T-shirt and a middle-aged woman in a navy sports shirt. Full square photo, no drawn circle, no border, no logos, no text, no watermark, no collage."
+}

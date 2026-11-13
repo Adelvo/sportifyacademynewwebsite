@@ -35,8 +35,8 @@ export const nav = {
   /** Header and footer links, the same on every page. */
   main: [
     { href: "/test-my-child", label: "Kids" },
-    { href: "/train-with-us", label: "Athlete" },
-    { href: "/adult", label: "Adult" },
+    { href: "/train-with-us", label: "Athletes" },
+    { href: "/adult", label: "Adults" },
     { href: "/for-organisations", label: "Coaches" },
     { href: "/#results", label: "Results" },
     { href: "/about", label: "About" },

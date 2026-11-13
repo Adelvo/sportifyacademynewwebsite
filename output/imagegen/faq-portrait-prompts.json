@@ -1,0 +1,21 @@
+{
+  "tool": "Built-in image_gen",
+  "purpose": "Small circular portraits preceding the homepage FAQ audience labels; displayed at 24px with original label dimensions",
+  "assets": [
+    {
+      "path": "public/faq/kids-portrait.webp",
+      "generatedSource": "/Users/kriswagner/.codex/generated_images/01a1d47e-ced6-7641-8dab-bfae535d55e5/exec-4eff5375-df0a-406a-8b7e-7a8251419a68.png",
+      "prompt": "Use case: photorealistic-natural. Asset type: tiny circular category portrait for the FAQ section of a sports academy website. Generate ONE square photorealistic head-and-shoulders portrait of one fictional person. Natural soft daylight, authentic skin and hair texture, relaxed candid sports photography, gently blurred pale blue-gray gym background. Face centered, head and hair entirely within the central 65% of the square, shoulders and upper chest visible at the bottom so sports clothing is recognizable. Clear simple composition legible at only 24 pixels, suitable for a circular crop in CSS. Full square photo, no drawn circle, no border, no lettering, no logos, no watermark, no collage. Subject: a happy child about 8 years old, naturally laughing with a warm open smile, wearing a navy blue athletic crew-neck T-shirt with a subtle cyan detail. Child-appropriate everyday sportswear, lively but relaxed expression, looking toward the camera."
+    },
+    {
+      "path": "public/faq/athletes-portrait.webp",
+      "generatedSource": "/Users/kriswagner/.codex/generated_images/01a1d47e-ced6-7641-8dab-bfae535d55e5/exec-d85b4c19-e7ef-49a2-a7ab-1767bf4aeeba.png",
+      "prompt": "Use case: photorealistic-natural. Asset type: tiny circular category portrait for the FAQ section of a sports academy website. Generate ONE square photorealistic head-and-shoulders portrait of one fictional person. Natural soft daylight, authentic skin and hair texture, relaxed candid sports photography, gently blurred pale blue-gray gym background. Face centered, head and hair entirely within the central 65% of the square, shoulders and upper chest visible at the bottom so sports clothing is recognizable. Clear simple composition legible at only 24 pixels, suitable for a circular crop in CSS. Full square photo, no drawn circle, no border, no lettering, no logos, no watermark, no collage. Subject: a fit adult male athlete in his mid-twenties, wearing a dark blue performance sports T-shirt with a subtle cyan detail. Healthy athletic appearance, short hair, friendly confident smile, looking toward the camera."
+    },
+    {
+      "path": "public/faq/adults-portrait.webp",
+      "generatedSource": "/Users/kriswagner/.codex/generated_images/01a1d47e-ced6-7641-8dab-bfae535d55e5/exec-49960c02-c0fa-443c-b5f3-6bf7f58be50c.png",
+      "prompt": "Use case: photorealistic-natural. Asset type: tiny circular category portrait for the FAQ section of a sports academy website. Generate ONE square photorealistic head-and-shoulders portrait of one fictional person. Natural soft daylight, authentic skin and hair texture, relaxed candid sports photography, gently blurred pale blue-gray gym background. Face centered, head and hair entirely within the central 65% of the square, shoulders and upper chest visible at the bottom so sports clothing is recognizable. Clear simple composition legible at only 24 pixels, suitable for a circular crop in CSS. Full square photo, no drawn circle, no border, no lettering, no logos, no watermark, no collage. Subject: a friendly adult woman around 45 years old wearing a navy blue sports training T-shirt with a subtle cyan detail, hair tied back for exercise. Natural mature facial features, approachable warm smile, looking toward the camera."
+    }
+  ]
+}
