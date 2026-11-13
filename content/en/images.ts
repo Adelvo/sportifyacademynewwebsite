@@ -86,7 +86,7 @@ export const images = {
     oneOnOne: { src: "/train/one-on-one.webp", width: 1000, height: 750, alt: "" },
     semiPrivate: { src: "/train/semi-private.webp", width: 1000, height: 750, alt: "" },
     nutritionPlan: { src: "/train/nutrition-plan.webp", width: 1600, height: 900, alt: "Three meal-prep containers of rice, corn, cucumber, tomato and lentils" },
-    physicalTherapy: { src: "/train/physical-therapy.webp", width: 1600, height: 900, alt: "A physical therapist guiding a client through a single-leg step exercise using parallel bars" },
+    physicalTherapy: { src: "/train/physical-therapy-rehab.webp", width: 1600, height: 900, alt: "A physical therapist guiding a client through a single-leg step exercise using parallel bars" },
     // The real YouTube thumbnail for the Athlete page's football assessment video (sn179z2l1Hw).
     footballAssessmentPoster: {
       src: "/train/football-assessment-poster.webp",
