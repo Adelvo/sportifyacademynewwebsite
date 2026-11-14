@@ -40,7 +40,7 @@ export const kids = {
         name: "Fundamental Multisports Test",
         points: ["Checks how you balance, jump and run", "Shows your natural movement skills", "Helps coaches know where to start"],
         cta: "Book this assessment",
-        whatsappMessage: "Hi Sportify Academy, I'd like to book the Fundamental Multisports Test for my child.",
+        whatsappMessage: "Hey! I am interested in the Fundamental Multisports Test for my child. Could I please get some more information?",
       },
       {
         id: "specialized-physical-fitness-assessment",
@@ -48,7 +48,7 @@ export const kids = {
         name: "Specialized Physical Fitness Assessment",
         points: ["Tests your speed, strength and fitness", "Shows what sport might suit you", "Helps coaches build your training plan"],
         cta: "Book this assessment",
-        whatsappMessage: "Hi Sportify Academy, I'd like to book the Specialized Physical Fitness Assessment for my child.",
+        whatsappMessage: "Hey! I am interested in the Specialized Physical Fitness Assessment for my child. Could I please get some more information?",
       },
     ] satisfies AssessmentCard[] as AssessmentCard[],
     help: {
@@ -97,7 +97,7 @@ export const kids = {
     title: "Fuel their growth. Support their play.",
     text: "A personalised nutrition plan to support your child's growth, energy and active lifestyle.",
     cta: "Ask about nutrition",
-    whatsappMessage: "Hi Sportify Academy, I'd like to ask about the Kids Nutrition Plan.",
+    whatsappMessage: "Hey! I am interested in improving my kids nutrition. Could I please get some more information?",
   },
   faq: {
     title: "Questions parents ask",

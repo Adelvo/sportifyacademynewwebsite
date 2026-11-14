@@ -53,7 +53,7 @@ export const athlete = {
           "A clear report with your results and next steps",
         ],
         cta: "Book this assessment",
-        whatsappMessage: "Hi Sportify Academy, I would like to book a General Physical Assessment.",
+        whatsappMessage: "Hey! I am interested in the General Physical Assessment. Could I please get some more information?",
       },
       {
         id: "specialized-assessment",
@@ -66,7 +66,7 @@ export const athlete = {
           "A development plan built around your sport and goals",
         ],
         cta: "Book this assessment",
-        whatsappMessage: "Hi Sportify Academy, I would like to book a Specialized Physical Assessment. My sport is …",
+        whatsappMessage: "Hey! I am interested in the Specialized Physical Assessment. My sport is … Could I please get some more information?",
       },
     ] satisfies AssessmentCard[] as AssessmentCard[],
     help: {
@@ -115,7 +115,7 @@ export const athlete = {
         name: "Nutrition Plan",
         text: "Personalised nutrition guidance to support your training and recovery.",
         cta: "Ask about nutrition",
-        whatsappMessage: "Hi Sportify Academy, I would like to ask about the Nutrition Plan for athletes.",
+        whatsappMessage: "Hey! I am interested in the Nutrition Plan for athletes. Could I please get some more information?",
       },
       {
         id: "physical-therapy",
@@ -123,7 +123,7 @@ export const athlete = {
         name: "Physical Therapy",
         text: "Discuss your movement concerns and recovery needs with our team.",
         cta: "Ask about physical therapy",
-        whatsappMessage: "Hi Sportify Academy, I would like to ask about Physical Therapy.",
+        whatsappMessage: "Hey! I am interested in Physical Therapy. Could I please get some more information?",
       },
     ] satisfies SupportPanel[] as SupportPanel[],
   },

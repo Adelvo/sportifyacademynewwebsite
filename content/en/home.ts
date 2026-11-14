@@ -95,7 +95,7 @@ export const home = {
         name: "General Physical Assessment",
         group: "Assessments",
         checklist: ["Full-body movement screening", "Baseline fitness benchmarks", "Clear next-step recommendations"],
-        whatsappMessage: "Hello Sportify Academy. I would like to book a General Physical Assessment.",
+        whatsappMessage: "Hey! I am interested in the General Physical Assessment. Could I please get some more information?",
       },
       {
         id: "specific-assessment",
@@ -103,7 +103,7 @@ export const home = {
         name: "Specific Physical Assessment",
         group: "Assessments",
         checklist: ["Sport-specific performance testing", "In-depth strength & conditioning data", "Tailored training recommendations"],
-        whatsappMessage: "Hello Sportify Academy. I would like to book a Specific Physical Assessment.",
+        whatsappMessage: "Hey! I am interested in the Specific Physical Assessment. Could I please get some more information?",
       },
       {
         id: "one-on-one",
@@ -111,7 +111,7 @@ export const home = {
         name: "One-on-One Training",
         group: "Train With Us",
         checklist: ["Fully personalised sessions", "Dedicated coach", "Flexible scheduling"],
-        whatsappMessage: "Hello Sportify Academy. I would like to book One-on-One Personal Training.",
+        whatsappMessage: "Hey! I am interested in One-on-One Personal Training. Could I please get some more information?",
       },
       {
         id: "semi-private",
@@ -119,7 +119,7 @@ export const home = {
         name: "Semi-Private Training",
         group: "Train With Us",
         checklist: ["Small-group coaching", "Shared motivation, individual attention", "Cost-effective personal coaching"],
-        whatsappMessage: "Hello Sportify Academy. I would like to book Semi-Private Training.",
+        whatsappMessage: "Hey! I am interested in Semi-Private Training. Could I please get some more information?",
       },
       {
         id: "nutrition-plan",
@@ -127,7 +127,7 @@ export const home = {
         name: "Nutrition Plan",
         group: "Eat Better",
         checklist: ["Personalised meal guidance", "Supports performance & recovery", "Ongoing adjustments"],
-        whatsappMessage: "Hello Sportify Academy. I would like to book a Nutrition Plan.",
+        whatsappMessage: "Hey! I am interested in the Nutrition Plan. Could I please get some more information?",
       },
       {
         id: "physical-therapy",
@@ -135,7 +135,7 @@ export const home = {
         name: "Physical Therapy",
         group: "Recover",
         checklist: ["Injury assessment & treatment", "Guided rehab exercises", "Safe return to training"],
-        whatsappMessage: "Hello Sportify Academy. I would like to book Physical Therapy.",
+        whatsappMessage: "Hey! I am interested in Physical Therapy. Could I please get some more information?",
       },
     ] satisfies ProgrammeCard<TrainPhoto>[] as ProgrammeCard<TrainPhoto>[],
     features: [
@@ -156,7 +156,7 @@ export const home = {
         name: "Body Analysis",
         group: "Assessments",
         checklist: ["Full-body composition scan", "Baseline health metrics", "Clear, actionable report"],
-        whatsappMessage: "Hello Sportify Academy. I would like to book a Body Analysis.",
+        whatsappMessage: "Hey! I am interested in a Body Analysis. Could I please get some more information?",
       },
       {
         id: "body-composition",
@@ -164,7 +164,7 @@ export const home = {
         name: "Body Composition",
         group: "Assessments",
         checklist: ["Muscle & fat percentage", "Track changes over time", "Personalised recommendations"],
-        whatsappMessage: "Hello Sportify Academy. I would like to book a Body Composition assessment.",
+        whatsappMessage: "Hey! I am interested in a Body Composition assessment. Could I please get some more information?",
       },
       {
         id: "body-posture",
@@ -172,7 +172,7 @@ export const home = {
         name: "Body Posture",
         group: "Assessments",
         checklist: ["Full posture scan", "Identify imbalances", "Corrective exercise guidance"],
-        whatsappMessage: "Hello Sportify Academy. I would like to book a Body Posture assessment.",
+        whatsappMessage: "Hey! I am interested in a Body Posture assessment. Could I please get some more information?",
       },
       {
         id: "longevity",
@@ -181,7 +181,7 @@ export const home = {
         tag: "Ages 40+",
         group: "Assessments",
         checklist: ["Long-term health & mobility check", "Personalised longevity plan", "Ongoing progress tracking"],
-        whatsappMessage: "Hello Sportify Academy. I would like to book a Longevity Assessment.",
+        whatsappMessage: "Hey! I am interested in the Longevity Assessment. Could I please get some more information?",
       },
       {
         id: "one-on-one",
@@ -189,7 +189,7 @@ export const home = {
         name: "One-on-One Personal Training",
         group: "Train With Us",
         checklist: ["Fully personalised sessions", "Dedicated coach", "Flexible scheduling"],
-        whatsappMessage: "Hello Sportify Academy. I would like to book One-on-One Personal Training.",
+        whatsappMessage: "Hey! I am interested in One-on-One Personal Training. Could I please get some more information?",
       },
       {
         id: "semi-private",
@@ -197,7 +197,7 @@ export const home = {
         name: "Semi-Private Training",
         group: "Train With Us",
         checklist: ["Small-group coaching", "Shared motivation, individual attention", "Cost-effective personal coaching"],
-        whatsappMessage: "Hello Sportify Academy. I would like to book Semi-Private Training.",
+        whatsappMessage: "Hey! I am interested in Semi-Private Training. Could I please get some more information?",
       },
       {
         id: "physical-therapy",
@@ -205,7 +205,7 @@ export const home = {
         name: "Physical Therapy",
         group: "Recover",
         checklist: ["Injury assessment & treatment", "Guided rehab exercises", "Safe return to activity"],
-        whatsappMessage: "Hello Sportify Academy. I would like to book Physical Therapy.",
+        whatsappMessage: "Hey! I am interested in Physical Therapy. Could I please get some more information?",
       },
     ] satisfies ProgrammeCard<AdultPhoto>[] as ProgrammeCard<AdultPhoto>[],
     features: [
@@ -264,7 +264,7 @@ export const home = {
         name: "Workshops",
         tag: "Hands-on Learning",
         checklist: ["Practical coaching sessions", "Latest training methods", "Certificate of attendance"],
-        whatsappMessage: "Hello Sportify Academy. I would like to know more about your coaching workshops.",
+        whatsappMessage: "Hey! I am interested in your coaching workshops. Could I please get some more information?",
       },
       {
         id: "conferences",
@@ -272,7 +272,7 @@ export const home = {
         name: "Conferences",
         tag: "Industry Events",
         checklist: ["Expert speakers & panels", "Networking with coaches", "Latest research & trends"],
-        whatsappMessage: "Hello Sportify Academy. I would like to know more about your coaching conferences.",
+        whatsappMessage: "Hey! I am interested in your coaching conferences. Could I please get some more information?",
       },
       {
         id: "cpd",
@@ -280,7 +280,7 @@ export const home = {
         name: "CPD",
         tag: "Continuing Education",
         checklist: ["Accredited CPD points", "Flexible learning formats", "Career progression support"],
-        whatsappMessage: "Hello Sportify Academy. I would like to know more about CPD for coaches.",
+        whatsappMessage: "Hey! I am interested in CPD for coaches. Could I please get some more information?",
       },
     ] satisfies ProgrammeCard<OrganisationPhoto>[] as ProgrammeCard<OrganisationPhoto>[],
     features: [

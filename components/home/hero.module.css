@@ -21,7 +21,10 @@
 .hero {
   position: relative;
   overflow: hidden;
-  height: clamp(26rem, 41.66cqw, calc(100svh - var(--band)));
+  /* The floor is capped to a share of the width (not a flat rem value) so narrow phones don't
+     force a box far taller than the photo's own ratio — that forced object-fit: cover to zoom in
+     and crop the "SPORTIFY" wordmark and the outer two people out of frame. */
+  height: clamp(min(26rem, 54cqw), 41.66cqw, calc(100svh - var(--band)));
 }
 
 .background {

@@ -53,7 +53,7 @@ export const adult = {
           "Body Posture: full posture scan & imbalance check",
         ],
         cta: "Book this assessment",
-        whatsappMessage: "Hello Sportify Academy. I would like to book a Physical Assessment (Body Analysis, Body Composition and Body Posture).",
+        whatsappMessage: "Hey! I am interested in the Physical Assessment (Body Analysis, Body Composition and Body Posture). Could I please get some more information?",
       },
       {
         id: "longevity",
@@ -61,7 +61,7 @@ export const adult = {
         tag: "AGES 40+",
         points: ["Long-term health & mobility check", "Personalised longevity plan", "Ongoing progress tracking"],
         cta: "Book this assessment",
-        whatsappMessage: "Hello Sportify Academy. I would like to book a Longevity Assessment.",
+        whatsappMessage: "Hey! I am interested in the Longevity Assessment. Could I please get some more information?",
       },
     ] satisfies AssessmentCard[] as AssessmentCard[],
     help: {
@@ -88,7 +88,7 @@ export const adult = {
           alt: "A Sportify Academy trainer guiding a woman during an individual training session",
         },
         cta: "Book this training",
-        whatsappMessage: "Hello Sportify Academy. I would like to book One-on-One Personal Training.",
+        whatsappMessage: "Hey! I am interested in One-on-One Personal Training. Could I please get some more information?",
       },
       {
         id: "semi-private",
@@ -101,7 +101,7 @@ export const adult = {
           alt: "A Sportify Academy trainer supervising two adults exercising with resistance bands",
         },
         cta: "Book this training",
-        whatsappMessage: "Hello Sportify Academy. I would like to book Semi-Private Training.",
+        whatsappMessage: "Hey! I am interested in Semi-Private Training. Could I please get some more information?",
       },
     ] satisfies TrainingCard[] as TrainingCard[],
   },
@@ -114,7 +114,7 @@ export const adult = {
         name: "Nutrition Plan",
         text: "Personalised nutrition guidance to support your training and recovery.",
         cta: "Ask about nutrition",
-        whatsappMessage: "Hello Sportify Academy. I would like to ask about the Nutrition Plan.",
+        whatsappMessage: "Hey! I am interested in the Nutrition Plan. Could I please get some more information?",
       },
       {
         id: "physical-therapy",
@@ -122,7 +122,7 @@ export const adult = {
         name: "Physical Therapy",
         text: "Injury assessment and treatment, guided rehab exercises and a safe return to activity.",
         cta: "Ask about physical therapy",
-        whatsappMessage: "Hello Sportify Academy. I would like to book Physical Therapy.",
+        whatsappMessage: "Hey! I am interested in Physical Therapy. Could I please get some more information?",
       },
     ] satisfies SupportPanel[] as SupportPanel[],
   },
