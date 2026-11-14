@@ -4,9 +4,9 @@ import { Reveal } from "@/components/ui/Reveal";
 import type { ImageAsset } from "@/content/types";
 
 /**
- * White cards on a long photo, under a big white heading. On phones the visitor swipes through
- * them. From the sm breakpoint they move by themselves and fade out at both edges of the section.
- * There they pause on hover and keyboard focus, and stay still for reduced-motion users.
+ * White cards on a long photo, under a big white heading. They move by themselves and fade out
+ * at both edges of the section, pausing on hover and keyboard focus, and staying still for
+ * reduced-motion users (who instead get the cards wrapped into a static grid).
  */
 export function PhotoMarquee<T extends { id: string }>({
   id,
@@ -43,17 +43,17 @@ export function PhotoMarquee<T extends { id: string }>({
           </h2>
           {aside ? <div className="lg:justify-self-end lg:pr-8">{aside}</div> : null}
         </Reveal>
-        <div className="mt-12 snap-x snap-mandatory scroll-px-5 overflow-x-auto [scrollbar-width:none] sm:mt-14 sm:snap-none sm:overflow-hidden sm:mask-[linear-gradient(to_right,transparent,#000_12%,#000_88%,transparent)] sm:motion-reduce:mask-none">
+        <div className="mt-12 overflow-hidden mask-[linear-gradient(to_right,transparent,#000_12%,#000_88%,transparent)] motion-reduce:mask-none sm:mt-14">
           <div
             style={{ animationDuration: `${seconds}s` }}
-            className="flex w-max gap-6 px-5 hover:[animation-play-state:paused] focus-within:[animation-play-state:paused] sm:pr-6 sm:pl-0 sm:motion-safe:animate-marquee sm:motion-reduce:w-full sm:motion-reduce:pr-0"
+            className="flex w-max gap-6 pr-6 pl-0 hover:[animation-play-state:paused] focus-within:[animation-play-state:paused] motion-safe:animate-marquee motion-reduce:w-full motion-reduce:pr-0"
           >
-            <ul className="flex gap-6 sm:motion-reduce:w-full sm:motion-reduce:flex-wrap sm:motion-reduce:justify-center sm:motion-reduce:px-5">
+            <ul className="flex gap-6 motion-reduce:w-full motion-reduce:flex-wrap motion-reduce:justify-center motion-reduce:px-5">
               {items.map((item) => (
-                <li key={item.id} className="snap-start">{renderCard(item, false)}</li>
+                <li key={item.id}>{renderCard(item, false)}</li>
               ))}
             </ul>
-            <ul aria-hidden="true" className="flex gap-6 max-sm:hidden sm:motion-reduce:hidden">
+            <ul aria-hidden="true" className="flex gap-6 motion-reduce:hidden">
               {items.map((item) => (
                 <li key={item.id}>{renderCard(item, true)}</li>
               ))}

@@ -75,11 +75,11 @@ export function KidsProcess() {
         }
       `}</style>
       <div className="relative rounded-[14px] border-2 border-[#67D5E5] bg-[#67D5E5]/10 p-5 shadow-[0_4px_16px_rgba(103,213,229,0.25)] sm:p-6">
-        <ol className="relative flex flex-wrap items-center justify-center gap-x-5 gap-y-6 text-base font-semibold sm:gap-x-7 sm:text-lg">
+        <ol className="relative flex flex-col items-start gap-6 text-base font-semibold sm:flex-row sm:flex-wrap sm:items-center sm:justify-center sm:gap-x-7 sm:gap-y-6 sm:text-lg">
           {kids.process.steps.map((step, index) => {
             const Icon = stepIcons[index];
             return (
-              <li key={step} className="flex items-center gap-4 sm:gap-5">
+              <li key={step} className="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-5">
                 <span className="flex items-center gap-3 sm:gap-4">
                   <span
                     className="relative grid size-12 shrink-0 place-items-center overflow-hidden rounded-full sm:size-14"
@@ -109,7 +109,7 @@ export function KidsProcess() {
                     stroke="currentColor"
                     strokeWidth="2.4"
                     aria-hidden="true"
-                    className="w-8 shrink-0 sm:w-10"
+                    className="size-6 shrink-0 rotate-90 sm:size-auto sm:w-10 sm:rotate-0"
                     style={{
                       color: "#C7D3DA",
                       animation: `kids-arrow-advance-${index} ${CYCLE_SECONDS}s ease-in-out infinite`,

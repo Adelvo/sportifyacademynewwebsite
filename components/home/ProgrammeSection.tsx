@@ -83,9 +83,9 @@ export function ProgrammeSection<Image extends string>({
                   <span aria-hidden="true" className="h-px flex-1 bg-line" />
                 </Reveal>
               )}
-              <ul className="-mx-5 flex snap-x snap-mandatory scroll-px-5 gap-4 overflow-x-auto px-5 pt-1 pb-6 [scrollbar-width:none] sm:-mx-8 sm:scroll-px-8 sm:px-8 md:mx-0 md:grid md:grid-cols-3 md:overflow-visible md:px-0 lg:gap-6">
+              <ul className="flex flex-col gap-4 pt-1 pb-6 md:grid md:grid-cols-3 lg:gap-6">
                 {group.cards.map((card, cardIndex) => (
-                  <li key={card.id} className="w-[85%] max-w-sm shrink-0 snap-start md:w-auto md:max-w-none">
+                  <li key={card.id} className="w-full md:w-auto md:max-w-none">
                     <Reveal delay={cardIndex * 90} className="h-full">
                       <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-line/60 bg-white shadow-[0_10px_30px_rgb(10_31_51/0.08)] transition-[transform,box-shadow] duration-300 hover:-translate-y-1.5 hover:shadow-[0_24px_48px_rgb(10_31_51/0.16)] focus-within:-translate-y-1.5 focus-within:shadow-[0_24px_48px_rgb(10_31_51/0.16)]">
                         <div className="relative overflow-hidden">
