@@ -25,9 +25,10 @@
      force a box far taller than the photo's own ratio — that forced object-fit: cover to zoom in
      and crop the "SPORTIFY" wordmark and the outer two people out of frame. */
   height: clamp(min(26rem, 54cqw), 41.66cqw, calc(100svh - var(--band)));
-  /* Phones only: a little breathing room above the photo, so the wordmark doesn't sit flush
-     under the header. Reset on desktop, where the pinned scroll effect needs the hero flush. */
-  margin-top: 0.875rem;
+  /* Phones only: clears the full fixed header band (height: 4rem, see .headerRow) plus a touch
+     more, so the header sits on plain white and the photo itself only starts underneath it.
+     Reset on desktop, where the pinned scroll effect needs the hero flush. */
+  margin-top: 5rem;
 }
 
 .background {
