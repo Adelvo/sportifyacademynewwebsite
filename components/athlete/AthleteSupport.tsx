@@ -6,16 +6,18 @@ import type { ImageAsset } from "@/content/types";
 import { whatsappUrl } from "@/lib/links";
 import { AthleteButton } from "./AthleteButton";
 import { AthleteContainer } from "./AthleteContainer";
-import { ForkKnifeIcon, HeartPulseIcon } from "./AthleteIcons";
+import { BrainIcon, ForkKnifeIcon, HeartPulseIcon } from "./AthleteIcons";
 
 const supportIcons: Record<string, typeof ForkKnifeIcon> = {
   nutrition: ForkKnifeIcon,
   "physical-therapy": HeartPulseIcon,
+  "sports-psychology": BrainIcon,
 };
 
 const supportImages: Record<string, ImageAsset> = {
   nutrition: images.kids.nutritionPlan,
-  "physical-therapy": images.train.physicalTherapy,
+  "physical-therapy": images.train.athletePhysicalTherapy,
+  "sports-psychology": images.train.sportsPsychology,
 };
 
 const toneClasses: Record<string, string> = {
@@ -23,7 +25,7 @@ const toneClasses: Record<string, string> = {
   mist: "bg-[#F4F7F9]",
 };
 
-/** "Support your training": two compact panels, Nutrition Plan and Physical Therapy, each led by a stock photo. */
+/** "Support your training": three compact panels, Nutrition Plan, Physical Therapy and Sports Psychology, each led by a stock photo. */
 export function AthleteSupport() {
   const { support } = athlete;
   return (
@@ -33,12 +35,12 @@ export function AthleteSupport() {
           <h2 className="text-[clamp(26px,2.4vw,34px)] font-bold leading-[1.2]">{support.title}</h2>
         </Reveal>
 
-        <Reveal delay={90} className="mt-6 grid gap-6 sm:mt-7 md:grid-cols-2">
+        <Reveal delay={90} className="mt-6 grid gap-6 sm:mt-7 md:grid-cols-2 lg:grid-cols-3">
           {support.items.map((item) => {
             const Icon = supportIcons[item.id];
             return (
               <div key={item.id} className="flex flex-col overflow-hidden rounded-[14px] border border-[#DCE5EB] bg-white">
-                <Photo image={supportImages[item.id]} sizes="(min-width: 768px) 50vw, 100vw" className="aspect-video w-full" />
+                <Photo image={supportImages[item.id]} sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" className="aspect-video w-full" />
                 <div className={`flex flex-1 flex-col p-6 ${toneClasses[item.tone]}`}>
                   <span className="grid size-11 place-items-center rounded-full bg-white text-[#007a99]">
                     <Icon className="size-6" />

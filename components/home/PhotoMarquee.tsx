@@ -16,7 +16,16 @@ export function PhotoMarquee<T extends { id: string }>({
   seconds,
   renderCard,
   aside,
+  imageClassName = "inset-0 size-full",
+  overlayClassName = "bg-midnight/55",
+  maskClassName = "mask-[linear-gradient(to_right,transparent,#000_12%,#000_88%,transparent)]",
 }: {
+  /** Placement and crop of the (absolutely positioned) background photo. */
+  imageClassName?: string;
+  /** Tint over the photo that keeps the heading and cards readable. */
+  overlayClassName?: string;
+  /** Where the moving cards fade out. */
+  maskClassName?: string;
   id: string;
   title: string;
   /** Shown at the top right of the section, or under the heading on small screens. */
@@ -30,8 +39,8 @@ export function PhotoMarquee<T extends { id: string }>({
 }) {
   return (
     <section aria-labelledby={id} className="relative overflow-hidden bg-midnight py-20">
-      <Photo image={image} sizes="100vw" className="absolute inset-0 size-full" />
-      <span aria-hidden="true" className="absolute inset-0 bg-midnight/55" />
+      <Photo image={image} sizes="100vw" className={`absolute ${imageClassName}`} />
+      <span aria-hidden="true" className={`absolute inset-0 ${overlayClassName}`} />
       <div className="relative">
         {/* The equal side columns keep the heading centred and stop it running under the aside. */}
         <Reveal as="div" className={aside ? "flex flex-col items-center gap-5 lg:grid lg:grid-cols-[14rem_1fr_14rem] lg:items-start" : undefined}>
@@ -43,7 +52,7 @@ export function PhotoMarquee<T extends { id: string }>({
           </h2>
           {aside ? <div className="lg:justify-self-end lg:pr-8">{aside}</div> : null}
         </Reveal>
-        <div className="mt-12 overflow-hidden mask-[linear-gradient(to_right,transparent,#000_12%,#000_88%,transparent)] motion-reduce:mask-none sm:mt-14">
+        <div className={`mt-12 overflow-hidden ${maskClassName} motion-reduce:mask-none sm:mt-14`}>
           <div
             style={{ animationDuration: `${seconds}s` }}
             className="flex w-max gap-6 pr-6 pl-0 hover:[animation-play-state:paused] focus-within:[animation-play-state:paused] motion-safe:animate-marquee motion-reduce:w-full motion-reduce:pr-0"

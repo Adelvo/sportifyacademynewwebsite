@@ -48,6 +48,16 @@ export function HeartPulseIcon({ className = "size-5" }: IconProps) {
   );
 }
 
+export function BrainIcon({ className = "size-5" }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className={className} {...strokeProps}>
+      <path d="M9 4.5a3 3 0 0 0-3 3 3 3 0 0 0-2 5.2A3.2 3.2 0 0 0 7 18a3 3 0 0 0 5 1.5V6a2.5 2.5 0 0 0-3-1.5Z" />
+      <path d="M15 4.5a3 3 0 0 1 3 3 3 3 0 0 1 2 5.2A3.2 3.2 0 0 1 17 18a3 3 0 0 1-5 1.5" />
+      <path d="M12 6a2.5 2.5 0 0 1 3-1.5M8 11h1.5M14.5 11H16M9 15h1M14 15h1" />
+    </svg>
+  );
+}
+
 export function ClipboardIcon({ className = "size-5", style }: IconProps) {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true" className={className} style={style} {...strokeProps}>

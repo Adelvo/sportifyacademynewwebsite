@@ -347,7 +347,7 @@
   }
 }
 
-/* Fades the empty-room photo in over the full photo, in step with the slide below. */
+/* Fades the blurred photo in over the sharp photo, in step with the slide below. */
 @keyframes introReveal {
   to {
     opacity: 1;

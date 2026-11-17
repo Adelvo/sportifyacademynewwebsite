@@ -11,26 +11,26 @@ const img = (name: string, width: number, height: number, alt: string): ImageAss
 });
 
 export const images = {
-  // Homepage hero: a coach standing between a boy holding a basketball and a girl holding a
-  // football, in front of a large "SPORTIFY" wordmark in a bright gym.
+  // Homepage hero: a Sportify Academy coach in a black shirt standing between a teenage boy holding a
+  // football and a girl holding a volleyball, in the blue Sportify Academy studio.
   heroBanner: {
-    src: "/hero/team-banner-2.webp",
-    width: 1944,
-    height: 809,
-    alt: "A Sportify Academy coach standing between a boy holding a basketball and a girl holding a football, in front of a large SPORTIFY wordmark in a bright gym",
+    src: "/hero/team-banner-4.webp",
+    width: 3840,
+    height: 1594,
+    alt: "A Sportify Academy coach standing between a teenage boy holding a football and a girl holding a volleyball in the blue Sportify Academy studio",
   },
-  // Same gym, empty: no coach, no kids, no SPORTIFY wordmark. Crossfades in behind the hero photo
-  // as the visitor scrolls from the title down to "Our Offers", so the room is left as the backdrop.
-  heroBannerEmpty: {
-    src: "/hero/team-banner-empty-2.webp",
-    width: 1944,
-    height: 809,
+  // The same hero photo, pre-blurred. Fades in over the sharp photo as the visitor scrolls from
+  // the title to "Our Offers", so the cards sit on a calm, out-of-focus studio.
+  heroBannerBlur: {
+    src: "/hero/team-banner-4-blur.webp",
+    width: 1920,
+    height: 797,
     alt: "",
   },
   // Photos on the four landing page cards.
   paths: {
     kids: { src: "/paths/kids-agility-run.webp", width: 1448, height: 1086, alt: "A boy mid-stride during an agility drill at the Sportify Academy studio" },
-    athlete: { src: "/paths/athlete-basketball-agility.webp", width: 995, height: 1581, alt: "An athlete holding a basketball while performing an agility ladder drill at the Sportify Academy studio" },
+    athlete: { src: "/organisations/workshop-coaches.webp", width: 1000, height: 750, alt: "A coach talking tactics with a huddled youth football team on the pitch" },
     adult: { src: "/paths/adult.webp", width: 1122, height: 1402, alt: "" },
     coaches: { src: "/paths/for-organisations.webp", width: 1122, height: 1402, alt: "A coach presenting to a seated group, in front of a screen with a rising bar chart" },
   },
@@ -85,8 +85,14 @@ export const images = {
     specificAssessment: { src: "/train/specific-assessment.webp", width: 1000, height: 750, alt: "" },
     oneOnOne: { src: "/train/one-on-one.webp", width: 1000, height: 750, alt: "" },
     semiPrivate: { src: "/train/semi-private.webp", width: 1000, height: 750, alt: "" },
+    // TODO: Group Training and Sports Psychology are placeholder photos until the real images arrive.
+    homeTraining: { src: "/train/home-training-portrait.webp", width: 902, height: 1743, alt: "A Sportify Academy coach guiding a teenage athlete through a squat on a mat in his living room" },
+    groupTraining: { src: "/train/athlete-semi-private.webp", width: 1440, height: 810, alt: "A Sportify Academy coach leading a group training session" },
+    sportsPsychology: { src: "/train/general-assessment.webp", width: 1000, height: 750, alt: "A Sportify Academy coach talking with an athlete about mindset and focus" },
     nutritionPlan: { src: "/train/nutrition-plan.webp", width: 1600, height: 900, alt: "Three meal-prep containers of rice, corn, cucumber, tomato and lentils" },
-    physicalTherapy: { src: "/train/physical-therapy-rehab.webp", width: 1600, height: 900, alt: "A physical therapist guiding a client through a single-leg step exercise using parallel bars" },
+    physicalTherapy: { src: "/train/physical-therapy-knee.webp", width: 1600, height: 900, alt: "A physical therapist assessing a client's knee mobility on a treatment table" },
+    // Athlete page only: knee control on a step, guided by a physiotherapist.
+    athletePhysicalTherapy: { src: "/train/physical-therapy-step.webp", width: 1600, height: 900, alt: "A physical therapist checking an athlete's knee alignment during a step-down exercise" },
     // The real YouTube thumbnail for the Athlete page's football assessment video (sn179z2l1Hw).
     footballAssessmentPoster: {
       src: "/train/football-assessment-poster.webp",
@@ -108,9 +114,12 @@ export const images = {
     bodyComposition: { src: "/adult/body-composition.webp", width: 1000, height: 750, alt: "" },
     bodyPosture: { src: "/adult/body-posture.webp", width: 1000, height: 750, alt: "" },
     longevity: { src: "/adult/longevity-assessment.webp", width: 1000, height: 750, alt: "" },
-    physicalTherapy: { src: "/adult/physical-therapy.webp", width: 1000, height: 750, alt: "" },
+    physicalTherapy: { src: "/adult/physical-therapy-knee.webp", width: 1000, height: 750, alt: "" },
     oneOnOne: { src: "/adult/one-on-one.webp", width: 1000, height: 750, alt: "" },
     semiPrivate: { src: "/adult/semi-private.webp", width: 1000, height: 750, alt: "" },
+    // TODO: Group Training is a placeholder photo until the real image arrives.
+    homeTraining: { src: "/adult/home-training-portrait.webp", width: 902, height: 1743, alt: "A Sportify Academy coach guiding a man through a squat on a mat in his living room" },
+    groupTraining: { src: "/adult/semi-private.webp", width: 1000, height: 750, alt: "A Sportify Academy coach leading an adult group training session" },
     // Poster frame for the "Longevity 40+" section video, taken from the clip itself.
     longevityVideoPoster: {
       src: "/adult/longevity-video-poster.webp",
@@ -137,12 +146,19 @@ export const images = {
   organisations: {
     workshop: { src: "/organisations/workshop-coaches.webp", width: 1000, height: 750, alt: "A coach talking tactics with a huddled youth football team on the pitch" },
     conferences: { src: "/organisations/conferences-coaches.webp", width: 1000, height: 750, alt: "A speaker on stage presenting to a seated audience at a conference" },
-    cpd: { src: "/organisations/cpd-coaches.webp", width: 1000, height: 750, alt: "Two colleagues planning ideas on sticky notes during a development session" },
+    cpd: { src: "/organisations/coach-certifications.webp", width: 1000, height: 750, alt: "Logos of NASM, EREPS (European Register of Exercise Professionals), REPs UAE and Motor Skill Learning Academy Switzerland" },
+  },
+  // Poster for the upcoming Early Years PE Conference on the "For Coaches" page.
+  earlyYearsConference: {
+    src: "/organisations/early-years-pe-conference-2027.webp",
+    width: 853,
+    height: 1280,
+    alt: "Early Years PE Conference poster: 30 & 31 January 2027 in Dubai, hosted by Sportify Academy with Motor Skill Learning Academy Switzerland, showing four children running through an obstacle course in front of the Dubai skyline",
   },
   // Photo behind the Google reviews: body composition analysis and training equipment.
   reviewsBackground: { src: "/reviews/google-reviews-banner.webp", width: 1851, height: 850, alt: "" },
-  // Long studio banner behind the partners.
-  partnersBackground: { src: "/train/training-banner.webp", width: 2172, height: 724, alt: "" },
+  // Long Sportify Academy banner behind the partners: logo on the left, athletes on the right.
+  partnersBackground: { src: "/partners/partners-banner.webp", width: 2172, height: 724, alt: "" },
   // Video posters: frames taken from the YouTube videos.
   videoAbout: { src: "/videos/about-sportify.webp", width: 1280, height: 720, alt: "An athlete in a blue bib jumping on a test platform while Sportify Academy staff record the results" },
   videoOlivia: { src: "/videos/olivia.webp", width: 1280, height: 720, alt: "Olivia in her karate uniform, smiling and holding up a gold medal" },

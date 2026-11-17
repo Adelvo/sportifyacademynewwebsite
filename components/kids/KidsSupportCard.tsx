@@ -6,6 +6,7 @@ type SupportItem = {
   id: string;
   name: string;
   points: string[];
+  learnMoreUrl?: string;
 };
 
 /**
@@ -53,6 +54,16 @@ export function KidsSupportCard({ item, index, className = "" }: { item: Support
             </li>
           ))}
         </ul>
+        {item.learnMoreUrl && (
+          <a
+            href={item.learnMoreUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-3 inline-flex items-center gap-1 text-[15px] font-semibold text-cyan-deep underline-offset-4 hover:underline"
+          >
+            Learn more →
+          </a>
+        )}
       </div>
     </li>
   );

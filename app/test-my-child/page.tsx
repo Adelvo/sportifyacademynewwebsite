@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
+import { ComparisonTable } from "@/components/sections/ComparisonTable";
 import { KidsAssessments } from "@/components/kids/KidsAssessments";
 import { KidsHero } from "@/components/kids/KidsHero";
 import { KidsNutrition } from "@/components/kids/KidsNutrition";
 import { KidsSupport } from "@/components/kids/KidsSupport";
-import { testPage } from "@/content";
+import { kids, testPage } from "@/content";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata(testPage.meta);
@@ -14,6 +15,7 @@ export default function TestMyChildPage() {
     <>
       <KidsHero />
       <KidsAssessments />
+      <ComparisonTable comparison={kids.comparison} />
       <KidsSupport />
       <KidsNutrition />
     </>

@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
 import { ProgrammeSection } from "@/components/home/ProgrammeSection";
+import { UpcomingConference } from "@/components/organisations/UpcomingConference";
 import { home, images, organisationsPage } from "@/content";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata(organisationsPage.meta);
 
 export default function ForOrganisationsPage() {
-  return <ProgrammeSection id="organisations" section={home.organisations} photos={images.organisations} photoAspect="aspect-[4/3]" headingLevel={1} />;
+  return (
+    <>
+      <ProgrammeSection id="organisations" section={home.organisations} photos={images.organisations} photoAspect="aspect-[4/3]" headingLevel={1} />
+      <UpcomingConference />
+    </>
+  );
 }

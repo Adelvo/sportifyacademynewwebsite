@@ -35,8 +35,8 @@ export interface Programmes<Image extends string> {
   features: Feature[];
 }
 
-type TrainPhoto = "generalAssessment" | "specificAssessment" | "oneOnOne" | "semiPrivate" | "nutritionPlan" | "physicalTherapy";
-type AdultPhoto = "bodyAnalysis" | "bodyComposition" | "bodyPosture" | "longevity" | "physicalTherapy" | "oneOnOne" | "semiPrivate";
+type TrainPhoto = "generalAssessment" | "specificAssessment" | "oneOnOne" | "semiPrivate" | "homeTraining" | "groupTraining" | "sportsPsychology" | "nutritionPlan" | "physicalTherapy";
+type AdultPhoto = "bodyAnalysis" | "bodyComposition" | "bodyPosture" | "longevity" | "physicalTherapy" | "oneOnOne" | "semiPrivate" | "homeTraining" | "groupTraining";
 type OrganisationPhoto = "workshop" | "conferences" | "cpd";
 
 export const home = {
@@ -122,6 +122,22 @@ export const home = {
         whatsappMessage: "Hey! I am interested in Semi-Private Training. Could I please get some more information?",
       },
       {
+        id: "home-training",
+        image: "homeTraining",
+        name: "Home Training",
+        group: "Train With Us",
+        checklist: ["Our coach comes to you", "Sessions planned around your sport", "No travel needed"],
+        whatsappMessage: "Hey! I am interested in Home Training. Could I please get some more information?",
+      },
+      {
+        id: "group-training",
+        image: "groupTraining",
+        name: "Group Training",
+        group: "Train With Us",
+        checklist: ["Coaching for teams and squads", "Train together as one group", "Cost-effective coaching"],
+        whatsappMessage: "Hey! I am interested in Group Training. Could I please get some more information?",
+      },
+      {
         id: "nutrition-plan",
         image: "nutritionPlan",
         name: "Nutrition Plan",
@@ -136,6 +152,14 @@ export const home = {
         group: "Recover",
         checklist: ["Injury assessment & treatment", "Guided rehab exercises", "Safe return to training"],
         whatsappMessage: "Hey! I am interested in Physical Therapy. Could I please get some more information?",
+      },
+      {
+        id: "sports-psychology",
+        image: "sportsPsychology",
+        name: "Sports Psychology",
+        group: "Mindset",
+        checklist: ["Confidence and focus under pressure", "Dealing with nerves before competition", "Mental skills for consistent performance"],
+        whatsappMessage: "Hey! I am interested in Sports Psychology. Could I please get some more information?",
       },
     ] satisfies ProgrammeCard<TrainPhoto>[] as ProgrammeCard<TrainPhoto>[],
     features: [
@@ -200,6 +224,22 @@ export const home = {
         whatsappMessage: "Hey! I am interested in Semi-Private Training. Could I please get some more information?",
       },
       {
+        id: "home-training",
+        image: "homeTraining",
+        name: "Home Training",
+        group: "Train With Us",
+        checklist: ["Our coach comes to your home", "No commute, no gym needed", "Sessions built around your schedule"],
+        whatsappMessage: "Hey! I am interested in Home Training. Could I please get some more information?",
+      },
+      {
+        id: "group-training",
+        image: "groupTraining",
+        name: "Group Training",
+        group: "Train With Us",
+        checklist: ["Coached group sessions", "Train with friends, family or colleagues", "Fun, motivating and affordable"],
+        whatsappMessage: "Hey! I am interested in Group Training. Could I please get some more information?",
+      },
+      {
         id: "physical-therapy",
         image: "physicalTherapy",
         name: "Physical Therapy",
@@ -259,28 +299,26 @@ export const home = {
     action: "Enquire Now",
     cards: [
       {
-        id: "workshop",
-        image: "workshop",
-        name: "Workshops",
-        tag: "Hands-on Learning",
-        checklist: ["Practical coaching sessions", "Latest training methods", "Certificate of attendance"],
-        whatsappMessage: "Hey! I am interested in your coaching workshops. Could I please get some more information?",
-      },
-      {
-        id: "conferences",
+        id: "workshops-conferences",
         image: "conferences",
-        name: "Conferences",
-        tag: "Industry Events",
-        checklist: ["Expert speakers & panels", "Networking with coaches", "Latest research & trends"],
-        whatsappMessage: "Hey! I am interested in your coaching conferences. Could I please get some more information?",
+        name: "Workshops & Conferences",
+        tag: "Hands-on Learning & Industry Events",
+        checklist: ["Practical coaching sessions with expert speakers", "Latest training methods & research", "Networking with coaches", "Certificate of attendance"],
+        whatsappMessage: "Hey! I am interested in your coaching workshops and conferences. Could I please get some more information?",
       },
       {
         id: "cpd",
         image: "cpd",
-        name: "CPD",
+        name: "Coach Development",
         tag: "Continuing Education",
-        checklist: ["Accredited CPD points", "Flexible learning formats", "Career progression support"],
-        whatsappMessage: "Hey! I am interested in CPD for coaches. Could I please get some more information?",
+        checklist: [
+          "NASM: US personal training certifications, NCCA-accredited",
+          "REPs UAE: CPD points for the UAE Register of Exercise Professionals",
+          "EREPS: European Register of Exercise Professionals by EuropeActive",
+          "Motor Skill Learning Academy Switzerland: coach certification for ages 3–7",
+          "Flexible learning formats & career support",
+        ],
+        whatsappMessage: "Hey! I am interested in Coach Development for coaches. Could I please get some more information?",
       },
     ] satisfies ProgrammeCard<OrganisationPhoto>[] as ProgrammeCard<OrganisationPhoto>[],
     features: [

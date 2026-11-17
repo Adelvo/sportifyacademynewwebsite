@@ -1,4 +1,4 @@
-import type { ImageAsset, LocalVideo } from "../types";
+import type { Comparison, ImageAsset, LocalVideo } from "../types";
 import { images } from "./images";
 
 interface AssessmentCard {
@@ -8,6 +8,8 @@ interface AssessmentCard {
   points: string[];
   cta: string;
   whatsappMessage: string;
+  /** Link to a more detailed Sportify Academy micro-site for this exact assessment, if one exists. */
+  learnMoreUrl?: string;
 }
 
 interface TrainingCard {
@@ -45,15 +47,25 @@ export const adult = {
     } satisfies LocalVideo,
     items: [
       {
-        id: "physical-assessment",
-        name: "Physical Assessment",
-        points: [
-          "Body Analysis: full-body composition scan",
-          "Body Composition: muscle & fat percentage",
-          "Body Posture: full posture scan & imbalance check",
-        ],
+        id: "body-analysis",
+        name: "Body Analysis",
+        points: ["Full-body composition scan", "Baseline health metrics", "Clear, actionable report"],
         cta: "Book this assessment",
-        whatsappMessage: "Hey! I am interested in the Physical Assessment (Body Analysis, Body Composition and Body Posture). Could I please get some more information?",
+        whatsappMessage: "Hey! I am interested in a Body Analysis. Could I please get some more information?",
+      },
+      {
+        id: "body-composition",
+        name: "Body Composition",
+        points: ["Muscle & fat percentage", "Track changes over time", "Personalised recommendations"],
+        cta: "Book this assessment",
+        whatsappMessage: "Hey! I am interested in a Body Composition assessment. Could I please get some more information?",
+      },
+      {
+        id: "corrective-exercise",
+        name: "Corrective Exercise",
+        points: ["Full posture scan & imbalance check", "A targeted corrective exercise plan", "Guided sessions to fix movement patterns"],
+        cta: "Book this assessment",
+        whatsappMessage: "Hey! I am interested in Corrective Exercise. Could I please get some more information?",
       },
       {
         id: "longevity",
@@ -62,6 +74,7 @@ export const adult = {
         points: ["Long-term health & mobility check", "Personalised longevity plan", "Ongoing progress tracking"],
         cta: "Book this assessment",
         whatsappMessage: "Hey! I am interested in the Longevity Assessment. Could I please get some more information?",
+        learnMoreUrl: "https://longevity.sportify.academy",
       },
     ] satisfies AssessmentCard[] as AssessmentCard[],
     help: {
@@ -70,6 +83,29 @@ export const adult = {
       whatsappMessage: "Hi Sportify Academy, could you help me choose the right adult assessment?",
     },
   },
+  comparison: {
+    title: "Two ways to look after your body",
+    text: "There is a better way.",
+    today: { title: "Waiting and hoping", subtitle: "What most adults do today" },
+    sportify: { title: "Sportify", subtitle: "The scientific alternative" },
+    rows: [
+      {
+        label: "Money",
+        today: "Gym memberships that go unused",
+        sportify: "A clear plan based on your body",
+      },
+      {
+        label: "Pain",
+        today: "Back and knee pain accepted as \"normal\"",
+        sportify: "We find the cause and fix it",
+      },
+      {
+        label: "Guidance",
+        today: "Generic workouts that don't fit you",
+        sportify: "Certified coaches guide every step",
+      },
+    ],
+  } satisfies Comparison as Comparison,
   process: {
     steps: ["Assessment", "Feedback", "Next steps"],
   },
@@ -78,8 +114,8 @@ export const adult = {
     text: "Find the right format for your goals.",
     items: [
       {
-        id: "one-on-one",
-        name: "1:1 Training",
+        id: "personal-training",
+        name: "Personal Training",
         points: ["Fully personalised sessions", "Dedicated coach", "Flexible scheduling"],
         image: {
           src: "/adult/one-on-one-coaching.webp",
@@ -102,6 +138,22 @@ export const adult = {
         },
         cta: "Book this training",
         whatsappMessage: "Hey! I am interested in Semi-Private Training. Could I please get some more information?",
+      },
+      {
+        id: "home-training",
+        name: "Home Training",
+        points: ["Our coach comes to your home", "No commute, no gym needed", "Sessions built around your schedule"],
+        image: images.adult.homeTraining,
+        cta: "Book this training",
+        whatsappMessage: "Hey! I am interested in Home Training. Could I please get some more information?",
+      },
+      {
+        id: "group-training",
+        name: "Group Training",
+        points: ["Coached group sessions", "Train with friends, family or colleagues", "Fun, motivating and affordable"],
+        image: images.adult.groupTraining,
+        cta: "Book this training",
+        whatsappMessage: "Hey! I am interested in Group Training. Could I please get some more information?",
       },
     ] satisfies TrainingCard[] as TrainingCard[],
   },
@@ -132,11 +184,11 @@ export const adult = {
       {
         question: "Which assessment should I choose?",
         answer:
-          "The Physical Assessment covers Body Analysis, Body Composition and Body Posture in one session, for a full baseline of your health and fitness. The Longevity Assessment (ages 40+) looks at long-term mobility and health. Message our team if you need help choosing.",
+          "Body Analysis and Body Composition give you a full baseline of your health and fitness. Corrective Exercise looks at your posture and movement patterns. The Longevity Assessment (ages 40+) looks at long-term mobility and health. Message our team if you need help choosing.",
       },
       {
         question: "Can I book training after my assessment?",
-        answer: "Our team can discuss One-on-One or Semi-Private Training with you based on your goals and assessment feedback.",
+        answer: "Our team can discuss Personal Training, Semi-Private Training, Home Training or Group Training with you based on your goals and assessment feedback.",
       },
     ],
   },

@@ -68,7 +68,7 @@ export const homeFaqGroups: { label: string; portrait?: string; items: FaqItem[]
       {
         question: "What professional development do you offer coaches?",
         answer:
-          "Hands-on workshops, conferences with expert speakers, and CPD with accredited points — in flexible formats for every coaching level. We also test schools and clubs directly.",
+          "Hands-on workshops and conferences with expert speakers, plus coach development with accredited points — in flexible formats for every coaching level. We also test schools and clubs directly.",
         link: { href: "/for-organisations", label: "See programmes for coaches" },
       },
     ],

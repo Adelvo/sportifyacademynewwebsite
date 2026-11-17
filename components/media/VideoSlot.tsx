@@ -64,6 +64,8 @@ export function VideoSlot({
   const [covered, setCovered] = useState(true);
   const frameRef = useRef<HTMLDivElement>(null);
   const playerRef = useRef<HTMLIFrameElement>(null);
+  const uncoverRef = useRef<number | undefined>(undefined);
+  const soundOnRef = useRef(false);
   const { embedUrl } = video;
 
   useEffect(() => {
@@ -76,12 +78,13 @@ export function VideoSlot({
     let lastTime = 0;
     let handshake: number | undefined;
     let timeout: number | undefined;
-    let uncover: number | undefined;
 
+    // Once the visitor has turned the sound on they are watching: never hide the video again.
     function cover() {
-      window.clearTimeout(uncover);
+      window.clearTimeout(uncoverRef.current);
+      if (soundOnRef.current) return;
       setCovered(true);
-      uncover = window.setTimeout(() => setCovered(false), YOUTUBE_OVERLAY_MS);
+      uncoverRef.current = window.setTimeout(() => setCovered(false), YOUTUBE_OVERLAY_MS);
     }
 
     // The player reports its state and time only after being told that this page is listening.
@@ -108,8 +111,8 @@ export function VideoSlot({
       if (state === PLAYER_PLAYING && lastState !== PLAYER_PLAYING) {
         started = true;
         cover();
-      } else if (state !== PLAYER_PLAYING) {
-        window.clearTimeout(uncover);
+      } else if (state !== PLAYER_PLAYING && !soundOnRef.current) {
+        window.clearTimeout(uncoverRef.current);
       }
       lastState = state;
     }
@@ -137,6 +140,7 @@ export function VideoSlot({
       ([entry]) => {
         if (entry.isIntersecting) return;
         sendCommand(playerRef.current, embedUrl, "mute");
+        soundOnRef.current = false;
         setSoundOn(false);
       },
       { threshold: 0.5 },
@@ -150,7 +154,7 @@ export function VideoSlot({
       window.removeEventListener("message", onMessage);
       window.clearInterval(handshake);
       window.clearTimeout(timeout);
-      window.clearTimeout(uncover);
+      window.clearTimeout(uncoverRef.current);
     };
   }, [autoplayInView, embedUrl]);
 
@@ -164,6 +168,7 @@ export function VideoSlot({
   function toggleSound() {
     if (!embedUrl) return;
     const next = !soundOn;
+    soundOnRef.current = next;
     setSoundOn(next);
     sendCommand(playerRef.current, embedUrl, next ? "unMute" : "mute");
   }
@@ -172,9 +177,15 @@ export function VideoSlot({
    * The centred unmute button: turns sound on and keeps playing from the current position.
    * It deliberately doesn't seek back to 0 — doing that made YouTube rebuffer for a few
    * seconds, which showed as a frozen, then jumping, video.
+   *
+   * It also lifts the poster right away: it hides YouTube's title for the first seconds of
+   * playback, and a click in that window used to start the sound behind a still image.
    */
   function handleUnmute() {
     if (!embedUrl) return;
+    soundOnRef.current = true;
+    window.clearTimeout(uncoverRef.current);
+    setCovered(false);
     setSoundOn(true);
     sendCommand(playerRef.current, embedUrl, "unMute");
     sendCommand(playerRef.current, embedUrl, "playVideo");

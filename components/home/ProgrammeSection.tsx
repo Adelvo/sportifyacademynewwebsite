@@ -83,7 +83,12 @@ export function ProgrammeSection<Image extends string>({
                   <span aria-hidden="true" className="h-px flex-1 bg-line" />
                 </Reveal>
               )}
-              <ul className="flex flex-col gap-4 pt-1 pb-6 md:grid md:grid-cols-3 lg:gap-6">
+              {/* Fewer than three cards: keep the card width and centre the row, so the space left and right is equal. */}
+              <ul
+                className={`flex flex-col gap-4 pt-1 pb-6 md:grid lg:gap-6 ${
+                  group.cards.length === 2 ? "md:mx-auto md:w-[calc(200%/3-0.333rem)] md:grid-cols-2 lg:w-[calc(200%/3-0.5rem)]" : group.cards.length === 1 ? "md:mx-auto md:w-[calc(100%/3-0.667rem)] md:grid-cols-1 lg:w-[calc(100%/3-1rem)]" : group.cards.length === 4 ? "md:grid-cols-2 xl:grid-cols-4" : "md:grid-cols-3"
+                }`}
+              >
                 {group.cards.map((card, cardIndex) => (
                   <li key={card.id} className="w-full md:w-auto md:max-w-none">
                     <Reveal delay={cardIndex * 90} className="h-full">

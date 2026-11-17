@@ -1,4 +1,4 @@
-import type { LocalVideo } from "../types";
+import type { Comparison, LocalVideo } from "../types";
 import { images } from "./images";
 
 interface AssessmentCard {
@@ -9,6 +9,8 @@ interface AssessmentCard {
   points: string[];
   cta: string;
   whatsappMessage: string;
+  /** Link to a more detailed Sportify Academy micro-site for this exact assessment, if one exists. */
+  learnMoreUrl?: string;
 }
 
 interface SupportItem {
@@ -16,6 +18,8 @@ interface SupportItem {
   name: string;
   /** Short, simple bullet points: what this is for, written so a 10-year-old can follow it. */
   points: string[];
+  /** Link to a more detailed Sportify Academy micro-site for this exact programme, if one exists. */
+  learnMoreUrl?: string;
 }
 
 /** Content for the Kids page (app/test-my-child). */
@@ -43,6 +47,15 @@ export const kids = {
         whatsappMessage: "Hey! I am interested in the Fundamental Multisports Test for my child. Could I please get some more information?",
       },
       {
+        id: "talent-identification",
+        age: "AGES 8–14",
+        name: "Talent Identification",
+        points: ["Coaches watch you play and run", "They spot what you're naturally good at", "You get tips to help you improve"],
+        cta: "Book this assessment",
+        whatsappMessage: "Hey! I am interested in the Talent Identification assessment for my child. Could I please get some more information?",
+        learnMoreUrl: "https://talent.sportify.academy",
+      },
+      {
         id: "specialized-physical-fitness-assessment",
         age: "AGES 8+",
         name: "Specialized Physical Fitness Assessment",
@@ -57,6 +70,29 @@ export const kids = {
       whatsappMessage: "Hi Sportify Academy, I need help choosing the right assessment for my child.",
     },
   },
+  comparison: {
+    title: "Two ways to support your child",
+    text: "There is a better way.",
+    today: { title: "Waiting and hoping", subtitle: "What most families do today" },
+    sportify: { title: "Sportify", subtitle: "The scientific alternative" },
+    rows: [
+      {
+        label: "Money",
+        today: "AED 10,000+ a year on sports that don't stick",
+        sportify: "One test shows which sport fits",
+      },
+      {
+        label: "Confidence",
+        today: "Confidence drops with every PE class",
+        sportify: "Certified coaches build skills and confidence",
+      },
+      {
+        label: "Direction",
+        today: "Picking sports by guesswork",
+        sportify: "30+ tests and 18 years of experience",
+      },
+    ],
+  } satisfies Comparison as Comparison,
   process: {
     steps: ["Assessment", "Feedback", "Personal recommendations"],
   },
@@ -72,8 +108,9 @@ export const kids = {
     items: [
       {
         id: "motor-skills",
-        name: "Motor Skills and Fundamental Movement",
+        name: "Motor Skills and Fundamental Movement (TGMD)",
         points: ["Helps you balance and move better", "Makes your body stronger", "Fun exercises, not boring drills"],
+        learnMoreUrl: "https://movement.sportify.academy",
       },
       {
         id: "multisport-class",
@@ -81,9 +118,14 @@ export const kids = {
         points: ["Try different sports like football and basketball", "Find the sport you enjoy most", "Play and make new friends"],
       },
       {
-        id: "talent-identification",
-        name: "Talent Identification",
-        points: ["Coaches watch you play and run", "They spot what you're naturally good at", "You get tips to help you improve"],
+        id: "sport-specific-training",
+        name: "Sport Specific Training",
+        points: ["Focused practice for the sport you love", "Builds the skills that sport needs most", "Coached by specialists in that sport"],
+      },
+      {
+        id: "sports-psychology",
+        name: "Sports Psychology",
+        points: ["Helps you build confidence and focus", "Deal with nerves before a game", "Simple mental tricks that make sport more fun"],
       },
     ] satisfies SupportItem[] as SupportItem[],
     help: {

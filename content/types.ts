@@ -95,3 +95,12 @@ export interface LegalPage {
   heading: string;
   sections: TitledText[];
 }
+
+/** "What most people do today" versus "Sportify": one row per topic, read across as a table. */
+export interface Comparison {
+  title: string;
+  text: string;
+  today: { title: string; subtitle: string };
+  sportify: { title: string; subtitle: string };
+  rows: { label: string; today: string; sportify: string }[];
+}

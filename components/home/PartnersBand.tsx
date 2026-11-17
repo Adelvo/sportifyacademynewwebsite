@@ -29,6 +29,13 @@ export function PartnersBand() {
       image={images.partnersBackground}
       items={partners}
       seconds={140}
+      // Below lg the banner runs full width along the top, cropped from the masked athlete to the
+      // girl (the logo is cut off), and fades into the dark section behind the cards.
+      // From lg up it fills the section pinned left so the Sportify Academy logo stays in view, and
+      // the cards dissolve before they reach it: they keep running underneath, just invisible.
+      imageClassName="inset-x-0 top-0 aspect-[1612/724] w-full object-right lg:inset-0 lg:aspect-auto lg:size-full lg:object-left"
+      overlayClassName="bg-[linear-gradient(to_bottom,rgb(10_31_51/0.35),rgb(10_31_51/0.35)_25vw,var(--color-midnight)_45vw)] lg:bg-none lg:bg-midnight/25"
+      maskClassName="mask-[linear-gradient(to_right,transparent,#000_12%,#000_88%,transparent)] lg:mask-[linear-gradient(to_right,transparent_30%,#000_42%,#000_92%,transparent)]"
       renderCard={(partner) => <PartnerCard partner={partner} />}
     />
   );

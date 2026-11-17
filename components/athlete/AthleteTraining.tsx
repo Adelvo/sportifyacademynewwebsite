@@ -6,7 +6,7 @@ import { SequentialHighlightCard } from "@/components/ui/SequentialHighlightCard
 import { athlete } from "@/content";
 import { AthleteContainer } from "./AthleteContainer";
 
-/** "Training built around your goals": a clean dark gradient backdrop with soft cyan glows, exactly two training formats, no buttons or links. */
+/** "Training built around your goals": a clean dark gradient backdrop with soft cyan glows, four training formats in a 2×2 grid, no buttons or links. */
 export function AthleteTraining() {
   const { training } = athlete;
   return (
@@ -38,7 +38,7 @@ export function AthleteTraining() {
                   <Photo
                     image={item.image}
                     sizes="(min-width: 1120px) 528px, (min-width: 768px) calc((100vw - 64px) / 2), calc(100vw - 40px)"
-                    className="block aspect-[3/1] w-full object-top"
+                    className={`block aspect-[3/1] w-full ${item.imagePosition ?? "object-top"}`}
                   />
                   <div className={`flex-1 p-6 transition-colors duration-300 ease-out group-hover:bg-[#67D5E5] group-hover:text-[#081C2C] ${lit ? "bg-[#67D5E5] text-[#081C2C]" : ""}`}>
                     <h3 className="text-[20px] leading-[1.3] font-bold sm:text-[22px]">{item.name}</h3>

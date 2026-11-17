@@ -6,4 +6,5 @@ export const GROUP_ICONS: Partial<Record<string, FeatureIconName>> = {
   "Train With Us": "people",
   "Eat Better": "nutrition",
   Recover: "care",
+  Mindset: "bars",
 };

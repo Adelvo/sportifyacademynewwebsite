@@ -1,5 +1,5 @@
 import { images } from "./images";
-import type { ImageAsset } from "../types";
+import type { Comparison, ImageAsset } from "../types";
 
 interface AssessmentCard {
   id: string;
@@ -16,6 +16,8 @@ interface TrainingCard {
   name: string;
   text: string;
   image: ImageAsset;
+  /** Tailwind object-position class, for photos whose subject is not at the top of the 3:1 crop. */
+  imagePosition?: string;
 }
 
 interface SupportPanel {
@@ -75,6 +77,29 @@ export const athlete = {
       whatsappMessage: "Hi Sportify Academy, could you help me choose the right athlete assessment?",
     },
   },
+  comparison: {
+    title: "Two ways to train",
+    text: "There is a better way.",
+    today: { title: "Waiting and hoping", subtitle: "What most athletes do today" },
+    sportify: { title: "Sportify", subtitle: "The scientific alternative" },
+    rows: [
+      {
+        label: "Training",
+        today: "Copying workouts from social media",
+        sportify: "A plan built for your sport",
+      },
+      {
+        label: "Injuries",
+        today: "Small pains ignored until they're injuries",
+        sportify: "Screening and physio catch problems early",
+      },
+      {
+        label: "Progress",
+        today: "Hard work, no measurable progress",
+        sportify: "Certified coaches track every result",
+      },
+    ],
+  } satisfies Comparison as Comparison,
   process: {
     steps: ["Assessment", "Feedback", "Next steps"],
   },
@@ -83,8 +108,8 @@ export const athlete = {
     text: "Find the right format for your next step.",
     items: [
       {
-        id: "one-on-one",
-        name: "1:1 Training",
+        id: "personal-training",
+        name: "Personal Training",
         text: "Individual coaching focused on your goals.",
         image: {
           src: "/train/athlete-one-on-one-owner.webp",
@@ -103,6 +128,19 @@ export const athlete = {
           height: 810,
           alt: "A coach guiding three athletes through lunges during a small group training session",
         },
+      },
+      {
+        id: "home-training",
+        name: "Home Training",
+        text: "Our coach comes to you, with sessions planned around your sport.",
+        image: images.train.homeTraining,
+        imagePosition: "object-[center_20%]",
+      },
+      {
+        id: "group-training",
+        name: "Group Training",
+        text: "Train with your team or squad, coached as one group.",
+        image: images.train.groupTraining,
       },
     ] satisfies TrainingCard[] as TrainingCard[],
   },
@@ -125,6 +163,14 @@ export const athlete = {
         cta: "Ask about physical therapy",
         whatsappMessage: "Hey! I am interested in Physical Therapy. Could I please get some more information?",
       },
+      {
+        id: "sports-psychology",
+        tone: "cyan",
+        name: "Sports Psychology",
+        text: "Build confidence, focus and a strong mindset for training and competition.",
+        cta: "Ask about sports psychology",
+        whatsappMessage: "Hey! I am interested in Sports Psychology. Could I please get some more information?",
+      },
     ] satisfies SupportPanel[] as SupportPanel[],
   },
   faq: {
@@ -137,7 +183,7 @@ export const athlete = {
       },
       {
         question: "Can I book training after my assessment?",
-        answer: "Our team can discuss 1:1 Training or Semi Private Training with you based on your goals and assessment feedback.",
+        answer: "Our team can discuss Personal Training, Semi Private Training, Home Training or Group Training with you based on your goals and assessment feedback.",
       },
     ],
   },

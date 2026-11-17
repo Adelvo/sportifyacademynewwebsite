@@ -37,11 +37,11 @@ export function AdultAssessments() {
           />
 
           <ul className="flex flex-col gap-6">
-            {assessments.items.map((item) => {
+            {assessments.items.map((item, index) => {
               return (
                 <li
                   key={item.id}
-                  className={`flex items-start gap-4 border-b border-[#DCE5EB] pb-6 last:border-0 last:pb-0 ${item.id === "longevity" ? "ml-4 sm:ml-10 lg:ml-16" : ""}`}
+                  className={`flex items-start gap-4 border-b border-[#DCE5EB] pb-6 last:border-0 last:pb-0 ${index % 2 === 1 ? "ml-4 sm:ml-10 lg:ml-16" : ""}`}
                 >
                   <div className="min-w-0 flex-1">
                     {item.tag && (
@@ -58,10 +58,22 @@ export function AdultAssessments() {
                         </li>
                       ))}
                     </ul>
-                    <AdultButton href={whatsappUrl(item.whatsappMessage)} className="mt-4">
-                      <WhatsAppIcon className="size-5" />
-                      {item.cta}
-                    </AdultButton>
+                    <div className="mt-4 flex flex-wrap items-center gap-4">
+                      <AdultButton href={whatsappUrl(item.whatsappMessage)}>
+                        <WhatsAppIcon className="size-5" />
+                        {item.cta}
+                      </AdultButton>
+                      {item.learnMoreUrl && (
+                        <a
+                          href={item.learnMoreUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-[15px] font-semibold text-cyan-deep underline-offset-4 hover:underline"
+                        >
+                          Learn more →
+                        </a>
+                      )}
+                    </div>
                   </div>
                 </li>
               );

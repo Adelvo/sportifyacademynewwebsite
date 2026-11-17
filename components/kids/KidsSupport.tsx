@@ -7,12 +7,13 @@ import { KidsSupportCard } from "./KidsSupportCard";
 
 const supportOffsets: Record<string, string> = {
   "multisport-class": "ml-8 sm:ml-16 lg:ml-24",
-  "talent-identification": "ml-16 sm:ml-32 lg:ml-48",
+  "sport-specific-training": "ml-16 sm:ml-32 lg:ml-48",
+  "sports-psychology": "ml-8 sm:ml-16 lg:ml-24",
 };
 
 /**
  * "Support beyond the assessment": one video on the left (plays inline, muted, as soon as it
- * scrolls into view, no modal, no fullscreen takeover) next to three staggered, framed
+ * scrolls into view, no modal, no fullscreen takeover) next to staggered, framed
  * programmes, then a WhatsApp prompt.
  */
 export function KidsSupport() {

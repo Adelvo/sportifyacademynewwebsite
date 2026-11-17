@@ -13,14 +13,15 @@ export function HomeHero() {
           width={images.heroBanner.width}
           height={images.heroBanner.height}
           sizes="100vw"
+          quality={90}
           loading="eager"
           className={styles.background}
         />
         <Image
-          src={images.heroBannerEmpty.src}
+          src={images.heroBannerBlur.src}
           alt=""
-          width={images.heroBannerEmpty.width}
-          height={images.heroBannerEmpty.height}
+          width={images.heroBannerBlur.width}
+          height={images.heroBannerBlur.height}
           sizes="100vw"
           aria-hidden="true"
           className={`${styles.background} ${styles.backgroundFade}`}
