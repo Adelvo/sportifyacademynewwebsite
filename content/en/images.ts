@@ -14,15 +14,15 @@ export const images = {
   // Homepage hero: a Sportify Academy coach in a black shirt standing between a teenage boy holding a
   // football and a girl holding a volleyball, in the blue Sportify Academy studio.
   heroBanner: {
-    src: "/hero/team-banner-4.webp",
-    width: 3840,
-    height: 1594,
+    src: "/hero/team-banner-7.webp",
+    width: 1946,
+    height: 808,
     alt: "A Sportify Academy coach standing between a teenage boy holding a football and a girl holding a volleyball in the blue Sportify Academy studio",
   },
   // The same hero photo, pre-blurred. Fades in over the sharp photo as the visitor scrolls from
   // the title to "Our Offers", so the cards sit on a calm, out-of-focus studio.
   heroBannerBlur: {
-    src: "/hero/team-banner-4-blur.webp",
+    src: "/hero/team-banner-7-blur.webp",
     width: 1920,
     height: 797,
     alt: "",
