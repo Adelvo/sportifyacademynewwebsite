@@ -78,7 +78,7 @@ export const kids = {
     rows: [
       {
         label: "Money",
-        today: "AED 10,000+ a year on sports that don't stick",
+        today: "10,000+ AED a year on sports that don't stick",
         sportify: "One test shows which sport fits",
       },
       {

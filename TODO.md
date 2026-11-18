@@ -53,7 +53,7 @@ Run `npm run todos` to see every marker still left in `/content`, with file and 
 ## 3. Files to replace
 - [ ] **Photos:** 13 labelled placeholders in `public/placeholders/`. Keep the same file names, or change the paths and sizes in `content/en/images.ts`. Check each alt text still matches the photo.
 - [ ] **Landing page card photos:** the 4 files in `public/paths/` look AI-generated. Some show third-party brand marks, such as Nike logos on the socks in `recover.webp`. Retouch these or replace the photos with real ones (`content/en/images.ts`).
-- [ ] **Partner logos:** `public/partners/` holds crops from carousel screenshots, some with the carousel arrow on them (Sailing, Boxing, Hatta, FMAC, Al-Ittifaq). Replace them with the original files. Still needed: a logo for Dubai Sports Council, the name of the green arrow logo, and the full Kingdom logo (its white lettering is lost in the screenshot, so it is left out).
+- [ ] **Partner logos:** `public/partners/` holds crops from carousel screenshots, some with the carousel arrow on them (Sailing, Boxing, Hatta, FMAC, Al-Ittifaq). Replace them with the original files. Still needed: the full Kingdom logo (its white lettering is lost in the screenshot, so it is left out).
 - [ ] **Site logo:** the header and footer use a text logo. `app/icon.svg` is a temporary favicon.
 - [ ] **Open Graph image:** `public/og-image.png` is a simple generated image. Replace it with a branded one (1200 × 630).
 

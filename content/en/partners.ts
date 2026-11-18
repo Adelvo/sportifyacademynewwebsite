@@ -4,7 +4,7 @@ import type { Partner } from "../types";
 // A partner without "logo" shows its name as text.
 // [TODO: confirm with client: original logo files and written permission to use them]
 export const partners: Partner[] = [
-  { id: "dsc", name: "Dubai Sports Council" },
+  { id: "dsc", name: "Dubai Sports Council", logo: "/partners/dubai-sports-council.webp" },
   { id: "emirates", name: "Emirates Airline", logo: "/partners/emirates.webp" },
   { id: "flydubai", name: "flydubai", logo: "/partners/flydubai.webp" },
   { id: "dmcc", name: "DMCC", logo: "/partners/dmcc.webp" },
@@ -29,6 +29,4 @@ export const partners: Partner[] = [
   { id: "padel-mania", name: "Padel Mania", logo: "/partners/padel-mania.webp" },
   { id: "ism-sports", name: "ISM Sports", logo: "/partners/ism-sports.webp" },
   { id: "aviation-pro", name: "Aviation Professionals Club", logo: "/partners/aviation-pro.webp" },
-  // [TODO: confirm with client: the name of this partner (green arrow logo)]
-  { id: "unnamed-partner", name: "Partner", logo: "/partners/unnamed-partner.webp" },
 ];

@@ -22,7 +22,7 @@ export function PathCards() {
                 <Photo
                   image={images.paths[item.image]}
                   sizes="(min-width: 1200px) 270px, (min-width: 768px) 23vw, 46vw"
-                  className={`absolute inset-x-0 top-0 h-4/5 w-full transition-transform duration-300 group-hover:scale-105 motion-reduce:transition-none ${item.image === "athlete" ? "object-top" : ""}`}
+                  className={`absolute inset-x-0 top-0 h-4/5 w-full transition-transform duration-300 group-hover:scale-105 motion-reduce:transition-none ${item.image === "athlete" ? "object-top" : item.image === "coaches" ? "object-[45%_50%]" : ""}`}
                 />
                 <span aria-hidden="true" className="absolute inset-x-0 top-[40%] h-[41%] bg-linear-to-b from-[#0a1f33]/0 to-[#0a1f33]" />
                 <span className="relative flex items-end justify-between gap-[4cqw] p-[7cqw] font-[family-name:var(--font-hero)] leading-[1.08] font-bold">
