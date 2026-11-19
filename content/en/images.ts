@@ -32,7 +32,7 @@ export const images = {
     kids: { src: "/paths/kids-agility-run.webp", width: 1448, height: 1086, alt: "A boy mid-stride during an agility drill at the Sportify Academy studio" },
     athlete: { src: "/organisations/workshop-coaches.webp", width: 1000, height: 750, alt: "A coach talking tactics with a huddled youth football team on the pitch" },
     adult: { src: "/paths/adult.webp", width: 1122, height: 1402, alt: "" },
-    coaches: { src: "/paths/coaches-dubai-sports-council.webp", width: 1622, height: 742, alt: "A Sportify Academy speaker presenting to coaches and officials at the Dubai Sports Council, with the Sportify Academy logo on the screen" },
+    coaches: { src: "/paths/coaches-dubai-sports-council-2.webp", width: 1854, height: 848, alt: "A speaker at a podium presenting to coaches and officials at the Dubai Sports Council" },
   },
   // Photos and video posters for the Kids page, taken in the Sportify Academy studio.
   kids: {
