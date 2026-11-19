@@ -11,20 +11,20 @@ const img = (name: string, width: number, height: number, alt: string): ImageAss
 });
 
 export const images = {
-  // Homepage hero: a Sportify Academy coach in a black shirt standing between a teenage boy holding a
-  // football and a girl holding a volleyball, in the blue Sportify Academy studio.
+  // Homepage hero: a Sportify Academy coach in a navy shirt standing between a teenage boy holding a
+  // football and a girl holding a volleyball, in the blue Sportify Academy studio; kids train in the background.
   heroBanner: {
-    src: "/hero/team-banner-7.webp",
-    width: 1946,
-    height: 808,
+    src: "/hero/team-banner-8.webp",
+    width: 2880,
+    height: 1200,
     alt: "A Sportify Academy coach standing between a teenage boy holding a football and a girl holding a volleyball in the blue Sportify Academy studio",
   },
   // The same hero photo, pre-blurred. Fades in over the sharp photo as the visitor scrolls from
   // the title to "Our Offers", so the cards sit on a calm, out-of-focus studio.
   heroBannerBlur: {
-    src: "/hero/team-banner-7-blur.webp",
+    src: "/hero/team-banner-8-blur.webp",
     width: 1920,
-    height: 797,
+    height: 800,
     alt: "",
   },
   // Photos on the four landing page cards.
