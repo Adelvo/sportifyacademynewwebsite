@@ -29,8 +29,13 @@ export const organisationsPage = {
     description: "Workshops & conferences and coach development for coaches in Dubai.",
     path: "/for-organisations",
   },
-  /** Upcoming event shown below the coach cards. Remove or replace it once the conference is over. */
+  /** Upcoming event on its own page (/early-years-pe-conference), linked from the "Workshops & Conferences" card. */
   conference: {
+    meta: {
+      title: "Early Years PE Conference 2027 | Sportify Academy Dubai",
+      description: "Early Years PE Conference on 30 & 31 January 2027 in Dubai, hosted by Sportify Academy with Motor Skill Learning Academy Switzerland. In person & online.",
+      path: "/early-years-pe-conference",
+    },
     eyebrow: "Upcoming conference · Third year in Dubai",
     title: "Early Years PE Conference",
     subtitle: "Stronger foundations. Brighter futures.",

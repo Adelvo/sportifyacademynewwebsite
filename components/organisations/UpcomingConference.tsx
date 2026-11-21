@@ -5,7 +5,7 @@ import { Container } from "@/components/ui/Section";
 import { images, organisationsPage } from "@/content";
 import { whatsappUrl } from "@/lib/links";
 
-/** Featured upcoming event on the "For Coaches" page: poster, details, prices and a WhatsApp registration button. */
+/** The Early Years PE Conference page, reached only from the "Workshops & Conferences" card on the "For Coaches" page: poster, details, prices and a WhatsApp registration button. */
 export function UpcomingConference() {
   const c = organisationsPage.conference;
   return (
@@ -26,9 +26,9 @@ export function UpcomingConference() {
 
           <Reveal delay={90} className="flex flex-col">
             <p className="w-fit rounded-full bg-electric-gradient px-4 py-1.5 text-sm font-semibold text-midnight">{c.eyebrow}</p>
-            <h2 id="early-years-pe-conference-title" className="mt-5 font-[family-name:var(--font-hero)]! text-4xl font-bold tracking-tight sm:text-5xl">
+            <h1 id="early-years-pe-conference-title" className="mt-5 font-[family-name:var(--font-hero)]! text-4xl font-bold tracking-tight sm:text-5xl">
               {c.title}
-            </h2>
+            </h1>
             <p className="mt-3 text-xl font-semibold text-electric">{c.subtitle}</p>
             <p className="mt-4 text-lg text-on-midnight-soft">{c.text}</p>
 
