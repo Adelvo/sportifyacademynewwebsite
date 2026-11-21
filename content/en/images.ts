@@ -14,7 +14,7 @@ export const images = {
   // Homepage hero: a Sportify Academy coach in a navy shirt standing between a teenage boy holding a
   // football and a girl holding a volleyball, in the blue Sportify Academy studio; kids train in the background.
   heroBanner: {
-    src: "/hero/team-banner-8.webp",
+    src: "/hero/team-banner-9.webp",
     width: 2880,
     height: 1200,
     alt: "A Sportify Academy coach standing between a teenage boy holding a football and a girl holding a volleyball in the blue Sportify Academy studio",
@@ -22,7 +22,7 @@ export const images = {
   // The same hero photo, pre-blurred. Fades in over the sharp photo as the visitor scrolls from
   // the title to "Our Offers", so the cards sit on a calm, out-of-focus studio.
   heroBannerBlur: {
-    src: "/hero/team-banner-8-blur.webp",
+    src: "/hero/team-banner-9-blur.webp",
     width: 1920,
     height: 800,
     alt: "",
