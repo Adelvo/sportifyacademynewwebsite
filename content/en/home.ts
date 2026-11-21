@@ -24,6 +24,8 @@ type ProgrammeCard<Image extends string> = {
   group?: string;
   checklist: string[];
   whatsappMessage: string;
+  /** Replaces the WhatsApp button with a link on this site, such as an anchor further down the page. */
+  link?: { href: string; label: string };
 };
 
 export interface Programmes<Image extends string> {
@@ -305,6 +307,7 @@ export const home = {
         tag: "Hands-on Learning & Industry Events",
         checklist: ["Practical coaching sessions with expert speakers", "Latest training methods & research", "Networking with coaches", "Certificate of attendance"],
         whatsappMessage: "Hey! I am interested in your coaching workshops and conferences. Could I please get some more information?",
+        link: { href: "#early-years-pe-conference", label: "View Early Years PE Conference" },
       },
       {
         id: "cpd",
